@@ -1,15 +1,16 @@
 * {
     margin: 0;
     padding: 0;
+    border: 0;
+    font-size: 100%;
 }
 
-.headerWeb {
-    max-width: max-content;
+.navBar .container {
     min-height: 20px;
-    border: solid 1px red;
+    width: 100%;
+    /* border: solid 1px red; */
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
     align-items: center;
 }
 
@@ -19,28 +20,124 @@
 }
 
 .logo>img {
-    width: 30px;
+    width: 84px;
 }
 
 .search_box {
     border: solid 1px gray;
     border-radius: 20px;
-    width: 190px;
-    /* display: inline; */
+    width: 307px;
     position: relative;
+    margin-right: 100px;
 }
 
 .search_box>input {
     border: none;
     outline: none;
-    margin-left: 7px;
-    margin-bottom: 2px;
-    font-size: 12px;
+    font-size: 17px;
+    margin: 9px;
+}
+
+.subBtn {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    height: 100%;
+    font-size: 17px;
+    height: 88px;
+    margin-right: 10px;
+    width: max-content;
+}
+
+.itemCategory .subBtn {
+    width: 124px;
+}
+
+.subBtn:hover {
+    background-color: darkgreen;
+    color: white;
+    cursor: pointer;
 }
 
 .search_box>img {
-    width: 10px;
+    width: 24px;
     float: right;
-    padding: 5px;
+    margin-right: 21px;
     position: absolute;
+    padding: 7px;
+    opacity: 47%;
+}
+
+.user {
+    justify-content: flex-end;
+}
+
+.user>button {
+    background-color: white;
+    border: solid 1px green;
+    border-radius: 20px;
+    font-size: 17px;
+    padding: 5px 20px;
+}
+
+.user>button:hover {
+    background-color: darkgreen;
+    color: white;
+    cursor: pointer;
+}
+
+.user {
+    display: flex;
+    justify-content: flex-end;
+    width: inherit;
+    margin-right: 10px;
+}
+
+.banner {
+    /* border: solid 2px blue; */
+    position: relative;
+    margin: auto;
+    height: 300px;
+    width: 90%;
+    object-fit: fill;
+}
+
+.sideBanner {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 30%;
+    float: right;
+}
+
+.img1 {
+    position: absolute;
+    width: 70%;
+    height: 100%;
+}
+
+img.img2 {
+    margin-bottom: 6px;
+}
+
+.img2,
+.img3 {
+    height: 49%;
+    width: -webkit-fill-available;
+    margin-left: 4px;
+    object-fit: cover;
+}
+
+.product {
+    margin-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 100px;
+    border: solid 1px black;
+}
+
+img.productImg {
+    width: 40px;
+    height: 40px;
 }
