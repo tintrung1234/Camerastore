@@ -176,6 +176,7 @@ img.img2 {
     flex-direction: column;
     align-items: center;
     float: left;
+    margin-bottom: 18px;
 }
 
 .contentProduct {
@@ -190,7 +191,8 @@ img.img2 {
 }
 
 .addCart>img {
-    width: 30px;
+    width: 26px;
+    margin-right: 8px;
 }
 
 label.productName {
