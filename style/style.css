@@ -148,6 +148,25 @@
     margin-right: 10px;
 }
 
+#totalCart {
+    display: flex;
+    margin-left: 30px;
+}
+
+#totalCart>p {
+    font-size: 31px;
+    background-color: coral;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+}
+
+#totalCart>img {
+    width: 36px;
+    float: left;
+}
+
 .banner {
     /* border: solid 2px blue; */
     position: relative;
