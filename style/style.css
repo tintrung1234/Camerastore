@@ -88,21 +88,56 @@
     position: relative;
     margin-right: 100px;
 }
-
-.search_box>input {
-    border: none;
-    outline: none;
-    font-size: 17px;
-    margin: 9px;
+.row{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+.row>input {
+    flex: 1;
+    height: 25px;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    font-size: 18px;
+    color: #333;
 }
 
-.search_box>img {
-    width: 24px;
-    float: right;
-    margin-right: 21px;
-    position: absolute;
-    padding: 7px;
-    opacity: 47%;
+.row>button{
+    background: transparent;
+    border: 0;
+    outline: 0;
+}
+
+.row>button .fa-solid{
+    width: 25px;
+    color: #555;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+::placeholder{
+    color: #555;
+}
+
+.result-box ul{
+    border-top: 1px solid #999;
+    padding: 15px 10px;
+}
+
+.result-box ul li{
+    list-style: none;
+    border-radius: 3px;
+    padding: 15px 10px;
+}
+
+.result-box ul li:hover{
+    background: #e9f3ff;
+}
+
+.result-box {
+    max-height: 300px;
+    overflow-y: scroll;
 }
 
 .subBtn {
