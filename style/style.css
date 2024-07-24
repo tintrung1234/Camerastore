@@ -57,6 +57,30 @@
     z-index: 1;
 }
 
+.dropdown-content .sub-dropdown {
+    display: none;
+    position: absolute;
+    left: 200px;
+    /* Adjust this value if needed */
+    top: 0;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a:hover+.sub-dropdown,
+.sub-dropdown:hover {
+    display: block;
+}
+
+.sub-dropdown a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: black;
+}
+
 .search_box {
     border: solid 1px gray;
     border-radius: 20px;
