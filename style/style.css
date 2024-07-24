@@ -193,7 +193,7 @@ img.img2 {
     margin-bottom: 10px;
 }
 
-.product {
+#product {
     width: calc(100% / 4);
     border-radius: 16px;
     display: flex;
