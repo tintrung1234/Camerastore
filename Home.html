@@ -7,7 +7,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="./style/style.css">
     <script src="https://kit.fontawesome.com/9d0256e75e.js" crossorigin="anonymous"></script>
-    <script src="js/autocomplete.js" type="text/javascript"></script>
     
 </head>
 
@@ -53,7 +52,7 @@
             </div>
             <div class="search_box">
                 <div class="row">
-                    <input type="text" id="input-box" autocomplete="off" placeholder="Tim kiem">
+                    <input type="text" id="input-box" autocomplete="off" placeholder="Tìm kiếm">
                     <button>
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
@@ -66,8 +65,11 @@
                 <button>Login</button>
                 <button>Register</button>
             </div>
+            <div id="totalCart">
+                <p id="count">0</p>
+                <img src="./img/carticon.png" alt="">
+            </div>
         </div>
-
     </div>
 
     <!-- banner -->
@@ -81,142 +83,7 @@
 
     <!-- Content -->
     <div class="content">
-        <div id="product">
-            <!-- <img class="productImg" src="img/devImg.jpg" alt="">
-            <label class="productName" for=""></label>
-            <p class="productPrice">VND 20,000,000</p>
-            <button class="addCart">
-                <img src="img/carticon.png" alt="cartIcon">
-                <p class="muahang">Mua hang</p>
-            </button> -->
-        </div>
-        <!-- <div class="product">
-            <img class="productImg" src="img/devImg.jpg" alt="">
-            <label class="productName" for=""></label>
-            <p class="productPrice">VND 20,000,000</p>
-            <button class="addCart">
-                <img src="img/carticon.png" alt="cartIcon">
-                <p class="muahang">Mua hang</p>
-            </button>
-        </div>
-        <div class="product">
-            <img class="productImg" src="img/devImg.jpg" alt="">
-            <label class="productName" for=""></label>
-            <p class="productPrice">VND 20,000,000</p>
-            <button class="addCart">
-                <img src="img/carticon.png" alt="cartIcon">
-                <p class="muahang">Mua hang</p>
-            </button>
-        </div>
-        <div class="product">
-            <img class="productImg" src="img/devImg.jpg" alt="">
-            <label class="productName" for=""></label>
-            <p class="productPrice">VND 20,000,000</p>
-            <button class="addCart">
-                <img src="img/carticon.png" alt="cartIcon">
-                <p class="muahang">Mua hang</p>
-            </button>
-        </div>
-        <div class="product">
-            <img class="productImg" src="img/devImg.jpg" alt="">
-            <label class="productName" for=""></label>
-            <p class="productPrice">VND 20,000,000</p>
-            <button class="addCart">
-                <img src="img/carticon.png" alt="cartIcon">
-                <p class="muahang">Mua hang</p>
-            </button>
-        </div>
-        <div class="product">
-            <img class="productImg" src="img/devImg.jpg" alt="">
-            <label class="productName" for=""></label>
-            <p class="productPrice">VND 20,000,000</p>
-            <button class="addCart">
-                <img src="img/carticon.png" alt="cartIcon">
-                <p class="muahang">Mua hang</p>
-            </button>
-        </div>
-        <div class="product">
-            <img class="productImg" src="img/devImg.jpg" alt="">
-            <label class="productName" for=""></label>
-            <p class="productPrice">VND 20,000,000</p>
-            <button class="addCart">
-                <img src="img/carticon.png" alt="cartIcon">
-                <p class="muahang">Mua hang</p>
-            </button>
-        </div>
-        <div class="product">
-            <img class="productImg" src="img/devImg.jpg" alt="">
-            <label class="productName" for=""></label>
-            <p class="productPrice">VND 20,000,000</p>
-            <button class="addCart">
-                <img src="img/carticon.png" alt="cartIcon">
-                <p class="muahang">Mua hang</p>
-            </button>
-        </div>
-        <div class="product">
-            <img class="productImg" src="img/devImg.jpg" alt="">
-            <label class="productName" for=""></label>
-            <p class="productPrice">VND 20,000,000</p>
-            <button class="addCart">
-                <img src="img/carticon.png" alt="cartIcon">
-                <p class="muahang">Mua hang</p>
-            </button>
-        </div>
-        <div class="product">
-            <img class="productImg" src="img/devImg.jpg" alt="">
-            <label class="productName" for=""></label>
-            <p class="productPrice">VND 20,000,000</p>
-            <button class="addCart">
-                <img src="img/carticon.png" alt="cartIcon">
-                <p class="muahang">Mua hang</p>
-            </button>
-        </div>
-        <div class="product">
-            <img class="productImg" src="img/devImg.jpg" alt="">
-            <label class="productName" for=""></label>
-            <p class="productPrice">VND 20,000,000</p>
-            <button class="addCart">
-                <img src="img/carticon.png" alt="cartIcon">
-                <p class="muahang">Mua hang</p>
-            </button>
-        </div>
-        <div class="product">
-            <img class="productImg" src="img/devImg.jpg" alt="">
-            <label class="productName" for=""></label>
-            <p class="productPrice">VND 20,000,000</p>
-            <button class="addCart">
-                <img src="img/carticon.png" alt="cartIcon">
-                <p class="muahang">Mua hang</p>
-            </button>
-        </div>
-        <div class="product">
-            <img class="productImg" src="img/devImg.jpg" alt="">
-            <label class="productName" for=""></label>
-            <p class="productPrice">VND 20,000,000</p>
-            <button class="addCart">
-                <img src="img/carticon.png" alt="cartIcon">
-                <p class="muahang">Mua hang</p>
-            </button>
-        </div>
-        <div class="product">
-            <img class="productImg" src="img/devImg.jpg" alt="">
-            <label class="productName" for=""></label>
-            <p class="productPrice">VND 20,000,000</p>
-            <button class="addCart">
-                <img src="img/carticon.png" alt="cartIcon">
-                <p class="muahang">Mua hang</p>
-            </button>
-        </div>
-        <div class="product">
-            <img class="productImg" src="img/devImg.jpg" alt="">
-            <label class="productName" for=""></label>
-            <p class="productPrice">VND 20,000,000</p>
-            <button class="addCart">
-                <img src="img/carticon.png" alt="cartIcon">
-                <p class="muahang">Mua hang</p>
-            </button>
-        </div> -->
-
+        <div id="product"></div>
     </div>
 
 
@@ -259,6 +126,8 @@
         </div>
     </div>
     <script src="./js/product_cart.js"></script>
+    <script src="js/autocomplete.js" type="text/javascript"></script>
+
 </body>
 
 </html>
