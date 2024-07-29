@@ -22,7 +22,7 @@ document.getElementById("product").innerHTML = categories
             <p class="productPrice">VND ${price}</p>` +
             `<button class='addCart' onclick='addtocart(` + i++ + `)'>
             <img src = "img/carticon.png" alt='cartIcon'> 
-            <p class='muahang'> Mua hang</p>
+            <p class='muahang'> Mua hàng</p>
             </button >`
         );
     }).join("");
