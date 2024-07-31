@@ -98,7 +98,6 @@ a:hover {
 }
 
 
-
 .search_box {
     border: solid 1px gray;
     border-radius: 20px;
@@ -183,6 +182,7 @@ a:hover {
 
 .row>button>img {
     width: 25px;
+    cursor: pointer;
 }
 
 ::placeholder {
