@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/banner.css">
 
 </head>
 
@@ -148,6 +149,28 @@
                     </div>
                 </div>
             </div>
+            <div class="dropdown">
+                <button class="subBtn">Khuyến mãi</button>
+                <div class="dropdown-content">
+                    <a href="#">Mục con 1</a>
+                    <div class="sub-dropdown">
+                        <a href="#">Danh mục nhỏ 1</a>
+                        <a href="#">Danh mục nhỏ 2</a>
+                        <a href="#">Danh mục nhỏ 3</a>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="subBtn">Liên hệ</button>
+                <div class="dropdown-content">
+                    <a href="#">Mục con 1</a>
+                    <div class="sub-dropdown">
+                        <a href="#">Danh mục nhỏ 1</a>
+                        <a href="#">Danh mục nhỏ 2</a>
+                        <a href="#">Danh mục nhỏ 3</a>
+                    </div>
+                </div>
+            </div>
             <div class="search_box">
                 <div class="row">
                     <input type="text" id="input-box" name="input-box" autocomplete="off" placeholder="Tìm kiếm">
@@ -159,10 +182,10 @@
                 <div class="result-box">
                 </div>
             </div>
-            <div class="user">
+            <!-- <div class="user">
                 <button>Đăng nhập</button>
                 <button>Đăng ký</button>
-            </div>
+            </div> -->
             <div id="totalCart">
                 <p id="count">0</p>
                 <a href="CartDetail.html">
@@ -173,13 +196,21 @@
     </div>
 
     <!-- banner -->
-    <div class="banner">
-        <img src="img/banner1.jpg" alt="" class="img1">
-        <div class="sideBanner">
-            <img src="img/banner2.jpg" alt="" class="img2">
-            <img src="img/banner3.jpg" alt="" class="img3">
+    <section id="slider">
+        <div class="aspect-ratio-169">
+            <img src="img/banner1.jpg" alt="">
+            <img src="img/banner2.jpg" alt="">
+            <img src="img/banner3.jpg" alt="">
+            <img src="img/banner3.jpg" alt="">
         </div>
-    </div>
+
+        <div class="dot-container">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </section>
 
     <!-- Content -->
     <div class="content">
@@ -226,6 +257,7 @@
     </div>
     <script src="./js/product_cart.js"></script>
     <script src="js/autocomplete.js" type="text/javascript"></script>
+    <script src="js/banner.js"></script>
 
 </body>
 

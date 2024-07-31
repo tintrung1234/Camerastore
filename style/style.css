@@ -24,7 +24,7 @@ a:hover {
 }
 
 .logo>a>img {
-    width: 84px;
+    width: 130px;
 }
 
 .dropdown {
@@ -95,7 +95,7 @@ a:hover {
     text-decoration: none;
     display: block;
     color: black;
-    height: 34px;
+    height: 33.5px;
 }
 
 
@@ -251,42 +251,6 @@ a:hover {
     width: 36px;
     float: left;
     margin-right: 15px;
-}
-
-.banner {
-    /* border: solid 2px blue; */
-    position: relative;
-    margin: auto;
-    height: 300px;
-    width: 90%;
-    object-fit: fill;
-}
-
-.sideBanner {
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
-    width: 30%;
-    float: right;
-}
-
-.img1 {
-    position: absolute;
-    width: 70%;
-    height: 100%;
-}
-
-img.img2 {
-    margin-bottom: 6px;
-}
-
-.img2,
-.img3 {
-    height: 49%;
-    width: -webkit-fill-available;
-    margin-left: 4px;
-    object-fit: cover;
 }
 
 .content {
