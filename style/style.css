@@ -12,18 +12,20 @@ a:hover {
 .navBar .container {
     min-height: 20px;
     width: 100%;
-    /* border: solid 1px red; */
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 100%;
+    justify-content: space-between;
 }
+
 .navBar {
     position: fixed;
     z-index: 3;
     background-color: white;
     width: 100%;
-    height: 15%;
+    max-height: fit-content;
+    min-height: 10%;
 }
 
 .logo {
@@ -40,8 +42,11 @@ a:hover {
 }
 
 .dropdown {
+    height: 100%;
     position: relative;
     display: inline-block;
+    min-width: 10px;
+    max-width: 20%;
 }
 
 .dropdown-content a {
@@ -110,12 +115,18 @@ a:hover {
     height: 33.5px;
 }
 
+.blockNav2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end
+}
 
 .search_box {
     border: solid 1px gray;
     border-radius: 20px;
-    width: 307px;
+    max-width: 59%;
     position: relative;
+    min-width: 10%;
 }
 
 .result-box ul li::after {
@@ -172,12 +183,14 @@ a:hover {
 
 .row>input {
     flex: 1;
-    height: 25px;
+    height: 20px;
     background: transparent;
     border: 0;
     outline: 0;
     font-size: 18px;
     color: #333;
+    max-width: 89%;
+    min-width: 10%;
 }
 
 .row>button {
@@ -206,9 +219,8 @@ a:hover {
     background-color: white;
     color: black;
     padding: 10px;
-    height: 100%;
     font-size: 17px;
-    height: 88px;
+    min-height: 74px;
     margin-right: 10px;
     width: max-content;
 }

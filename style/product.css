@@ -31,6 +31,7 @@
 
 .product-content-left-small-img img {
     width: 100%;
+    cursor: pointer;
 }
 
 .product-content-right {
@@ -175,14 +176,16 @@
     position: absolute;
     width: 30px;
     height: 30px;
-    border: 2px solid #dddddd;
+    border: 1px solid #dddddd;
     display: flex;
     justify-content: center;
+    background-color: #fff;
     align-items: center;
     top: -15px;
     left: 50%;
     border-radius: 50%;
     transform: translateX(-50%);
+    cursor: pointer;
 }
 
 .product-content-right-bottom-content-title {
@@ -202,4 +205,8 @@
 .product-content-right-bottom-content p {
     font-family: var(--main-text-font);
     font-size: 20px;
+}
+
+.activeB {
+    display: none;
 }
