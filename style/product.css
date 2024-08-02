@@ -21,7 +21,7 @@
     padding-right: 20px;
 }
 
-.product-content-left-big-img img{
+.product-content-left-big-img img {
     width: 100%;
 }
 
@@ -38,17 +38,17 @@
     padding-left: 20px;
 }
 
-.product-content-right-product-name h1{
+.product-content-right-product-name h1 {
     font-family: var(--main-text-font);
     font-size: 16px;
 }
 
-.product-content-right-product-name p{
+.product-content-right-product-name p {
     color: #cccccc;
     font-size: 16px;
 }
 
-.product-content-right-product-price{
+.product-content-right-product-price {
     color: #cccccc;
     font-size: 20px;
     font-weight: bold;
@@ -56,13 +56,13 @@
     margin: 12px 0;
 }
 
-.product-content-right-product-color img{
+.product-content-right-product-color img {
     width: 30px;
     height: 30px;
     border-radius: 50%;
 }
 
-.product-content-right-product-color-img{
+.product-content-right-product-color-img {
     width: 40px;
     height: 40px;
     margin: 12px 0;
@@ -71,15 +71,6 @@
     align-items: center;
     justify-content: center;
 }
-
-/* .size span {
-    display: inline-block;
-    padding: 3px 6px;
-    border: 1px solid #dddddd;
-    margin: 12px 10px 12px 0;
-    font-size: 12px;
-    cursor: pointer;
-} */
 
 .quantity {
     display: flex;
@@ -111,7 +102,7 @@
 
 .product-content-right-product-button button:first-child:hover {
     background-color: #BF8A49;
-    color: red;
+    color: white;
     font-weight: bold;
 }
 
@@ -124,11 +115,11 @@
 
 .product-content-right-product-button button:last-child:hover {
     background-color: brown;
-    color: red;
+    color: white;
     font-weight: bold;
 }
 
-.product-content-right-product-button img{
+.product-content-right-product-button img {
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -145,12 +136,12 @@
     align-items: center;
 }
 
-.product-content-right-product-icon-item i{
+.product-content-right-product-icon-item i {
     font-size: 12px;
     margin-right: 6px;
 }
 
-.product-content-right-product-icon-item img{
+.product-content-right-product-icon-item img {
     width: 30px;
     height: 30px;
     border-radius: 50%;
