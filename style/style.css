@@ -184,16 +184,16 @@ a:hover {
 .row {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 6px 9px;
 }
 
 .row>input {
     flex: 1;
-    height: 20px;
+    height: 14px;
     background: transparent;
     border: 0;
     outline: 0;
-    font-size: 18px;
+    font-size: 13px;
     color: #333;
     max-width: 89%;
     min-width: 10%;
@@ -213,7 +213,7 @@ a:hover {
 }
 
 .row>button>img {
-    width: 25px;
+    width: 17px;
     cursor: pointer;
 }
 
@@ -225,7 +225,7 @@ a:hover {
     background-color: white;
     color: black;
     padding: 10px;
-    font-size: 17px;
+    font-size: 12px;
     min-height: 74px;
     margin-right: 10px;
     width: max-content;
