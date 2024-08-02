@@ -104,12 +104,12 @@
 
 .product-content-right-product-button button:first-child:hover {
   background-color: #bf8a49;
-  color: red;
+  color: white;
   font-weight: bold;
 }
 
 .product-content-right-product-button button:last-child {
-  color: #bf8a49;
+  /* color: #bf8a49; */
   background-color: #ffff;
   border: 2px solid #bf8a49;
   cursor: pointer;
@@ -118,7 +118,7 @@
 
 .product-content-right-product-button button:last-child:hover {
   background-color: brown;
-  color: red;
+  color: white;
   font-weight: bold;
 }
 
@@ -198,6 +198,10 @@
 .product-content-right-bottom-content p {
   font-family: var(--main-text-font);
   font-size: 20px;
+}
+
+.product-content-right-bottom-content-info {
+  display: none;
 }
 
 .activeB {
