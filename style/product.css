@@ -73,15 +73,6 @@
   justify-content: center;
 }
 
-/* .size span {
-    display: inline-block;
-    padding: 3px 6px;
-    border: 1px solid #dddddd;
-    margin: 12px 10px 12px 0;
-    font-size: 12px;
-    cursor: pointer;
-} */
-
 .quantity {
   display: flex;
   margin-bottom: 20px;
@@ -112,8 +103,8 @@
 }
 
 .product-content-right-product-button button:first-child:hover {
-  background-color: darkorange;
-  color: white;
+  background-color: #bf8a49;
+  color: red;
   font-weight: bold;
 }
 
@@ -127,7 +118,7 @@
 
 .product-content-right-product-button button:last-child:hover {
   background-color: brown;
-  color: white;
+  color: red;
   font-weight: bold;
 }
 

@@ -17,7 +17,8 @@ document.getElementById("product").innerHTML = categories
     .map((item) => {
         var { image, title, price } = item;
         return (
-            `<img class="productImg" src=${image} alt="">
+            `<a href="product.html" class="productLink">
+            <img class="productImg" src=${image} alt=""></a>
             <label class="productName" for="">${title}</label>
             <p class="productPrice">VND ${price}</p>` +
             `<button class='addCart' onclick='addtocart(` + i++ + `)'>

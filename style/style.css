@@ -175,6 +175,12 @@ a:hover {
     overflow-y: scroll;
 }
 
+.rowFlexTop {
+    display: flex;
+    padding: 10px 20px;
+    /* align-items: flex-start; */
+}
+
 .row {
     display: flex;
     align-items: center;
@@ -285,6 +291,7 @@ a:hover {
     display: flex;
     margin-bottom: 10px;
 }
+
 
 #product {
     width: calc(100% / 4);
