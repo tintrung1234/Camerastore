@@ -9,7 +9,7 @@ a:hover {
     cursor: pointer;
 }
 
-.navBar .container {
+#navBar .container {
     min-height: 20px;
     width: 100%;
     display: flex;
@@ -19,7 +19,7 @@ a:hover {
     justify-content: space-between;
 }
 
-.navBar {
+#navBar {
     position: fixed;
     z-index: 3;
     background-color: white;
@@ -406,6 +406,11 @@ button.addCart {
     border-radius: 16px;
     margin-top: 20px;
     padding-bottom: 10px;
+}
+
+.cartPage {
+    display: block;
+    padding-top: 7%;
 }
 
 h2.titleCartPage {
