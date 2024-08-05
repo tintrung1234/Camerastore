@@ -103,9 +103,10 @@
 }
 
 .product-content-right-product-button button:first-child:hover {
-  background-color: #bf8a49;
+  background-color: darkorange;
   color: white;
   font-weight: bold;
+  border-color: darkorange;
 }
 
 .product-content-right-product-button button:last-child {
@@ -117,7 +118,7 @@
 }
 
 .product-content-right-product-button button:last-child:hover {
-  background-color: brown;
+  background-color: darkorange;
   color: white;
   font-weight: bold;
 }

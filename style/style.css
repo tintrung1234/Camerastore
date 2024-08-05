@@ -41,9 +41,10 @@ a:hover {
 
 .logo>a>img {
     width: 100px;
-    height: 70px;
+    /* height: 70px; */
     position: relative;
     margin-left: 30px;
+    justify-items: center;
     /* margin-right: -10px; */
 }
 
@@ -72,7 +73,8 @@ a:hover {
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 .dropdown-content {
@@ -99,7 +101,7 @@ a:hover {
 
 .dropdown-content a:hover+.sub-dropdown,
 .sub-dropdown:hover {
-    display: flex;
+    display: flex;  
 }
 
 .dropdown-content a:hover {
@@ -116,10 +118,40 @@ a:hover {
 .sub-dropdown li a {
     padding: 12px 16px;
     text-decoration: none;
-    display: block;
+    display: flex;
+    flex-direction: column;
     color: black;
-    height: 33.5px;
+    height: 34.2px;
 }
+
+.subBtn {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    min-height: 74px;
+    margin-right: 10px;
+    width: max-content;
+}
+
+.subBtn:hover {
+    background-color: darkgreen;
+    color: white;
+    cursor: pointer;
+}
+
+.subBtn a{
+    text-decoration: none;
+    color: black;
+}
+
+/* .subBtn>a:hover{
+    background-color: darkgreen;
+    color: white;
+    cursor: pointer;
+} */
+
+
 
 .blockNav2 {
     display: flex;
@@ -127,6 +159,7 @@ a:hover {
     justify-content: flex-end
 }
 
+/* ------------ search ------------*/
 .search_box {
     border: solid 1px gray;
     border-radius: 20px;
@@ -227,22 +260,7 @@ a:hover {
     color: #555;
 }
 
-.subBtn {
-    background-color: white;
-    color: black;
-    padding: 10px;
-    font-size: 12px;
-    min-height: 74px;
-    margin-right: 10px;
-    width: max-content;
-}
-
-.subBtn:hover {
-    background-color: darkgreen;
-    color: white;
-    cursor: pointer;
-}
-
+/* login */
 .user {
     justify-content: flex-end;
 }
@@ -268,6 +286,7 @@ a:hover {
     margin-right: 10px;
 }
 
+/* cart */
 #totalCart {
     display: flex;
     margin-left: 30px;
@@ -353,7 +372,6 @@ button.addCart {
 .muaHang:hover {
     cursor: pointer;
 }
-
 
 .content {
     width: 95%;
