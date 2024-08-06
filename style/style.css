@@ -1172,14 +1172,14 @@ button.addCart {
 
 .delivery-content-left p {
   font-family: var(--main-text-font);
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .delivery-content-left label {
-  font-family: var(--main-text-font);
-  font-size: 12px;
-  margin-bottom: 6px;
   display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .delivery-content-left>p {
@@ -1189,10 +1189,6 @@ button.addCart {
 .delivery-content-left-login {
   margin-top: 12px;
 }
-
-/* .delivery-content-left-login img{
-  width: 50%;
-} */
 
 .delivery-content-left-customer {
   margin-top: 12px 0;
@@ -1233,25 +1229,53 @@ button.addCart {
 }
 
 .delivery-content-left-button {
+  display: flex;
   justify-content: space-between;
-  padding-top: 12px;
+  align-items: center;
+  margin: 20px 0;
 }
 
-.delivery-content-left-button p {
-  font-family: var(--main-text-font);
-  font-size: 12px;
-  display: inline-block;
+.delivery-content-left-button a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.delivery-content-left-button span {
-  margin-right: 12px;
+.delivery-content-left-button a:first-child {
+  display: flex;
+  align-items: center;
+  color: #555;
 }
 
+.delivery-content-left-button a:first-child:hover {
+  color: red;
+}
+
+.delivery-content-left-button a:first-child span {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.delivery-content-left-button a:first-child p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.delivery-content-left-button a:first-child p:hover {
+  text-decoration: underline;
+}
+
+.delivery-content-left-button a:last-child p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.delivery-content-left-button {
+  margin-top: 2px;
+}
 
 .delivery-content-left-button button {
-  height: 35px;
   border: 2px solid darkorange;
-  padding: 6px 12px;
+  padding: 10px 20px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -1271,12 +1295,14 @@ button.addCart {
 .delivery-content-right table {
   width: 100%;
   font-family: var(--main-text-font);
-  font-size: 12px;
+  font-size: 15px;
   text-align: center;
+  border-collapse: collapse;
 }
 
 .delivery-content-right table tr th:first-child {
   text-align: left;
+  font-weight: bold;
 }
 
 .delivery-content-right table tr th:last-child {
