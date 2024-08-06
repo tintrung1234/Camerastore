@@ -121,7 +121,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   color: black;
-  height: 34px;
+  height: 33.5px;
 }
 
 .subBtn {
@@ -145,11 +145,11 @@ a:hover {
   color: black;
 }
 
-/* .subBtn>a:hover{
+.subBtn:hover a{
     background-color: darkgreen;
     color: white;
     cursor: pointer;
-} */
+}
 
 .blockNav2 {
   display: flex;
@@ -218,13 +218,13 @@ a:hover {
   /* align-items: flex-start; */
 }
 
-.row {
+.row-search-box {
   display: flex;
   align-items: center;
   padding: 6px 9px;
 }
 
-.row > input {
+.row-search-box > input {
   flex: 1;
   height: 14px;
   background: transparent;
@@ -236,20 +236,20 @@ a:hover {
   min-width: 10%;
 }
 
-.row > button {
+.row-search-box > button {
   background: transparent;
   border: 0;
   outline: 0;
 }
 
-.row > button .fa-solid {
+.row-search-box > button .fa-solid {
   width: 25px;
   cursor: pointer;
   font-size: 22px;
   color: #555;
 }
 
-.row > button > img {
+.row-search-box > button > img {
   width: 17px;
   cursor: pointer;
 }
@@ -303,6 +303,154 @@ a:hover {
   width: 36px;
   float: left;
   margin-right: 15px;
+}
+
+/* -------cartegory--------- */
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px 20px;
+}
+
+.filter-section {
+  display: none;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-top: 10px;
+  flex-direction: column;
+
+}
+
+.filter-section div {
+  margin-bottom: 10px;
+}
+
+.cartegory-top {
+  margin-bottom: 50px;
+}
+
+.cartegory-top p {
+  margin: 0 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  opacity: 0.6;
+}
+
+.cartegory-left {
+  width: 30%;
+}
+
+.cartegory-left ul li {
+  padding: 10px 0;
+  list-style-type: none;
+}
+
+.cartegory-left ul li>a {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+
+}
+
+.cartegory-left ul li ul li {
+  padding-left: 10px;
+}
+
+.cartegory-left ul li ul li a {
+  color: #333333;
+  font-size: 16px;
+}
+
+.cartegory-left-li ul {
+  display: none;
+}
+
+.cartegory-left-li.block ul {
+  display: block;
+}
+
+.top-item {
+  display: flex;
+}
+
+.cartegory-right {
+  width: 70%;
+  flex-direction: column;
+}
+
+.cartegory-right-top-item:first-child {
+  flex: 2;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.cartegory-right-top-item {
+  flex: 2;
+  padding: 0 12px;
+  width: 250px;
+}
+
+.cartegory-right-top-item button {
+  width: 100%;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffff;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.cartegory-right-top-item select {
+  width: 100%;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffff;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+content {
+  margin-top: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+  flex-wrap: wrap;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.cartegory-right-content {
+  margin: 20px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+
+.cartegory-right-content-item {
+  width: calc(100%/4);
+  text-align: center;
+  padding: 12px 0;
+  position: relative;
+  flex-direction: column;
+
+}
+
+.cartegory-right-content-item h1 {
+  font-size: 12px;
+  margin-top: 6px;
+  color: #333333;
+}
+
+.cartegory-right-content-item img {
+  width: 150px;
+}
+
+.cartegory-right-bottom {
+  text-align: right;
+  margin: 3px;
+  width: 100%;
 }
 
 /* ------------------------------------Product css--------------------------------- */

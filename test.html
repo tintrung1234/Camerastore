@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .cartegory-left {
+            float: left;
+            width: 20%;
+            /* Other styles as needed */
+        }
+
+        .cartegory-right {
+            float: right;
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cartegory-right-top-item {
+            margin-bottom: 10px;
+            /* Adjust spacing as needed */
+        }
+
+        .cartegory-right-bottom-content {
+            display: flex;
+            flex-wrap: wrap;
+            /* Allows wrapping of items if there are too many */
+            gap: 10px;
+            /* Adjust spacing between items as needed */
+        }
+
+        .cartegory-right-content-item {
+            flex: 1 1 calc(33.333% - 20px);
+            /* Adjust item width as needed */
+            box-sizing: border-box;
+            text-align: center;
+            margin-bottom: 20px;
+            /* Adjust spacing as needed */
+        }
+
+        .cartegory-right-content-item img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="cartegory-left">
+            <ul>
+                <li><a class="cartegory-left-li" href="Sản phẩm"></a>
+                    <ul>
+                        <li><a href="">Canon</a></li>
+                        <li><a href="">Nikom</a></li>
+                        <li><a href="">Fujifilm</a></li>
+                        <li><a href="">Sony</a></li>
+                        <li><a href="">Panasonic</a></li>
+                    </ul>
+                </li>
+                <li><a class="cartegory-left-li" href="Phụ kiện"></a>
+                    <ul>
+                        <li><a href="">Ống Kính</a></li>
+                        <li><a href="">Bộ Lọc (Filter)</a></li>
+                        <li><a href="">Phụ Kiện Ánh Sáng</a></li>
+                        <li><a href="">Bộ Giá Đỡ và Chân Máy</a></li>
+                        <li><a href="">Lưu Trữ</a></li>
+                        <li><a href="">Khác</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="cartegory-right row">
+            <div class="cartegory-right-top-item">
+                <p>Nikon</p>
+            </div>
+            <div class="cartegory-right-top-item">
+                <button><span>Bộ Lọc</span><i>&#11206</i></button>
+            </div>
+            <div class="cartegory-right-top-item">
+                <select name="" id="">
+                    <option value="">Sắp xếp</option>
+                    <option value="">Giá cao đến thấp</option>
+                    <option value="">Giá thấp đến cao</option>
+                </select>
+            </div>
+            <div class="cartegory-right-bottom-content row">
+                <div class="cartegory-right-content-item">
+                    <img src="/img/canon-item/Nikon Z30.png" alt="Nikon-Z30" width="100px" height="100px">
+                    <h1>Nikon Z30</h1>
+                    <p>1.000.000<sup>đ</sup></p>
+                </div>
+                <div class="cartegory-right-content-item">
+                    <img src="/img/canon-item/Nikon-Z 50.png" alt="Nikon-Z30" width="100px" height="100px">
+                    <h1>Nikon Z50</h1>
+                    <p>1.000.000<sup>đ</sup></p>
+                </div>
+                <div class="cartegory-right-content-item">
+                    <img src="/img/canon-item/Nikon Z30.png" alt="Nikon-Z30" width="100px" height="100px">
+                    <h1>Nikon Z30</h1>
+                    <p>1.000.000<sup>đ</sup></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
