@@ -5,31 +5,55 @@
     font-size: 100%;
 }
 
+body {
+    background-color: rgb(243, 244, 246);
+}
+
+/* -------------------------------------Navbar css------------------------------------------ */
 a:hover {
     cursor: pointer;
 }
 
-.navBar .container {
+#navBar .container {
     min-height: 20px;
     width: 100%;
-    /* border: solid 1px red; */
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: 100%;
+    justify-content: space-between;
+}
+
+#navBar {
+    position: fixed;
+    z-index: 3;
+    background-color: white;
+    width: 100%;
+    max-height: fit-content;
+    min-height: 10%;
+    box-shadow: 0 4px 8px 1px rgba(0, 0, 0, .08);
 }
 
 .logo {
     float: left;
-    margin-right: 50px;
+    margin-right: 22px;
 }
 
 .logo>a>img {
-    width: 84px;
+    width: 100px;
+    /* height: 70px; */
+    position: relative;
+    margin-left: 30px;
+    justify-items: center;
+    /* margin-right: -10px; */
 }
 
 .dropdown {
+    height: 100%;
     position: relative;
     display: inline-block;
+    min-width: 10px;
+    max-width: 20%;
 }
 
 .dropdown-content a {
@@ -49,7 +73,8 @@ a:hover {
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 .dropdown-content {
@@ -93,23 +118,60 @@ a:hover {
 .sub-dropdown li a {
     padding: 12px 16px;
     text-decoration: none;
-    display: block;
+    display: flex;
+    flex-direction: column;
     color: black;
-    min-height: 33.5px;
+    height: 34.2px;
 }
 
+.subBtn {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    min-height: 74px;
+    margin-right: 10px;
+    width: max-content;
+}
+
+.subBtn:hover {
+    background-color: darkgreen;
+    color: white;
+    cursor: pointer;
+}
+
+.subBtn a {
+    text-decoration: none;
+    color: black;
+}
+
+/* .subBtn>a:hover{
+    background-color: darkgreen;
+    color: white;
+    cursor: pointer;
+} */
+
+
+
+.blockNav2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end
+}
+
+/* ------------ search ------------*/
 .search_box {
     border: solid 1px gray;
     border-radius: 20px;
-    width: 307px;
+    max-width: 59%;
     position: relative;
+    min-width: 10%;
 }
 
 .result-box ul li::after {
     content: '';
     position: absolute;
     top: -10px;
-    /* Mũi tên hướng xuống */
     left: 15%;
     transform: translateX(-50%);
     width: 0;
@@ -151,20 +213,28 @@ a:hover {
     overflow-y: scroll;
 }
 
-.row-search_box {
+.rowFlexTop {
+    display: flex;
+    padding: 10px 20px;
+    /* align-items: flex-start; */
+}
+
+.row {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 6px 9px;
 }
 
 .row-search_box>input {
     flex: 1;
-    height: 25px;
+    height: 14px;
     background: transparent;
     border: 0;
     outline: 0;
-    font-size: 18px;
+    font-size: 13px;
     color: #333;
+    max-width: 89%;
+    min-width: 10%;
 }
 
 .row-search_box>button {
@@ -180,32 +250,16 @@ a:hover {
     color: #555;
 }
 
-.row-search_box>button>img {
-    width: 25px;
+.row>button>img {
+    width: 17px;
+    cursor: pointer;
 }
 
 ::placeholder {
     color: #555;
 }
 
-.subBtn {
-    background-color: white;
-    color: black;
-    padding: 10px;
-    height: 100%;
-    font-size: 17px;
-    height: 88px;
-    margin-right: 10px;
-    width: max-content;
-}
-
-.subBtn:hover {
-    background-color: darkgreen;
-    color: white;
-    cursor: pointer;
-}
-
-
+/* login */
 .user {
     justify-content: flex-end;
 }
@@ -231,6 +285,7 @@ a:hover {
     margin-right: 10px;
 }
 
+/* cart */
 #totalCart {
     display: flex;
     margin-left: 30px;
