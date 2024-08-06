@@ -308,7 +308,7 @@ a:hover {
 
 /* -------cartegory--------- */
 
-.row {
+.carte {
     display: flex;
     align-items: flex-start;
     padding: 10px 20px;
@@ -519,6 +519,7 @@ button.addCart {
     cursor: pointer;
 }
 
+/* footer */
 .footer {
     background-color: #D2B48C;
     color: #333;
