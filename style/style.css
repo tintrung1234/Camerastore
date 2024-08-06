@@ -689,11 +689,13 @@ button.exitBtn {
 
 .imgAndInfo {
     display: flex;
+    font-size: 21px;
 }
 
 img.imgInLittleBox {
     width: 86px;
     padding: 18px;
+    width: 103px;
 }
 
 .productInfo {
@@ -728,6 +730,7 @@ button.delToCart {
 .eventGift {
     padding-top: 30px;
     padding-left: 22px;
+    font-size: 17px;
 }
 
 img.giftIcon {
@@ -740,6 +743,9 @@ p.eventDes {
     margin-left: 29px;
 }
 
+strong {
+    color: red;
+}
 
 .lastInfo {
     display: flex;
@@ -752,15 +758,25 @@ p.eventDes {
 h2.priceTemp {
     margin-top: 27px;
     margin-left: 21px;
+    font-size: 17px;
 }
 
-button.buyBtn {
+.buyBtn {
     margin: 16px;
     padding: 10px;
     background-color: orange;
-    color: white;
     border: solid 1px #b79461;
     cursor: pointer;
+    font-size: 17px;
+}
+
+.buyBtn:hover {
+    background-color: #fa7020;
+}
+
+.buyBtn a {
+    text-decoration: none;
+    color: white;
 }
 
 /* ----------------------------------- Product Detail --------------------------------------- */
