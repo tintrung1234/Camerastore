@@ -100,7 +100,6 @@ function addtocart(a) //a: any item
     const existingItem = cart.find(item => item.id === selectedProduct.id);
 
     if (existingItem) {
-
         // If the product already exists in the cart, increment its quantity
         existingItem.quantity = (existingItem.quantity || 1) + 1;
     }

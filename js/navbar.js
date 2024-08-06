@@ -2,13 +2,13 @@ document.getElementById("navBar").innerHTML = `
 <div class="container">
       <div class="blockNav1">
         <div class="logo">
-          <a href="Home.html">
+          <a href="home.html">
             <img src="./img/ProCam.png" alt="" />
           </a>
         </div>
 
         <div class="dropdown">
-        <a href="Home.html">
+        <a href="home.html">
           <button class="subBtn">
             Trang chủ
           </button>
