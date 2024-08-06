@@ -86,53 +86,57 @@ const categories = [...new Set(product.map((item) => { return item; }))];
 let i = 1;
 var cartIcon = './img/carticon.png';
 
-document.getElementById("product-group").innerHTML = categories
+document.getElementById("product-group").innerHTML = product
     .map((item) => {
         var { id, image, title, price } = item;
         return (
             `<div id="product" class""><a href="product.html" class="productLink">
-            <img class="productImg" src=${image} alt=""></a>
-            <label class="productName" for="">${title}</label>
-            <p class="productPrice">VND ${price}</p>` +
+        <img class="productImg" src=${image} alt=""></a>
+        <label class="productName" for="">${title}</label>
+        <p class="productPrice">VND ${price}</p>` +
             `<button class='addCart' onclick='displayBuyBox(${id})'>
-            <img src = "img/carticon.png" alt='cartIcon'> 
-            <p class='muahang' > Mua hàng</p>
-            </button > </div>`
-            +
-            `<div class="notiBox-${id}" id="notiBox" style="display: none;">
-            <div class="backgroundNoti"></div>
-            <div class="littleBox">
-            <button class="exitBtn" id="exitBtn" onclick="this.parentElement.parentElement.style.display='none'">X</button>
-            <div class="firstInfo">
-                <div class="imgAndInfo">
-                <img src="${image}" alt="" class="imgInLittleBox">
-                <div class="productInfo">
-                    <h2>${title}</h2>
-                    <p>VND ${price}</p>
-                </div>
-                </div>
-                <div class="amountproduct">
-                <button class="addToCart" onclick='addtocart(${id})')'>+</button>
-                <p id='displayCount-${id}'>0</p>
-                <button class="delToCart" onclick='delElement(${id})'>-</button>
-                </div>
-            </div>
-            <div class="eventGift">
-                <h2><img class="giftIcon" src="img/giftbox.png" alt="">Chương trình khuyến mãi</h2>
-                <p class="eventDes">Tặng thẻ nhớ 64GB</p>
-            </div>
-            <div class="lastInfo">
-                <div class="countBox">
-                <h2 class="priceTemp">Tạm tính: <strong class='displayPrice'>0</strong></h2>
-                </div>
-                <button class="buyBtn"><a href="cart_detail.html"> Xác nhận mua</a></button>
-            </div>
-
-            </div>
-        </div>`
+        <img src = "img/carticon.png" alt='cartIcon'> 
+        <p class='muahang' > Mua hàng</p>
+        </button > </div>`
         );
     }).join("");
-// addtocart(` + i++ + `)
+
+document.getElementById("buyBox").innerHTML = categories
+    .map((item) => {
+        var { id, image, title, price } = item;
+        return (
+            `<div class="notiBox-${id}" id="notiBox" style="display: none;">
+                <div class="backgroundNoti"></div>
+                <div class="littleBox">
+                <button class="exitBtn" id="exitBtn" onclick="this.parentElement.parentElement.style.display='none'">X</button>
+                <div class="firstInfo">
+                    <div class="imgAndInfo">
+                    <img src="${image}" alt="" class="imgInLittleBox">
+                    <div class="productInfo">
+                        <h2>${title}</h2>
+                        <p>VND ${price}</p>
+                    </div>
+                    </div>
+                    <div class="amountproduct">
+                    <button class="addToCart" onclick='addtocart(${id})')'>+</button>
+                    <p id='displayCount-${id}'>0</p>
+                    <button class="delToCart" onclick='delElement(${id})'>-</button>
+                    </div>
+                </div>
+                <div class="eventGift">
+                    <h2><img class="giftIcon" src="img/giftbox.png" alt="">Chương trình khuyến mãi</h2>
+                    <p class="eventDes">Tặng thẻ nhớ 64GB</p>
+                </div>
+                <div class="lastInfo">
+                    <div class="countBox">
+                    <h2 class="priceTemp">Tạm tính: <strong class='displayPrice'>0</strong></h2>
+                    </div>
+                    <button class="buyBtn"><a href="cart_detail.html"> Xác nhận mua</a></button>
+                </div>
+            </div>
+            </div>`
+        );
+    }).join("");
 //Cart
 var cart = [];
 
