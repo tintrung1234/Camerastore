@@ -5,8 +5,39 @@
     font-size: 100%;
 }
 
+@media(min-width: 800px) {
+    .hideOnNavbar {
+        display: none;
+    }
+}
+
+@media(max-width: 800px) {
+    .hideOnMobile {
+        display: none;
+    }
+
+    .showOnMobile {
+        display: block;
+    }
+
+    .widthOnMobile {
+        width: inherit;
+    }
+
+    .aligncenter {
+        margin-top: 16px;
+    }
+}
+
+@media(max-width: 400px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+
 body {
     background-color: rgb(243, 244, 246);
+    font-family: RobotoRegular, sans-serif;
 }
 
 /* ------------------------------------ Navbar css ----------------------------------------- */
@@ -22,6 +53,10 @@ a:hover {
     align-items: center;
     height: 100%;
     justify-content: space-between;
+}
+
+.blockNav1 {
+    margin-right: auto;
 }
 
 #navBar {
@@ -132,6 +167,7 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-left: 67px;
 }
 
 .subBtn {
@@ -140,9 +176,83 @@ a:hover {
     padding: 10px;
     font-size: 16px;
     min-height: 74px;
-    margin-right: 10px;
     width: max-content;
     cursor: pointer;
+}
+
+.menuBtn {
+    position: absolute;
+    margin-left: 38px;
+    z-index: -2;
+}
+
+.menuImg {
+    background-color: white;
+    margin-bottom: -4px;
+    width: 33px;
+    padding-left: 20px;
+}
+
+/* -------------------------------------------Side bar---------------------------------------- */
+
+.sideBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: white;
+    backdrop-filter: blur(12px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: 0.3s;
+}
+
+.sideBar>.logo {
+    width: 100%;
+    text-align: center;
+}
+
+.sideBar>.logo>a>img {
+    width: 100px;
+    position: relative;
+    margin-left: 9px;
+    justify-items: center;
+    margin-top: 9px;
+    width: 100px;
+    position: relative;
+    margin-left: 9px;
+    justify-items: center;
+    margin-top: 9px;
+}
+
+.sideBar>.blockNav1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.sideBar>.blockNav1>.dropdown {
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    min-width: 250px;
+    max-width: 100%;
+}
+
+.sideBar>.blockNav1>.dropdown>.subBtn,
+.sideBar>.blockNav1>.dropdown>a>.subBtn {
+    width: 100%;
+}
+
+button.closeBtn.showOnMobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 20px;
 }
 
 /* -------------------------------------------- Search ----------------------------------------*/
@@ -298,7 +408,7 @@ a:hover {
 .aspect-ratio-169 {
     display: block;
     position: relative;
-    padding-top: 45%;
+    padding-top: 41%;
     transition: 0.3s;
     margin-top: 4.9%;
 }
@@ -313,8 +423,8 @@ a:hover {
 }
 
 #slider {
-    padding-bottom: 30px;
-    border-bottom: 2px solid #000;
+    padding-bottom: 50px;
+    border-bottom: 2px solid #ebebeb;
     overflow: hidden;
 }
 
@@ -340,6 +450,87 @@ a:hover {
     margin-right: 12px;
     cursor: pointer;
 }
+
+/* ------------------------------------- Introduce ----------------------------------------- */
+
+.smallIntroduce {
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    border-bottom: 2px solid #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.Introduce-container {
+    width: 948px;
+    max-width: 100%;
+    display: flex;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.item {
+    padding: 0 7px;
+    border-right: solid 1px #ddd;
+    display: flex;
+    font-size: 13px;
+    align-items: center;
+}
+
+.item img {
+    width: 40px;
+    height: 40px;
+    padding-right: 13px;
+}
+
+/* ---------------------------------- Little banner -------------------------------------- */
+
+.block-img1 {
+    width: 68%;
+    max-height: 100%;
+}
+
+.block-img2 {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    width: 31%;
+    justify-content: space-between;
+
+}
+
+.block-img1>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.block-img2>img {
+    width: 100%;
+    object-fit: cover;
+    height: 49%;
+}
+
+.block-img2>.img1-block2 {
+    padding-bottom: 5px;
+}
+
+.little-banner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container-img {
+    width: 70%;
+    display: flex;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 60vh;
+}
+
 
 /* ------------------------------------- Category ----------------------------------------- */
 
@@ -494,7 +685,7 @@ content {
 h2.titleCanon {
     font-family: "Gill Sans", sans-serif;
     margin-top: 2%;
-    margin-left: 2.5%;
+    margin-left: 10%;
     font-size: 25px;
 }
 
@@ -506,7 +697,7 @@ h2.titleCanon {
 }
 
 #product {
-    width: 25%;
+    width: 22%;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
@@ -530,8 +721,9 @@ label.productName {
 }
 
 p.productPrice {
-    font-size: 18px;
-    margin-top: 17px;
+    font-size: 14px;
+    margin-top: 16px;
+    color: gray;
 }
 
 button.addCart {
@@ -563,7 +755,7 @@ button.addCart {
 }
 
 .content {
-    width: 95%;
+    width: 80%;
     height: 200px;
     position: relative;
     margin: auto;
@@ -746,7 +938,8 @@ p.eventDes {
 }
 
 strong {
-    color: red;
+    font-size: 18px;
+    color: #d63636;
 }
 
 .lastInfo {

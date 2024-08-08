@@ -93,7 +93,7 @@ document.getElementById("product-group").innerHTML = product
             `<div id="product" class""><a href="product.html" class="productLink">
         <img class="productImg" src=${image} alt=""></a>
         <label class="productName" for="">${title}</label>
-        <p class="productPrice">VND ${price}</p>` +
+        <p class="productPrice">Giá từ <strong> ${price} </strong></p>` +
             `<button class='addCart' onclick='displayBuyBox(${id})'>
         <img src = "img/carticon.png" alt='cartIcon'> 
         <p class='muahang' > Mua hàng</p>

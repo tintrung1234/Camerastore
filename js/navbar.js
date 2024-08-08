@@ -1,12 +1,11 @@
 document.getElementById("navBar").innerHTML = `
-<div class="container">
-      <div class="blockNav1">
+<div class="container aligncenter">
+      <div class="blockNav1 hideOnMobile">
         <div class="logo">
           <a href="Home.html">
             <img src="./img/ProCam.png" alt="" />
           </a>
         </div>
-
         <div class="dropdown">
         <a href="Home.html">
           <button class="subBtn">
@@ -242,24 +241,73 @@ document.getElementById("navBar").innerHTML = `
             </div>
           </div>
         </div>
-      </div>
-      <div class="blockNav2">
-        <div class="search_box">
+        </div>
+        <button onclick=showSidebar() class="showOnMobile hideOnNavbar "><img class='menuImg' src='./img/menu.png'></button>
+      <div class="blockNav2 hideOnMobile widthOnMobile">
+        <div class="search_box hideOn">
           <div class="row-search-box">
             <input type="text" id="input-box" name="input-box" autocomplete="off" placeholder="Tìm kiếm" />
             <button>
               <img src="img/SearchIcon.png" />
             </button>
           </div>
-
           <div class="result-box"></div>
         </div>
-        <div id="totalCart">
-          <p id="count">0</p>
+        <div id="totalCart" class='hideOnMobile'>
+          <p class='hideOnMobile' id="count">0</p>
           <a href="cart_detail.html">
-            <img src="./img/carticon.png" alt="" />
+            <img class='hideOnMobile' src="./img/carticon.png" alt="" />
           </a>
         </div>
       </div>
     </div>
+
+
+
+
+    <div class="sideBar hideOnNavbar">
+      <div class="logo">
+        <a href="Home.html">
+          <img src="./img/ProCam.png" alt="" />
+        </a>
+        <button onclick=hideSidebar() class="closeBtn showOnMobile"><img class='menuImg' src='./img/close.png'></button>
+      </div>
+      <div class="blockNav1 hideOnMobile">
+
+        <div class="dropdown">
+        <a href="Home.html">
+          <button class="subBtn">
+            Trang chủ
+          </button>
+        </a>
+        </div>
+        <div class="dropdown">
+          <a href="category.html">
+            <button class="subBtn">Sản phẩm</button>
+          </a>
+        </div>
+        <div class="dropdown">
+          <button class="subBtn">Phụ kiện</button>
+        </div>
+        <div class="dropdown">
+          <button class="subBtn">Sửa chữa</button>
+        </div>
+        <div class="dropdown">
+          <button class="subBtn">Khuyến mãi</button>
+        </div>
+        <div class="dropdown">
+          <button class="subBtn">Liên hệ</button>
+        </div>
+        <div class="dropdown">
+          <button class="subBtn">Bảo hành</button>
+        </div>
+      </div>
 `;
+function showSidebar() {
+  const sidebar = document.querySelector('.sideBar')
+  sidebar.style.display = 'flex'
+}
+function hideSidebar() {
+  const sidebar = document.querySelector('.sideBar')
+  sidebar.style.display = 'none'
+}
