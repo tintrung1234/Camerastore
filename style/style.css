@@ -471,6 +471,9 @@ a:hover {
   margin: 20px;
   justify-content: space-between;
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .cartegory-right-content-item {
@@ -478,8 +481,7 @@ a:hover {
   text-align: center;
   padding: 12px 0;
   position: relative;
-  flex-direction: column;
-
+  flex: 1 1 calc(25% - 20px);
 }
 
 .cartegory-right-content-item h1 {
