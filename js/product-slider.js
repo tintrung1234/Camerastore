@@ -36,7 +36,8 @@ function productScroll() {
 function translateX(position) {
     // Translate items
     const slide = document.getElementById("product-group");
-    slide.style.transform = `translateX(${-position * 600}px)`; // Use transform for smoother animations
+
+    slide.style.transform = `translateX(${-position * 570}px)`; // Use transform for smoother animations
 }
 
 function getCount(parent, getChildrensChildren) {
