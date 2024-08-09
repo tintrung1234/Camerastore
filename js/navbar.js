@@ -225,14 +225,6 @@ document.getElementById("navBar").innerHTML = `
         </div>
         <div class="dropdown">
           <button class="subBtn">Bảo hành</button>
-          <div class="dropdown-content">
-            <a href="#">Mục con 1</a>
-            <div class="sub-dropdown">
-              <a href="#">Danh mục nhỏ 1</a>
-              <a href="#">Danh mục nhỏ 2</a>
-              <a href="#">Danh mục nhỏ 3</a>
-            </div>
-          </div>
         </div>
       </div>
       <div class="blockNav2">
