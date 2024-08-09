@@ -2,12 +2,12 @@ document.getElementById("navBar").innerHTML = `
 <div class="container aligncenter">
       <div class="blockNav1 hideOnMobile">
         <div class="logo">
-          <a href="Home.html">
+          <a href="home.html">
             <img src="./img/ProCam.png" alt="" />
           </a>
         </div>
         <div class="dropdown">
-        <a href="Home.html">
+        <a href="home.html">
           <button class="subBtn">
             Trang chủ
           </button>
@@ -199,47 +199,15 @@ document.getElementById("navBar").innerHTML = `
         </div>
         <div class="dropdown">
           <button class="subBtn">Sửa chữa</button>
-          <div class="dropdown-content">
-            <a href="#">Mục con 1</a>
-            <div class="sub-dropdown">
-              <a href="#">Danh mục nhỏ 1</a>
-              <a href="#">Danh mục nhỏ 2</a>
-              <a href="#">Danh mục nhỏ 3</a>
-            </div>
-          </div>
         </div>
         <div class="dropdown">
           <button class="subBtn">Khuyến mãi</button>
-          <div class="dropdown-content">
-            <a href="#">Mục con 1</a>
-            <div class="sub-dropdown">
-              <a href="#">Danh mục nhỏ 1</a>
-              <a href="#">Danh mục nhỏ 2</a>
-              <a href="#">Danh mục nhỏ 3</a>
-            </div>
-          </div>
         </div>
         <div class="dropdown">
-          <button class="subBtn">Liên hệ</button>
-          <div class="dropdown-content">
-            <a href="#">Mục con 1</a>
-            <div class="sub-dropdown">
-              <a href="#">Danh mục nhỏ 1</a>
-              <a href="#">Danh mục nhỏ 2</a>
-              <a href="#">Danh mục nhỏ 3</a>
-            </div>
-          </div>
+          <a href="contact.html"><button class="subBtn">Liên hệ</button></a>
         </div>
         <div class="dropdown">
           <button class="subBtn">Bảo hành</button>
-          <div class="dropdown-content">
-            <a href="#">Mục con 1</a>
-            <div class="sub-dropdown">
-              <a href="#">Danh mục nhỏ 1</a>
-              <a href="#">Danh mục nhỏ 2</a>
-              <a href="#">Danh mục nhỏ 3</a>
-            </div>
-          </div>
         </div>
         </div>
         <button onclick=showSidebar() class="showOnMobile hideOnNavbar "><img class='menuImg' src='./img/menu.png'></button>
@@ -304,10 +272,10 @@ document.getElementById("navBar").innerHTML = `
       </div>
 `;
 function showSidebar() {
-  const sidebar = document.querySelector('.sideBar')
-  sidebar.style.display = 'flex'
+  const sidebar = document.querySelector(".sideBar");
+  sidebar.style.display = "flex";
 }
 function hideSidebar() {
-  const sidebar = document.querySelector('.sideBar')
-  sidebar.style.display = 'none'
+  const sidebar = document.querySelector(".sideBar");
+  sidebar.style.display = "none";
 }

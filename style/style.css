@@ -126,7 +126,6 @@ a:hover {
     display: none;
     position: absolute;
     left: 210px;
-    /* Adjust this value if needed */
     top: 0;
     background-color: #f9f9f9;
     min-width: 200px;
@@ -463,19 +462,24 @@ button.closeBtn.showOnMobile {
 }
 
 .Introduce-container {
-    width: 948px;
+    width: 1120px;
     max-width: 100%;
+    padding: 5px;
     display: flex;
     margin: 20px 0;
     flex-wrap: wrap;
 }
 
 .item {
-    padding: 0 7px;
+    padding: 0 30px;
     border-right: solid 1px #ddd;
     display: flex;
     font-size: 13px;
     align-items: center;
+}
+
+.item:last-child {
+    border-right: none;
 }
 
 .item img {
@@ -484,37 +488,49 @@ button.closeBtn.showOnMobile {
     padding-right: 13px;
 }
 
+.item:hover img {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 /* ---------------------------------- Little banner -------------------------------------- */
 
 .block-img1 {
     width: 68%;
     max-height: 100%;
+    overflow: hidden;
 }
 
 .block-img2 {
     display: flex;
     flex-direction: column;
-    max-height: 100%;
+    height: 100%;
     width: 31%;
     justify-content: space-between;
-
+    overflow: hidden;
 }
 
 .block-img1>img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: all 0.8s !important;
+
 }
 
-.block-img2>img {
+.block-img2>.bb1>img,
+.block-img2>.bb2>img {
     width: 100%;
     object-fit: cover;
-    height: 49%;
+    height: 100%;
+    transition: all 0.8s !important;
+    max-width: 100%;
+    max-height: 60vh;
 }
 
-.block-img2>.img1-block2 {
+/* .block-img2>.bb1>.img1-block2 {
     padding-bottom: 5px;
-}
+} */
 
 .little-banner {
     display: flex;
@@ -531,6 +547,25 @@ button.closeBtn.showOnMobile {
     height: 60vh;
 }
 
+.bb1,
+.bb2 {
+    height: 50%;
+    overflow: hidden;
+}
+
+.bb1 {
+    margin-bottom: 10px;
+}
+
+.container-img>.block-img1:hover img,
+.container-img>.block-img2>.bb1:hover img,
+.container-img>.block-img2>.bb2:hover img {
+    transform: scale(1.1);
+    max-width: 100%;
+    max-height: 60vh;
+    object-fit: cover;
+    transition: all 0.8s !important;
+}
 
 /* ------------------------------------- Category ----------------------------------------- */
 
@@ -1023,12 +1058,13 @@ h2.priceTemp {
 }
 
 .product-content-right-product-name p {
-    color: #cccccc;
+    color: black;
     font-size: 16px;
+    margin-top: 5px;
 }
 
 .product-content-right-product-price {
-    color: #cccccc;
+    color: rgb(226, 16, 16);
     font-size: 20px;
     font-weight: bold;
     font-family: var(--main-text-font);
@@ -1294,7 +1330,7 @@ h2.priceTemp {
 .cart-content-left table th {
     padding-bottom: 30px;
     font-family: var(--main-text-font);
-    font-size: 15px;
+    font-size: 18px;
     text-transform: uppercase;
     color: #333;
     border-collapse: collapse;
@@ -1303,13 +1339,14 @@ h2.priceTemp {
 
 .cart-content-left table p {
     font-family: var(--main-text-font);
-    font-size: 12px;
+    font-size: 14px;
     color: #333;
 }
 
 .cart-content-left table input {
     width: 40px;
     height: 20px;
+    font-size: 12px;
 }
 
 .cart-content-left table span {
@@ -1325,6 +1362,7 @@ h2.priceTemp {
 .cart-content-left table td {
     padding: 20px 0;
     border-bottom: 2px solid #dddddd;
+    font-size: 16px;
 }
 
 .cart-content-left table img {
@@ -1355,7 +1393,7 @@ h2.priceTemp {
 
 .cart-content-right table th {
     font-family: var(--main-text-font);
-    font-size: 12px;
+    font-size: 18px;
     color: #333;
     padding-bottom: 30px;
     border-collapse: collapse;
@@ -1364,7 +1402,7 @@ h2.priceTemp {
 
 .cart-content-left table td {
     font-family: var(--main-text-font);
-    font-size: 12px;
+    font-size: 16px;
     color: #333;
     padding: 6px;
 }
@@ -1384,7 +1422,7 @@ h2.priceTemp {
 
 .cart-content-right-text p {
     font-family: var(--main-text-font);
-    font-size: 12px;
+    font-size: 16px;
     color: #333;
 }
 
@@ -1394,27 +1432,29 @@ h2.priceTemp {
 }
 
 .cart-content-right-button button {
-    padding: 0 10px;
-    height: 35px;
+    padding: 0px 10px;
+    font-size: 16px;
     cursor: pointer;
+    height: 35px;
 }
 
 .cart-content-right-button button:first-child {
-    background-color: #fff;
-    border: 1px solid black;
+    transition: all 0.3s ease;
+    border: 2px;
     margin-left: 20px;
 }
 
 .cart-content-right-button button:first-child:hover {
     background-color: darkorange;
+    color: white;
 }
 
 .cart-content-right-button button:last-child {
-    /* background-color: #fff; */
     margin-left: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 2px solid darkorange;
+    border: 2px;
+    background-color: #b79461;
 }
 
 .cart-content-right-button button:last-child:hover {
@@ -1491,14 +1531,14 @@ h2.priceTemp {
 
 .delivery-content-left p {
     font-family: var(--main-text-font);
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .delivery-content-left label {
-    font-family: var(--main-text-font);
-    font-size: 12px;
-    margin-bottom: 6px;
     display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .delivery-content-left>p {
@@ -1508,10 +1548,6 @@ h2.priceTemp {
 .delivery-content-left-login {
     margin-top: 12px;
 }
-
-/* .delivery-content-left-login img{
-  width: 50%;
-} */
 
 .delivery-content-left-customer {
     margin-top: 12px 0;
@@ -1552,26 +1588,55 @@ h2.priceTemp {
 }
 
 .delivery-content-left-button {
+    display: flex;
     justify-content: space-between;
-    padding-top: 12px;
+    align-items: center;
+    margin: 20px 0;
 }
 
-.delivery-content-left-button p {
-    font-family: var(--main-text-font);
-    font-size: 12px;
-    display: inline-block;
+.delivery-content-left-button a {
+    text-decoration: none;
+    color: inherit;
 }
 
-.delivery-content-left-button span {
-    margin-right: 12px;
+.delivery-content-left-button a:first-child {
+    display: flex;
+    align-items: center;
+    color: #555;
 }
 
+.delivery-content-left-button a:first-child:hover {
+    color: red;
+}
+
+.delivery-content-left-button a:first-child span {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.delivery-content-left-button a:first-child p {
+    margin: 0;
+    font-size: 15px;
+}
+
+.delivery-content-left-button a:first-child p:hover {
+    text-decoration: underline;
+}
+
+.delivery-content-left-button a:last-child p {
+    margin: 0;
+    font-size: 15px;
+}
+
+.delivery-content-left-button {
+    margin-top: 2px;
+}
 
 .delivery-content-left-button button {
-    height: 35px;
-    border: 2px solid darkorange;
-    padding: 6px 12px;
+    border: 2px;
+    padding: 10px 20px;
     cursor: pointer;
+    background-color: #b79461;
     transition: all 0.3s ease;
 }
 
@@ -1590,12 +1655,14 @@ h2.priceTemp {
 .delivery-content-right table {
     width: 100%;
     font-family: var(--main-text-font);
-    font-size: 12px;
+    font-size: 15px;
     text-align: center;
+    border-collapse: collapse;
 }
 
 .delivery-content-right table tr th:first-child {
     text-align: left;
+    font-weight: bold;
 }
 
 .delivery-content-right table tr th:last-child {
@@ -1719,12 +1786,12 @@ label {
 }
 
 .payment-content-right-payment button {
-    padding: 0 20px;
-    height: 35px;
-    font-size: 12px;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 2px solid darkorange;
+    background-color: #b79461;
+    border: 2px;
 }
 
 .payment-content-right-payment button:hover {
