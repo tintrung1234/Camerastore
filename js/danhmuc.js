@@ -16,3 +16,7 @@ document.getElementById('filter-toggle').addEventListener('click', function () {
         filterSection.style.display = 'none';
     }
 });
+
+function updateBrand(brandName) {
+    document.getElementById("brand").innerText = brandName;
+}
