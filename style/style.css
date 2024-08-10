@@ -407,7 +407,7 @@ button.closeBtn.showOnMobile {
 .aspect-ratio-169 {
     display: block;
     position: relative;
-    padding-top: 41%;
+    padding-top: 45%;
     transition: 0.3s;
     margin-top: 4.9%;
 }
@@ -505,7 +505,7 @@ button.closeBtn.showOnMobile {
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 31%;
+    width: 31.5%;
     justify-content: space-between;
     overflow: hidden;
 }
@@ -539,7 +539,7 @@ button.closeBtn.showOnMobile {
 }
 
 .container-img {
-    width: 70%;
+    width: 90%;
     display: flex;
     margin: 20px 0;
     flex-wrap: wrap;
@@ -573,6 +573,7 @@ button.closeBtn.showOnMobile {
     display: flex;
     align-items: flex-start;
     padding: 10px 20px;
+
 }
 
 .filter-section {
@@ -1020,7 +1021,7 @@ h2.priceTemp {
 }
 
 .product-top p {
-    font-family: var(--main-text-font);
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0 12px;
     font-size: 12px;
 }
@@ -1053,7 +1054,7 @@ h2.priceTemp {
 }
 
 .product-content-right-product-name h1 {
-    font-family: var(--main-text-font);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
 
@@ -1067,7 +1068,7 @@ h2.priceTemp {
     color: rgb(226, 16, 16);
     font-size: 20px;
     font-weight: bold;
-    font-family: var(--main-text-font);
+    font-family: Arial, Helvetica, sans-serif;
     margin: 12px 0;
 }
 
@@ -1212,7 +1213,7 @@ h2.priceTemp {
 }
 
 .product-content-right-bottom-content p {
-    font-family: var(--main-text-font);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
 }
 
@@ -1234,7 +1235,7 @@ h2.priceTemp {
 }
 
 .product-related-title p {
-    font-family: var(--main-text-font);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
     font-weight: bold;
     color: #333333;
@@ -1252,7 +1253,7 @@ h2.priceTemp {
 }
 
 .product-related-item h1 {
-    font-family: var(--main-text-font);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 11px;
     color: #333333;
     margin-top: 6px;
@@ -1274,6 +1275,11 @@ h2.priceTemp {
 }
 
 /* --------------------------------- Cart Detail ------------------------------------------- */
+.container-cartdetail {
+    width: 90%;
+    margin: 0 auto;
+}
+
 .cart {
     padding: 100px 0;
 }
@@ -1282,6 +1288,7 @@ h2.priceTemp {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .cart-top {
@@ -1313,9 +1320,9 @@ h2.priceTemp {
     border: 1px solid #0DB7EA;
 }
 
-/* .cart-top-cart img{
-  color: #0DB7EA;
-} */
+.cart-content {
+    margin-top: 20px;
+}
 
 .cart-content-left {
     flex: 2;
@@ -1329,7 +1336,7 @@ h2.priceTemp {
 
 .cart-content-left table th {
     padding-bottom: 30px;
-    font-family: var(--main-text-font);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     text-transform: uppercase;
     color: #333;
@@ -1338,15 +1345,17 @@ h2.priceTemp {
 }
 
 .cart-content-left table p {
-    font-family: var(--main-text-font);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     color: #333;
 }
 
 .cart-content-left table input {
-    width: 40px;
-    height: 20px;
-    font-size: 12px;
+    width: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
 }
 
 .cart-content-left table span {
@@ -1357,6 +1366,7 @@ h2.priceTemp {
     align-items: center;
     border: 1px solid #dddddd;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .cart-content-left table td {
@@ -1392,7 +1402,7 @@ h2.priceTemp {
 }
 
 .cart-content-right table th {
-    font-family: var(--main-text-font);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     color: #333;
     padding-bottom: 30px;
@@ -1401,7 +1411,7 @@ h2.priceTemp {
 }
 
 .cart-content-left table td {
-    font-family: var(--main-text-font);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     color: #333;
     padding: 6px;
@@ -1421,7 +1431,7 @@ h2.priceTemp {
 }
 
 .cart-content-right-text p {
-    font-family: var(--main-text-font);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     color: #333;
 }
@@ -1463,7 +1473,7 @@ h2.priceTemp {
 }
 
 .cart-content-right-login {
-    font-family: var(--main-text-font);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
     color: #333;
     font-weight: bold;
@@ -1485,6 +1495,11 @@ h2.priceTemp {
 }
 
 /* --------------------------------------- Delivery ----------------------------------------- */
+.container-delivery {
+    width: 90%;
+    margin: 0 auto;
+}
+
 .delivery {
     padding: 100px 0;
 }
@@ -1493,6 +1508,7 @@ h2.priceTemp {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .delivery-top {
@@ -1518,10 +1534,21 @@ h2.priceTemp {
 
 .delivery-top-item img {
     width: 55%;
+    height: auto;
+
 }
 
 .delivery-top-address {
     border: 1px solid #0DB7EA;
+}
+
+.container-delivery {
+    margin-top: 20px;
+}
+
+.delivery-content {
+    display: flex;
+    gap: 20px;
 }
 
 .delivery-content-left {
@@ -1529,8 +1556,16 @@ h2.priceTemp {
     padding-right: 12px;
 }
 
+.delivery-content-left,
+.delivery-content-right {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .delivery-content-left p {
-    font-family: var(--main-text-font);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
 
@@ -1545,53 +1580,60 @@ h2.priceTemp {
     font-weight: bold;
 }
 
-.delivery-content-left-login {
-    margin-top: 12px;
-}
-
-.delivery-content-left-customer {
-    margin-top: 12px 0;
-}
-
 .delivery-content-left-customer input {
-    margin-right: 12px;
+    margin-right: 5px;
 }
 
+.delivery-content-left-login,
+.delivery-content-left-customer,
 .delivery-content-left-signup {
-    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.delivery-content-left-login img {
+    margin-right: 2px;
 }
 
 .delivery-content-left-signup input {
-    margin-right: 12px;
+    margin-right: 5px;
 }
 
 .delivery-content-left-input-top {
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
 }
 
 .delivery-content-left-input-top-item {
     width: calc(50% - 12px);
+    margin-bottom: 5px;
+    min-width: 45%;
 }
 
-.delivery-content-left-input-top-item input {
-    width: 100%;
-    height: 35px;
-    border: 1px solid #dddddd;
-    padding-left: 6px;
-}
-
+.delivery-content-left-input-top-item input,
 .delivery-content-left-input-bottom input {
     width: 100%;
-    height: 35px;
-    border: 1px solid #dddddd;
-    padding-left: 6px;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.delivery-content-left-input-bottom {
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .delivery-content-left-button {
+    padding-top: 20px;
+    margin-top: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 0;
 }
 
 .delivery-content-left-button a {
@@ -1615,6 +1657,7 @@ h2.priceTemp {
 }
 
 .delivery-content-left-button a:first-child p {
+    display: inline-block;
     margin: 0;
     font-size: 15px;
 }
@@ -1626,10 +1669,6 @@ h2.priceTemp {
 .delivery-content-left-button a:last-child p {
     margin: 0;
     font-size: 15px;
-}
-
-.delivery-content-left-button {
-    margin-top: 2px;
 }
 
 .delivery-content-left-button button {
@@ -1654,7 +1693,7 @@ h2.priceTemp {
 
 .delivery-content-right table {
     width: 100%;
-    font-family: var(--main-text-font);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     text-align: center;
     border-collapse: collapse;
@@ -1691,6 +1730,11 @@ h2.priceTemp {
 }
 
 /* -------------------------------------- Payment ------------------------------------------ */
+.container-payment {
+    width: 90%;
+    margin: 0 auto;
+}
+
 .payment {
     padding: 100px 0;
 }
@@ -1699,6 +1743,7 @@ h2.priceTemp {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .payment-top {
@@ -1730,57 +1775,82 @@ h2.priceTemp {
     border: 1px solid #0DB7EA;
 }
 
+.payment-content {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 .payment-content-left {
     width: 60%;
 }
 
-.payment-content-left p,
-label {
-    font-size: 12px;
-    font-family: var(--main-text-font);
+.payment-content-left p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.payment-content-left-method-delivery-item,
+.payment-content-left-method-payment-item {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.payment-content-left-method-payment-item-img img {
+    margin-left: 10px;
+    vertical-align: middle;
 }
 
 .payment-content-right {
     width: 40%;
     border-left: 2px solid #ddd;
     padding-left: 12px;
-}
-
-.payment-content-right button {
     display: flex;
-    padding: 12px 0;
-    border-bottom: 1px dashed #dddddd;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.payment-content-right-buttton input {
-    height: 30px;
-    width: 200px;
-    margin-right: 100px;
-    padding-left: 12px;
+.payment-content-right-button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
-.payment-content-right-buttton button {
-    height: 30px;
-    width: 100px;
-    background-color: black;
-    color: white;
+.payment-content-right-button input[type="text"] {
+    width: 75%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.payment-content-right-button button {
+    padding: 10px;
+    background-color: #008CBA;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
 }
 
-.payment-content-right-mnv {
-    margin-top: 20px;
+.payment-content-right-button button img {
+    vertical-align: middle;
 }
 
 .payment-content-right-mnv select {
-    height: 30px;
     width: 100%;
-    color: #75758A;
-    padding-left: 12px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
+
 .payment-content-right-payment {
-    margin-top: 50px;
+    margin-top: 30px;
     align-items: center;
     text-align: center;
 }
@@ -1797,6 +1867,22 @@ label {
 .payment-content-right-payment button:hover {
     background-color: darkorange;
     color: white;
+}
+
+/* Điều chỉnh trên thiết bị di động */
+@media screen and (max-width: 768px) {
+    .payment-content {
+        flex-direction: column;
+    }
+
+    .payment-content-left,
+    .payment-content-right {
+        width: 100%;
+    }
+
+    .payment-content-right {
+        margin-top: 20px;
+    }
 }
 
 /* ---------------------------------------- Footer css -------------------------------------- */
