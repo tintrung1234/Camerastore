@@ -1,7 +1,7 @@
 document.getElementById("sideBarAdmin").innerHTML = `
 <div class="logo">
-            <a href="Home.html">
-                <img src="./img/ProCam.png" alt="" />
+            <a href="../home.html">
+                <img src="../img/ProCam.png" alt="" />
             </a>
         </div>
         <div class="blockNav1">

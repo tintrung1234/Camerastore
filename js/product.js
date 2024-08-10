@@ -4,8 +4,16 @@ const bigImg = document.querySelector(".product-content-left-big-img img");
 const smallImg = document.querySelectorAll(
   ".product-content-left-small-img img"
 );
+const butTon = document.querySelector(".product-content-right-bottom-top");
+const bigContent = document.querySelector(
+  ".product-content-right-bottom-content-big"
+);
 
-smallImg.forEach(function (imgItem, X) {
+if (bigContent) {
+  bigContent.style.display = "none";
+}
+
+smallImg.forEach(function (imgItem) {
   imgItem.addEventListener("click", function () {
     bigImg.src = imgItem.src;
   });
@@ -33,12 +41,14 @@ if (info) {
   });
 }
 
-const butTon = document.querySelector(".product-content-right-bottom-top");
-
 if (butTon) {
   butTon.addEventListener("click", function () {
-    document
-      .querySelector(".product-content-right-bottom-content-big")
-      .classList.toggle("activeB");
+    bigContent.classList.toggle("activeB");
+
+    if (bigContent.classList.contains("activeB")) {
+      bigContent.style.display = "block";
+    } else {
+      bigContent.style.display = "none";
+    }
   });
 }

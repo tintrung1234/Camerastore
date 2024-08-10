@@ -198,7 +198,7 @@ document.getElementById("navBar").innerHTML = `
           </div>
         </div>
         <div class="dropdown">
-          <button class="subBtn">Sửa chữa</button>
+          <a href="repair.html"><button class="subBtn">Sửa chữa</button></a>
         </div>
         <div class="dropdown">
           <button class="subBtn">Khuyến mãi</button>
