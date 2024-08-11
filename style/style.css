@@ -1198,9 +1198,9 @@ h2.priceTemp {
     cursor: pointer;
 }
 
-.product-content-right-bottom-content-title {
-    border-bottom: 2px solid #dddddd;
-}
+/* .product-content-right-bottom-content-title {
+        border-bottom: 2px solid #dddddd;
+    } */
 
 .product-content-right-bottom-content-title-item {
     padding: 6px;
@@ -1278,6 +1278,83 @@ h2.priceTemp {
     font-weight: normal;
 }
 
+.product-content-right-bottom-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+}
+
+.product-content-right-bottom-content-describe {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.product-content-right-bottom-content-describe p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-content-right-bottom-content-info {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+}
+
+.product-content-right-bottom-content-info p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.product-content-right-bottom-content-info {
+    font-size: 16px;
+    color: #555;
+}
+
+.product-content-right-bottom-content-info br {
+    margin-bottom: 8px;
+}
+
+.product-content-right-bottom-content-img {
+    flex: 1 1 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.product-content-right-bottom-content-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+@media (min-width: 768px) {
+
+    .product-content-right-bottom-content-describe,
+    .product-content-right-bottom-content-info {
+        flex: 1 1 48%;
+        margin-bottom: 0;
+    }
+
+    .product-content-right-bottom-content-img {
+        flex: 1 1 100%;
+        margin-top: 20px;
+    }
+}
+
 /* --------------------------------- Cart Detail ------------------------------------------- */
 .container-cartdetail {
     width: 90%;
@@ -1305,6 +1382,17 @@ h2.priceTemp {
     margin: 50px 0 100px;
 }
 
+.cart-top-item span {
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+    position: absolute;
+    top: -35%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    white-space: nowrap;
+}
+
 .cart-top-item {
     width: 40px;
     height: 40px;
@@ -1314,6 +1402,7 @@ h2.priceTemp {
     align-items: center;
     border: 1px solid #dddddd;
     background-color: #fff;
+    position: relative;
 }
 
 .cart-top-item img {
@@ -1322,6 +1411,10 @@ h2.priceTemp {
 
 .cart-top-cart {
     border: 1px solid #0DB7EA;
+}
+
+.cart-top-cart span {
+    color: #0DB7EA;
 }
 
 .cart-content {
@@ -1511,7 +1604,7 @@ h2.priceTemp {
 }
 
 .delivery {
-    padding: 100px 0;
+    padding: 120px 0;
 }
 
 .delivery-top-wrap {
@@ -1531,7 +1624,19 @@ h2.priceTemp {
     margin: 50px 0 100px;
 }
 
+.delivery-top-item span {
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+    position: absolute;
+    top: -35%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    white-space: nowrap;
+}
+
 .delivery-top-item {
+    position: relative;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -1552,9 +1657,9 @@ h2.priceTemp {
     border: 1px solid #0DB7EA;
 }
 
-/* .container-delivery {
-    margin-top: 20px;
-} */
+.delivery-top-address span {
+    color: #0DB7EA;
+}
 
 .delivery-content {
     background-color: #fff;
@@ -1571,14 +1676,6 @@ h2.priceTemp {
     width: 60%;
     padding-right: 12px;
 }
-
-/* .delivery-content-left,
-.delivery-content-right {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-} */
 
 .delivery-content-left p {
     font-family: Arial, Helvetica, sans-serif;
@@ -1752,7 +1849,7 @@ h2.priceTemp {
 }
 
 .payment {
-    padding: 100px 0;
+    padding: 120px 0;
 }
 
 .payment-top-wrap {
@@ -1772,7 +1869,19 @@ h2.priceTemp {
     margin: 50px 0 100px;
 }
 
+.payment-top-item span {
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+    position: absolute;
+    top: -35%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    white-space: nowrap;
+}
+
 .payment-top-item {
+    position: relative;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -1785,10 +1894,16 @@ h2.priceTemp {
 
 .payment-top-item img {
     width: 55%;
+    height: auto;
+
 }
 
 .payment-top-payment {
     border: 1px solid #0DB7EA;
+}
+
+.payment-top-payment span {
+    color: #0DB7EA;
 }
 
 .payment-content {

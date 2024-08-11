@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Định dạng cho container chính */
+        .product-content {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Định dạng cho phần bên trái */
+        .product-content-left {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .product-content-left-big-img img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .product-content-left-small-img {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .product-content-left-small-img img {
+            width: 30%;
+            border-radius: 8px;
+        }
+
+        /* Định dạng cho phần bên phải */
+        .product-content-right {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .product-content-right-product-name h1 {
+            font-size: 24px;
+            color: red;
+        }
+
+        .product-content-right-product-price p {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .product-content-right-product-color {
+            margin: 10px 0;
+        }
+
+        .product-content-right-product-color-img img {
+            width: 50px;
+            /* Kích thước hình ảnh màu sắc */
+        }
+
+        /* Định dạng cho nút */
+        .product-content-right-product-button button {
+            background-color: #0DB7EA;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-content-right-product-button button img {
+            margin-right: 5px;
+        }
+
+        .product-content-right-product-button button:hover {
+            background-color: #0099cc;
+        }
+
+        /* Định dạng cho icon */
+        .product-content-right-product-icon {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .product-content-right-product-icon-item {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .product-content-right-product-icon-item img {
+            width: 20px;
+            /* Kích thước icon */
+            margin-right: 5px;
+        }
+
+        /* Định dạng cho QR code */
+        .product-content-right-product-QR img {
+            width: 100px;
+            /* Kích thước QR code */
+        }
+
+        /* Định dạng cho phần mô tả và thông số kỹ thuật */
+        .product-content-right-bottom {
+            margin-top: 30px;
+        }
+
+        .product-content-right-bottom-content-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .product-content-right-bottom-content-title-item {
+            flex: 1;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .product-content-right-bottom-content {
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .product-content-right-bottom-content-describe,
+        .product-content-right-bottom-content-info {
+            margin-bottom: 20px;
+        }
+
+        .product-content-right-bottom-content-img {
+            margin-top: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .product-content {
+                flex-direction: column;
+            }
+
+            .product-content-left {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="product-top row">
+        <p>Trang chủ</p>
+        <span>&#10230;</span>
+        <p>Sản phẩm</p>
+        <span>&#10230;</span>
+        <p>Máy ảnh DSLR</p>
+        <span>&#10230;</span>
+        <p>Canon 200D</p>
+    </div>
+
+    <div class="product-content rowFlexTop">
+        <div class="product-content-left rowFlexTop">
+            <div class="product-content-left-big-img">
+                <img src="img/canon/200D/200D.png" alt="Canon 200D">
+            </div>
+            <div class="product-content-left-small-img">
+                <img src="img/canon/200D/200D-2.png" alt="Canon 200D Image 2">
+                <img src="img/canon/200D/200D-3.png" alt="Canon 200D Image 3">
+                <img src="img/canon/200D/200D-3.png" alt="Canon 200D Image 4">
+            </div>
+        </div>
+
+        <div class="product-content-right">
+            <div class="product-content-right-product-name">
+                <h1 style="color: red;">CANON 200D</h1>
+                <p>Mã sản phẩm: 999</p>
+            </div>
+            <div class="product-content-right-product-price">
+                <p>Giá bán: 20.000.000 VNĐ</p>
+            </div>
+            <div class="product-content-right-product-color">
+                <p><span style="font-weight: bold;">Màu sắc</span>: Đen</p>
+                <div class="product-content-right-product-color-img">
+                    <img src="img/spcolor.png" alt="Màu sắc sản phẩm">
+                </div>
+            </div>
+            <div class="quantity">
+                <p style="font-weight: bold;">Số lượng:</p>
+                <input type="number" min="0" value="1">
+            </div>
+
+            <div class="product-content-right-product-button">
+                <button>
+                    <img src="img/carticon.png" alt="Giỏ hàng">
+                    <p>MUA HÀNG</p>
+                </button>
+                <button>
+                    <p>TÌM TẠI CỬA HÀNG</p>
+                </button>
+            </div>
+
+            <div class="product-content-right-product-icon">
+                <div class="product-content-right-product-icon-item">
+                    <img src="img/hotline-icon.jpg" alt="Hotline">
+                    <p>Hotline</p>
+                </div>
+                <div class="product-content-right-product-icon-item">
+                    <img src="img/chat-icon.png" alt="Chat">
+                    <p>Chat</p>
+                </div>
+                <div class="product-content-right-product-icon-item">
+                    <img src="img/mail-icon.png" alt="Mail">
+                    <p>Mail</p>
+                </div>
+            </div>
+
+            <div class="product-content-right-product-QR">
+                <p style="font-size: 20px; font-weight: bold;">QR code:</p>
+                <img src="img/qrcode.jpg" alt="QR Code">
+            </div>
+
+            <div class="product-content-right-bottom">
+                <div class="product-content-right-bottom-top">
+                    &#8744;
+                </div>
+                <div class="product-content-right-bottom-content-big">
+                    <div class="product-content-right-bottom-content-title row">
+                        <div class="product-content-right-bottom-content-title-item describe">
+                            <p>Mô tả sản phẩm</p>
+                        </div>
+                        <div class="product-content-right-bottom-content-title-item info">
+                            <p>Thông số kỹ thuật</p>
+                        </div>
+                        <div class="product-content-right-bottom-content-title-item">
+                            <p>Hình ảnh</p>
+                        </div>
+                    </div>
+
+                    <div class="product-content-right-bottom-content">
+                        <div class="product-content-right-bottom-content-describe">
+                            <p style="font-weight: bold;">Canon EOS 200D Mark II</p>
+                            Canon EOS 200D Mark II có ngoại hình tương tự như chiếc Canon EOS 200D và những tính năng
+                            gần giống với chiếc máy ảnh không gương lật Canon M50. Chiếc máy ảnh mới Canon EOS 200D Mark
+                            II được xem là chiếc máy ảnh DSLR có màn hình xoay lật nhỏ gọn nhất trên thị trường hiện
+                            nay.
+                        </div>
+                        <div class="product-content-right-bottom-content-info">
+                            <p style="font-weight: bold;">Chi Tiết</p>
+                            - Cảm biến CMOS 24,1mpx.<br>
+                            - Bộ xử lý hình ảnh DIGIC 8.<br>
+                            - ISO 100 – 25600, mở rộng lên 51200.<br>
+                            - Dual Pixel CMOS AF với tối đa 3975 vị trí AF trên màn hình.<br>
+                            - Ống ngắm quang học, hệ AF 9 điểm.<br>
+                            - Tốc độ chụp liên tiếp tối đa tới 5 hình/giây.<br>
+                            - Màn hình xoay lật cảm ứng 3 inch.<br>
+                            - 29 ngôn ngữ, trong đó có tiếng Việt.<br>
+                            - Khung thân hợp kim nhôm và chất dẻo.<br>
+                            - Kết nối wifi, bluetooth.<br>
+                            - 1 khe thẻ SD, hỗ trợ SD/SDHC/SDXC.<br>
+                            - Pin: LP-E17, tối đa tới 1070 tấm khi sạc đầy.<br>
+                            - Kích thước: 122 x 93 x 70 mm.<br>
+                            - Khối lượng: 449g.<br>
+                        </div>
+                        <div class="product-content-right-bottom-content-img">
+                            <!-- <p>Hình ảnh</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
