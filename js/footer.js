@@ -5,7 +5,7 @@ document.getElementById("footer").innerHTML = `
         <ul>
           <li>Địa chỉ cửa hàng: Quận 12, TPHCM</li>
           <li>Hotline liên hệ: 0123456</li>
-          <li>Email: 123@gmail.com</li>
+          <li>Email: kqt@gmail.com</li>
           <li>
             <a href="https://kqtcamera.com" target="_blank">Website: kqtcamera.com</a>
           </li>

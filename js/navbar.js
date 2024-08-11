@@ -230,9 +230,7 @@ document.getElementById("navBar").innerHTML = `
       </div>
     </div>
 
-
-
-
+    
     <div class="sideBar hideOnNavbar">
       <div class="logo">
         <a href="Home.html">
