@@ -240,5 +240,4 @@ function showAllProducts(category) {
     }
 }
 
-// Call the function to display products
 displayProducts();
