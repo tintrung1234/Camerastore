@@ -157,7 +157,9 @@ document.getElementById("navBar").innerHTML = `
           <a href="repair.html"><button class="subBtn">Sửa chữa</button></a>
         </div>
         <div class="dropdown">
-          <button class="subBtn">Khuyến mãi</button>
+          <a href="event.html">
+            <button class="subBtn">Khuyến mãi</button>
+          </a>
         </div>
         <div class="dropdown">
           <a href="contact.html"><button class="subBtn">Liên hệ</button></a>

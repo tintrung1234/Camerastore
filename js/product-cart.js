@@ -6,7 +6,8 @@ const product = [
         title: "Canon 200D",
         price: 40000,
         type: "canon",
-        dathanhtoan: 1
+        dathanhtoan: 1,
+        discount: 1
     },
     {
         id: 2,
@@ -14,7 +15,8 @@ const product = [
         title: "Canon 1500D-kit",
         price: 43000,
         type: "canon",
-        quantity: 100
+        quantity: 100,
+        discount: 0
     },
     {
         id: 3,
@@ -22,7 +24,8 @@ const product = [
         title: "Canon 3000D-kit",
         price: 16000,
         type: "canon",
-        quantity: 100
+        quantity: 100,
+        discount: 1
     },
     {
         id: 4,
@@ -30,7 +33,8 @@ const product = [
         title: "Canon G7-X-mark",
         price: 23100,
         type: "canon",
-        quantity: 100
+        quantity: 100,
+        discount: 1
     },
     {
         id: 5,
@@ -38,7 +42,8 @@ const product = [
         title: "Đèn speedlite",
         price: 5400,
         type: "phukien",
-        quantity: 100
+        quantity: 100,
+        discount: 0
     },
     {
         id: 6,
@@ -54,7 +59,8 @@ const product = [
         title: "Canon R8",
         price: 54323,
         type: "canon",
-        quantity: 100
+        quantity: 100,
+        discount: 1
     },
     {
         id: 8,
@@ -62,7 +68,8 @@ const product = [
         title: "Canon R50",
         price: 32554,
         type: "canon",
-        quantity: 100
+        quantity: 100,
+        discount: 0
     },
     {
         id: 9,
@@ -70,7 +77,8 @@ const product = [
         title: "Canon R100",
         price: 4325220,
         type: "canon",
-        quantity: 100
+        quantity: 100,
+        discount: 0
     },
     {
         id: 10,
@@ -78,6 +86,8 @@ const product = [
         title: "Canon SX740-HS",
         price: 540030,
         type: "canon",
+        quantity: 100,
+        discount: 1
         quantity: 100
     },
     {

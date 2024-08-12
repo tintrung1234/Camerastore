@@ -198,7 +198,9 @@ button.EditProductBtn:hover {
     color: white;
 }
 
-.admin-product {
+.admin-product,
+.admin-phukien,
+.admin-bills {
     background-color: rgb(255, 255, 255, 0.3);
     /* padding: 20px; */
     border-radius: 10px;
@@ -209,10 +211,11 @@ button.EditProductBtn:hover {
     margin-left: 5%;
     margin-top: 5px;
     margin-left: 25%;
-
+    margin-bottom: 34px;
 }
 
-.admin-product img {
+.admin-product img,
+.admin-phukien img {
     width: 20px;
 }
 

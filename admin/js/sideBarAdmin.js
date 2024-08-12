@@ -18,18 +18,13 @@ document.getElementById("sideBarAdmin").innerHTML = `
                 </a>
             </div>
             <div class="dropdown">
-                <button class="subBtn">Phụ kiện</button>
+                <a href="phukienAdmin.html">
+                    <button class="subBtn">Phụ kiện</button>
+                </a>
             </div>
             <div class="dropdown">
-                <button class="subBtn">Sửa chữa</button>
-            </div>
-            <div class="dropdown">
-                <button class="subBtn">Khuyến mãi</button>
-            </div>
-            <div class="dropdown">
-                <button class="subBtn">Liên hệ</button>
-            </div>
-            <div class="dropdown">
-                <button class="subBtn">Bảo hành</button>
+                <a href="checkBillAdmin.html">
+                    <button class="subBtn">Đơn dặt hàng</button>
+                </a>
             </div>
         </div>`;
