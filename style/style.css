@@ -746,7 +746,9 @@ content {
 
 /* ------------------------------------- Product css ------------------------------------- */
 
-h2.titleCanon {
+h2.titleCanon,
+h2.titleNikon,
+h2.titleSony {
     font-family: "Gill Sans", sans-serif;
     margin-top: 2%;
     margin-left: 10%;

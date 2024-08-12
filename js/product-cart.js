@@ -79,6 +79,58 @@ const product = [
         price: 540030,
         type: "canon",
         quantity: 100
+    },
+    {
+        id: 11,
+        image: "./img/Nikon/D780/D780-1.jpg",
+        title: "Nikon D780",
+        price: 540030,
+        type: "nikon",
+        quantity: 100
+    }, {
+        id: 12,
+        image: "./img/Nikon/Z30/Z30-1.jpg",
+        title: "Nikon Z30",
+        price: 540030,
+        type: "nikon",
+        quantity: 100
+    }, {
+        id: 13,
+        image: "./img/Nikon/Z9/Z9-1.jpg",
+        title: "Nikon Z9",
+        price: 540030,
+        type: "nikon",
+        quantity: 100
+    }, {
+        id: 14,
+        image: "./img/Nikon/ZFc/ZFc-1.jpg",
+        title: "Nikon Z Fc",
+        price: 540030,
+        type: "nikon",
+        quantity: 100
+    }, {
+        id: 15,
+        image: "././img/Sony/Alpha9III/Alpha9III-1.png",
+        title: "Alpha 9 III",
+        price: 540030,
+        type: "sony",
+        quantity: 100
+    }
+    , {
+        id: 16,
+        image: "./img/Sony/Alpha6100/Alpha6100-1.png",
+        title: "Alpha 6100",
+        price: 540030,
+        type: "sony",
+        quantity: 100
+    }
+    , {
+        id: 17,
+        image: "./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png",
+        title: "Alpha ZV-E10 II",
+        price: 540030,
+        type: "sony",
+        quantity: 100
     }
 ];
 
@@ -86,20 +138,35 @@ const categories = [...new Set(product.map((item) => { return item; }))];
 let i = 1;
 var cartIcon = './img/carticon.png';
 
-document.getElementById("product-group").innerHTML = product
-    .map((item) => {
-        var { id, image, title, price } = item;
-        return (
-            `<div id="product" class""><a href="product.html" class="productLink">
-        <img class="productImg" src=${image} alt=""></a>
-        <label class="productName" for="">${title}</label>
-        <p class="productPrice">Giá từ <strong> ${price} </strong></p>` +
-            `<button class='addCart' onclick='displayBuyBox(${id})'>
-        <img src = "img/carticon.png" alt='cartIcon'> 
-        <p class='muahang' > Mua hàng</p>
-        </button > </div>`
-        );
-    }).join("");
+const canonProducts = product.filter(item => item.type === 'canon');
+const nikonProducts = product.filter(item => item.type === 'nikon');
+const sonyProducts = product.filter(item => item.type === 'sony');
+
+
+// Function to display products in a specific group
+function displayProducts(products, elementId) {
+    document.getElementById(elementId).innerHTML = products
+        .map((item) => {
+            var { id, image, title, price } = item;
+            return (
+                `<div id="product" class=""><a href="product.html" class="productLink">
+                <img class="productImg" src=${image} alt=""></a>
+                <label class="productName" for="">${title}</label>
+                <p class="productPrice">Giá từ <strong> ${price} </strong></p>` +
+                `<button class='addCart' onclick='displayBuyBox(${id})'>
+                <img src="img/carticon.png" alt='cartIcon'> 
+                <p class='muahang'> Mua hàng</p>
+                </button></div>`
+
+            );
+        }).join("");
+}
+
+// Display Canon and Nikon products
+displayProducts(canonProducts, "canon-product-group");
+displayProducts(nikonProducts, "nikon-product-group");
+displayProducts(sonyProducts, "sony-product-group");
+
 
 document.getElementById("buyBox").innerHTML = categories
     .map((item) => {

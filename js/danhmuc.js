@@ -54,7 +54,7 @@ const products = [
     // Nikon
     {
         id: 'Nikon',
-        imgSrc: 'img/Nikon/Z 9/Z 9-1.jpg',
+        imgSrc: 'img/Nikon/Z9/Z9-1.jpg',
         name: 'Nikon Z 9',
         price: '1.000.000<sup>đ</sup>'
     },
@@ -66,19 +66,19 @@ const products = [
     },
     {
         id: 'Nikon',
-        imgSrc: 'img/Nikon/Z 30/Z 30-1.jpg',
+        imgSrc: 'img/Nikon/Z30/Z30-1.jpg',
         name: 'Nikon Z 30',
         price: '1.500.000<sup>đ</sup>'
     },
     {
         id: 'Nikon',
-        imgSrc: 'img/Nikon/Z F/Z F-1.jpg',
+        imgSrc: 'img/Nikon/ZF/ZF-1.jpg',
         name: 'Nikon Z F',
         price: '900.000<sup>đ</sup>'
     },
     {
         id: 'Nikon',
-        imgSrc: 'img/Nikon/Z Fc/Z Fc-1.jpg',
+        imgSrc: 'img/Nikon/ZFc/ZFc-1.jpg',
         name: 'Nikon Z FC',
         price: '900.000<sup>đ</sup>'
     },
@@ -127,37 +127,37 @@ const products = [
     // Fujifilm
     , {
         id: 'Fujifilm',
-        imgSrc: 'img/Fujifilm/GFX 50S/GPX 50S-1.jpg',
+        imgSrc: 'img/Fujifilm/GFX 50S/GPX50S-1.jpg',
         name: 'Fujifilm GFX 50S',
         price: '900.000<sup>đ</sup>'
     }, {
         id: 'Fujifilm',
-        imgSrc: 'img/Fujifilm/X-H2/X H2-1.jpg',
+        imgSrc: 'img/Fujifilm/X-H2/XH2-1.jpg',
         name: 'Fujifilm X-H2',
         price: '900.000<sup>đ</sup>'
     }, {
         id: 'Fujifilm',
-        imgSrc: 'img/Fujifilm/X-S20/X S20-1.jpg',
+        imgSrc: 'img/Fujifilm/X-S20/XS20-1.jpg',
         name: 'Fujifilm X-S20',
         price: '900.000<sup>đ</sup>'
     }, {
         id: 'Fujifilm',
-        imgSrc: 'img/Fujifilm/X-T30/X T30-1.jpg',
+        imgSrc: 'img/Fujifilm/X-T30/XT30-1.jpg',
         name: 'Fujifilm X-T30',
         price: '900.000<sup>đ</sup>'
     }, {
         id: 'Sony',
-        imgSrc: 'img/Sony/Alpha 9 III/Alpha 9III-1.png',
+        imgSrc: 'img/Sony/Alpha9III/Alpha9III-1.png',
         name: 'Sony Alpha 9 III',
         price: '900.000<sup>đ</sup>'
     }, {
         id: 'Sony',
-        imgSrc: 'img/Sony/Alpha 6100/Alpha 6100-1.png',
+        imgSrc: 'img/Sony/Alpha6100/Alpha6100-1.png',
         name: 'Sony Alpha 6100',
         price: '900.000<sup>đ</sup>'
     }, {
         id: 'Sony',
-        imgSrc: 'img/Sony/Alpha ZV-E10 II/Alpha ZV E10 II-1.png',
+        imgSrc: 'img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png',
         name: 'Sony Alpha ZV-E10 II',
         price: '900.000<sup>đ</sup>'
     }, {

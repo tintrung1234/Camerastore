@@ -14,9 +14,9 @@ document.getElementById("navBar").innerHTML = `
         </a>
         </div>
         <div class="dropdown">
-          <a href="category.html"><button class="subBtn">Sản phẩm</button></a>
+          <a href="category.html" ><button class="subBtn" >Sản phẩm</button></a>
           <div class="dropdown-content">
-            <a href="#" class="brand-link" >Canon</a>
+            <a href="#" class="brand-link">Canon</a>
             <div class="sub-dropdown">
               <li>
                 <p>Phân loại</p>
@@ -119,81 +119,37 @@ document.getElementById("navBar").innerHTML = `
           </div>
         </div>
         <div class="dropdown">
-          <button class="subBtn">Phụ kiện</button>
+          <a href="category.html"><button class="subBtn">Phụ kiện</button></a>
           <div class="dropdown-content">
 
-            <a href="#">Ống Kính</a>
+            <a href="#" >Ống Kính</a>
             <div class="sub-dropdown">
-              <li>
-                <ul>
-                  <li><a href="#">Ống kính tiêu chuẩn</a></li>
-                  <li><a href="#">Ống kính góc rộng</a></li>
-                  <li><a href="#">Ống kính tele</a></li>
-                  <li><a href="#">Ống kính macro</a></li>
-                  <li><a href="#">Ống kính zoom</a></li>
-                </ul>
-              </li>
+             
             </div>
 
             <a href="#">Bộ Lọc (Filter)</a>
             <div class="sub-dropdown">
-              <li>
-                <ul>
-                  <li><a href="#">Bộ Lọc UV</a></li>
-                  <li><a href="#">Bộ Lọc CPL (Polarizing Filter)</a></li>
-                  <li><a href="#">Bộ Lọc ND (Neutral Density Filter)</a></li>
-                  <li><a href="#">Colored Filter</a></li>
-                </ul>
-              </li>
+             
             </div>
 
             <a href="#">Phụ Kiện Ánh Sáng</a>
             <div class="sub-dropdown">
-              <li>
-                <ul>
-                  <li><a href="#">Đèn flash ngoài</a></li>
-                  <li><a href="#">Đèn LED</a></li>
-                  <li><a href="#">Bộ tản sáng (Diffuser)</a></li>
-                  <li><a href="#">Bộ phản sáng (Reflector)</a></li>
-
-                </ul>
-              </li>
+              
             </div>
 
             <a href="#">Bộ Giá Đỡ và Chân Máy</a>
             <div class="sub-dropdown">
-              <li>
-                <ul>
-                  <li><a href="#">Tripod</a></li>
-                  <li><a href="#">Monopod</a></li>
-                  <li><a href="#">Gimbal</a></li>
-                </ul>
-              </li>
+            
             </div>
 
             <a href="#">Lưu Trữ</a>
             <div class="sub-dropdown">
-              <li>
-                <ul>
-                  <li><a href="#">USB</a></li>
-                  <li><a href="#">Thẻ nhớ SD</a></li>
-                  <li><a href="#">Thẻ nhớ microSD</a></li>
-                  <li><a href="#">Ổ cứng di động</a></li>
-                </ul>
-              </li>
+            
             </div>
 
             <a href="#">Khác</a>
             <div class="sub-dropdown">
-              <li>
-                <ul>
-                  <li><a href="#">Pin</a></li>
-                  <li><a href="#">Bộ Sạc</a></li>
-                  <li><a href="#">Túi Đựng</a></li>
-                  <li><a href="#">Micro</a></li>
-                  <li><a href="#">Grip, Case, ...</a></li>
-                </ul>
-              </li>
+              
             </div>
           </div>
         </div>
