@@ -221,6 +221,13 @@ document.getElementById("navBar").innerHTML = `
           </div>
           <div class="result-box"></div>
         </div>
+
+        <div id="login" class='hideOnMobile'>
+          <a href="login.html">
+            <img class='hideOnMobile' width=30px src="img/signin-icon.png" alt="" />
+          </a>
+        </div>
+
         <div id="totalCart" class='hideOnMobile'>
           <p class='hideOnMobile' id="count">0</p>
           <a href="cart_detail.html">
