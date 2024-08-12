@@ -277,7 +277,7 @@ if (product_detail) {
       </div>`
     ;
 } else {
-  document.getElementById("productDetail").innerHTML = `<p>Product not found.</p>`;
+  document.getElementsByClassName("productDetail").innerHTML = `<p>Product not found.</p>`;
 }
 
 function addToCart(productId) {

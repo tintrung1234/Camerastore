@@ -216,7 +216,7 @@ function displayProducts(products, elementId) {
         .map((item) => {
             var { id, image, title, price } = item;
             return (
-                `<div id="product" class=""><a href="product.html" class="productLink">
+                `<div id="product" class=""><a class="productLink" onclick="openProductDetail(${id})" >
                 <img class="productImg" src=${image} alt=""></a>
                 <label class="productName" for="">${title}</label>
                 <p class="productPrice">Giá từ <strong> ${price} </strong></p>` +
@@ -227,6 +227,10 @@ function displayProducts(products, elementId) {
 
             );
         }).join("");
+}
+
+function openProductDetail(id) {
+    window.open(`product.html?id=${id}`);
 }
 
 // Display Canon and Nikon products

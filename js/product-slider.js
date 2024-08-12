@@ -7,7 +7,8 @@ function productScroll() {
     const next = document.getElementsByClassName("pro-next")[0];
     const prev = document.getElementsByClassName("pro-prev")[0];
     const slide = document.getElementById("canon-product-group");
-
+    const slide1 = document.getElementById("nikon-product-group");
+    const slide2 = document.getElementById("sony-product-group");
 
     let position = 0;
 
@@ -19,9 +20,10 @@ function productScroll() {
     });
 
     next.addEventListener("click", function () {
+        console.log(this.parentElement);
         if (position < hiddenItems()) {
             position += 1;
-            translateX(position);
+            translateX(position, this.parentElement);
         }
     });
 
@@ -33,9 +35,9 @@ function productScroll() {
     }
 }
 
-function translateX(position) {
+function translateX(position, elementID) {
     // Translate items
-    const slide = document.getElementById("canon-product-group");
+    const slide = document.getElementById(elementID);
     slide.style.transform = `translateX(${-position * 650}px)`;
 }
 
