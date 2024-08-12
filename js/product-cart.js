@@ -87,7 +87,7 @@ const product = [
         price: 540030,
         type: "canon",
         quantity: 100,
-        discount: 1
+        discount: 1,
         quantity: 100
     },
     {
@@ -142,6 +142,63 @@ const product = [
         type: "sony",
         quantity: 100
     }
+    , {
+        id: 17,
+        image: "./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png",
+        title: "Alpha ZV-E10 II",
+        price: 540030,
+        type: "sony",
+        quantity: 100
+    }
+    , {
+        id: 17,
+        image: "./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png",
+        title: "Alpha ZV-E10 II",
+        price: 540030,
+        type: "sony",
+        quantity: 100
+    }
+    , {
+        id: 17,
+        image: "./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png",
+        title: "Alpha ZV-E10 II",
+        price: 540030,
+        type: "sony",
+        quantity: 100
+    }
+    , {
+        id: 17,
+        image: "./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png",
+        title: "Alpha ZV-E10 II",
+        price: 540030,
+        type: "sony",
+        quantity: 100
+    }
+    , {
+        id: 17,
+        image: "./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png",
+        title: "Alpha ZV-E10 II",
+        price: 540030,
+        type: "sony",
+        quantity: 100
+    }
+    , {
+        id: 17,
+        image: "./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png",
+        title: "Alpha ZV-E10 II",
+        price: 540030,
+        type: "sony",
+        quantity: 100
+    }
+    , {
+        id: 17,
+        image: "./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png",
+        title: "Alpha ZV-E10 II",
+        price: 540030,
+        type: "sony",
+        quantity: 100
+    }
+
 ];
 
 const categories = [...new Set(product.map((item) => { return item; }))];

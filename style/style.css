@@ -1096,7 +1096,7 @@ h2.titleNikon,
 h2.titleSony {
     font-family: "Gill Sans", sans-serif;
     margin-top: 2%;
-    margin-left: 10%;
+    /* margin-left: 10%; */
     font-size: 25px;
 }
 
