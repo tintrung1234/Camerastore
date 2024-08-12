@@ -409,7 +409,7 @@ button.closeBtn.showOnMobile {
 .aspect-ratio-169 {
     display: block;
     position: relative;
-    padding-top: 45%;
+    padding-top: 42%;
     transition: 0.3s;
     margin-top: 4.9%;
 }
@@ -556,7 +556,7 @@ button.closeBtn.showOnMobile {
 }
 
 .bb1 {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .container-img>.block-img1:hover img,
@@ -821,7 +821,7 @@ button.addCart {
 }
 
 .content {
-    width: 1120px;
+    width: 100%;
     max-width: 100%;
     height: 200px;
     position: relative;
@@ -1392,7 +1392,7 @@ h2.priceTemp {
 }
 
 .cart {
-    padding: 100px 0;
+    padding: 140px 0;
 }
 
 .cart-top-wrap {
@@ -1634,7 +1634,7 @@ h2.priceTemp {
 }
 
 .delivery {
-    padding: 120px 0;
+    padding: 140px 0;
 }
 
 .delivery-top-wrap {
@@ -1879,7 +1879,7 @@ h2.priceTemp {
 }
 
 .payment {
-    padding: 120px 0;
+    padding: 140px 0;
 }
 
 .payment-top-wrap {
@@ -2054,6 +2054,7 @@ h2.priceTemp {
     text-align: center;
     position: absolute;
     width: 100%;
+    /* bottom: 0; */
 }
 
 .footer-container {

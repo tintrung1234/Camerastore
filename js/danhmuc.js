@@ -1,53 +1,58 @@
 //--------Slidebar-Cartegory-----------
-const itemslidebar = document.querySelectorAll(".cartegory-left-li")
+const itemslidebar = document.querySelectorAll(".cartegory-left-li");
 itemslidebar.forEach(function (menu, index) {
     menu.addEventListener("click", function () {
-        menu.classList.toggle("block")
-    })
-})
-
-
-//---------Filter---------
-document.getElementById('filter-toggle').addEventListener('click', function () {
-    var filterSection = document.getElementById('filter-section');
-    if (filterSection.style.display === 'none' || filterSection.style.display === '') {
-        filterSection.style.display = 'flex';
-    } else {
-        filterSection.style.display = 'none';
-    }
+        menu.classList.toggle("block");
+    });
 });
 
+//---------Filter---------
+document.getElementById("filter-toggle").addEventListener("click", function () {
+    var filterSection = document.getElementById("filter-section");
+    if (
+        filterSection.style.display === "none" ||
+        filterSection.style.display === ""
+    ) {
+        filterSection.style.display = "flex";
+    } else {
+        filterSection.style.display = "none";
+    }
+});
 
 function updateBrand(brandName) {
     // Mapping of English brand names to Vietnamese
     const brandDisplayNames = {
-        Canon: 'Canon',
-        Nikon: 'Nikon',
-        fujifilm: 'Fujifilm',
-        ongkinh: 'Ống Kính',
-        boloc: 'Bộ Lọc (Filter)',
-        phukienanhsang: 'Phụ Kiện Ánh Sáng',
-        giado: 'Bộ Giá Đỡ và Chân Máy',
-        luutru: 'Lưu Trữ',
-        khac: 'Khác'
+        Canon: "Canon",
+        Nikon: "Nikon",
+        fujifilm: "Fujifilm",
+        ongkinh: "Ống Kính",
+        boloc: "Bộ Lọc (Filter)",
+        phukienanhsang: "Phụ Kiện Ánh Sáng",
+        giado: "Bộ Giá Đỡ và Chân Máy",
+        luutru: "Lưu Trữ",
+        khac: "Khác",
     };
 
     // Update the displayed brand name
-    document.getElementById("brand").innerText = brandDisplayNames[brandName] || brandName;
+    document.getElementById("brand").innerText =
+        brandDisplayNames[brandName] || brandName;
 
     // Hide all products first
-    const allProducts = document.querySelectorAll('.cartegory-right-content-item');
-    allProducts.forEach(product => {
-        product.style.display = 'none'; // Hide all products
+    const allProducts = document.querySelectorAll(
+        ".cartegory-right-content-item"
+    );
+    allProducts.forEach((product) => {
+        product.style.display = "none"; // Hide all products
     });
 
     // Show products based on selected brand
-    const brandProducts = document.querySelectorAll(`.cartegory-right-content-item#${brandName}`);
-    brandProducts.forEach(product => {
-        product.style.display = 'block'; // Show products for the selected brand
+    const brandProducts = document.querySelectorAll(
+        `.cartegory-right-content-item#${brandName}`
+    );
+    brandProducts.forEach((product) => {
+        product.style.display = "block"; // Show products for the selected brand
     });
 }
-
 
 // Array of products
 const products = [
@@ -188,11 +193,11 @@ const products = [
 
 // Function to display products
 function displayProducts() {
-    const container = document.getElementById('cartegory-right-content');
+    const container = document.getElementById("cartegory-right-content");
 
-    products.forEach(product => {
-        const productDiv = document.createElement('div');
-        productDiv.className = 'cartegory-right-content-item';
+    products.forEach((product) => {
+        const productDiv = document.createElement("div");
+        productDiv.className = "cartegory-right-content-item";
         productDiv.id = product.id;
 
         productDiv.innerHTML = `
@@ -207,27 +212,33 @@ function displayProducts() {
     });
 }
 function showAllProducts(category) {
-    document.getElementById("brand").innerText = category === 'products' ? 'Sản phẩm' : 'Phụ kiện';
+    document.getElementById("brand").innerText =
+        category === "products" ? "Sản phẩm" : "Phụ kiện";
 
     // Hide all products first
-    const allProducts = document.querySelectorAll('.cartegory-right-content-item');
-    allProducts.forEach(product => {
-        product.style.display = 'none'; // Hide all products
+    const allProducts = document.querySelectorAll(
+        ".cartegory-right-content-item"
+    );
+    allProducts.forEach((product) => {
+        product.style.display = "none"; // Hide all products
     });
 
-    if (category === 'products') {
-        const productItems = document.querySelectorAll('.cartegory-right-content-item[id="Nikon"], .cartegory-right-content-item[id="Canon"], .cartegory-right-content-item[id="Fujifilm"], .cartegory-right-content-item[id="Panasonic"], .cartegory-right-content-item[id="Sony"]');
-        productItems.forEach(product => {
-            product.style.display = 'block'; // Show all products
+    if (category === "products") {
+        const productItems = document.querySelectorAll(
+            '.cartegory-right-content-item[id="Nikon"], .cartegory-right-content-item[id="Canon"], .cartegory-right-content-item[id="Fujifilm"], .cartegory-right-content-item[id="Panasonic"], .cartegory-right-content-item[id="Sony"]'
+        );
+        productItems.forEach((product) => {
+            product.style.display = "block"; // Show all products
         });
-    } else if (category === 'accessories') {
-        const accessoryItems = document.querySelectorAll('.cartegory-right-content-item[id="ongkinh"], .cartegory-right-content-item[id="boloc"], .cartegory-right-content-item[id="phukienanhsang"], .cartegory-right-content-item[id="giado"], .cartegory-right-content-item[id="luutru"], .cartegory-right-content-item[id="khac"]');
-        accessoryItems.forEach(product => {
-            product.style.display = 'block'; // Show all accessories
+    } else if (category === "accessories") {
+        const accessoryItems = document.querySelectorAll(
+            '.cartegory-right-content-item[id="ongkinh"], .cartegory-right-content-item[id="boloc"], .cartegory-right-content-item[id="phukienanhsang"], .cartegory-right-content-item[id="giado"], .cartegory-right-content-item[id="luutru"], .cartegory-right-content-item[id="khac"]'
+        );
+        accessoryItems.forEach((product) => {
+            product.style.display = "block"; // Show all accessories
         });
     }
 }
 
 // Call the function to display products
 displayProducts();
-
