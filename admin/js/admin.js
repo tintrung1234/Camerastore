@@ -31,16 +31,9 @@ let products = [
     type: "canon",
     quantity: 100,
   },
+
   {
     id: 5,
-    image: "../img/canon/phukien/speedlite.png",
-    title: "Đèn speedlite",
-    price: 5400,
-    type: "phukien",
-    quantity: 100,
-  },
-  {
-    id: 6,
     image: "../img/canon/R7/R7.png",
     title: "Canon R7",
     price: 54322,
@@ -48,7 +41,7 @@ let products = [
     quantity: 100,
   },
   {
-    id: 7,
+    id: 6,
     image: "../img/canon/R8/R8.png",
     title: "Canon R8",
     price: 54323,
@@ -56,7 +49,7 @@ let products = [
     quantity: 100,
   },
   {
-    id: 8,
+    id: 7,
     image: "../img/canon/R50/R50.png",
     title: "Canon R50",
     price: 32554,
@@ -64,7 +57,7 @@ let products = [
     quantity: 100,
   },
   {
-    id: 9,
+    id: 8,
     image: "../img/canon/R100/R100.png",
     title: "Canon R100",
     price: 4325220,
@@ -72,17 +65,113 @@ let products = [
     quantity: 100,
   },
   {
-    id: 10,
+    id: 9,
     image: "../img/canon/SX740-HS/SX740-HS.png",
     title: "Canon SX740-HS",
     price: 540030,
     type: "canon",
     quantity: 100,
   },
+  {
+    id: 10,
+    image: "../img/canon/phukien/speedlite.png",
+    title: "Đèn speedlite",
+    price: 5400,
+    type: "phukien",
+    quantity: 100,
+  },
+  {
+    id: 11,
+    image: "../img/PhuKien/day-deo.jpg",
+    title: "Dây đeo",
+    price: 53030,
+    type: "phukien",
+    quantity: 100,
+  },
+  {
+    id: 12,
+    image: "../img/PhuKien/day-deo2.jpg",
+    title: "Dây đeo",
+    price: 42030,
+    type: "phukien",
+    quantity: 100,
+  },
+  {
+    id: 13,
+    image: "../img/PhuKien/den-led-Ulanzi.png",
+    title: "Đèn led Ulanzi",
+    price: 270030,
+    type: "phukien",
+    quantity: 100,
+  },
+  {
+    id: 14,
+    image: "../img/PhuKien/Dù-phan-bac.jpg",
+    title: "Dù phản bạc",
+    price: 454300,
+    type: "phukien",
+    quantity: 100,
+  },
+  {
+    id: 15,
+    image: "../img/PhuKien/filterK&F-67mm.jpg",
+    title: "Filter k&F 67mm",
+    price: 76030,
+    type: "phukien",
+    quantity: 100,
+  },
+  {
+    id: 16,
+    image: "../img/PhuKien/filterK&F.jpg",
+    title: "Filter k&F",
+    price: 764465,
+    type: "phukien",
+    quantity: 100,
+  },
+  {
+    id: 16,
+    image: "../img/PhuKien/fujifilm-C200-fujicolor.png",
+    title: "Fujifilm C200 fujicolor",
+    price: 86834,
+    type: "phukien",
+    quantity: 100,
+  },
+  {
+    id: 17,
+    image: "../img/PhuKien/hat_sang.jpg",
+    title: "Hắt sáng",
+    price: 43700,
+    type: "phukien",
+    quantity: 100,
+  },
+  {
+    id: 18,
+    image: "../img/PhuKien/tripodK&F-MS05.jpg",
+    title: "Tripod K&F MS-05",
+    price: 540030,
+    type: "phukien",
+    quantity: 100,
+  },
+  {
+    id: 19,
+    image: "../img/PhuKien/tripodK&F.jpg",
+    title: "Tripod K&F",
+    price: 543030,
+    type: "phukien",
+    quantity: 100,
+  },
+  {
+    id: 20,
+    image: "../img/PhuKien/gimbal-zhiyun.jpg",
+    title: "Gimbal zhiyun",
+    price: 459330,
+    type: "phukien",
+    quantity: 100,
+  },
 ];
 
 // Bat dung nay neu chay
-// products = JSON.parse(localStorage.getItem('products')) || products;
+products = JSON.parse(localStorage.getItem('products')) || products;
 
 function displayProducts() {
   const adminProduct = document.getElementById("admin-product");
@@ -100,9 +189,9 @@ function displayProducts() {
                     <th>Thao tác</th>
                 </tr>
                 ${products
-                  .map((item) => {
-                    const { id, image, title, price, type, quantity } = item;
-                    return `
+      .map((item) => {
+        const { id, image, title, price, type, quantity } = item;
+        return `
                         <tr>
                             <td>${id}</td>
                             <td><img src="${image}" alt="${title}" style="width:50px;"></td>
@@ -116,8 +205,8 @@ function displayProducts() {
                             </td>
                         </tr>
                     `;
-                  })
-                  .join("")}
+      })
+      .join("")}
             </table>
         </div>
     `;
@@ -131,8 +220,7 @@ function closeAddBox() {
   document.getElementById("addProductModal").style.display = "none";
 }
 
-document
-  .getElementById("addProductForm")
+document.getElementById("addProductForm")
   .addEventListener("submit", function (event) {
     event.preventDefault();
     const newProduct = {
@@ -149,6 +237,7 @@ document
     closeAddBox();
     displayProducts();
   });
+
 
 function openEditBox(id) {
   const product = products.find((p) => p.id === id);
@@ -196,3 +285,5 @@ function deleteProduct(id) {
 }
 
 displayProducts();
+
+

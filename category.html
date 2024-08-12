@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="icon" href="img/ProCam.png" type="image/x-icon">
+
 </head>
 
 <body>
@@ -17,9 +19,9 @@
     <div class="content-list">
         <div class="content-container">
             <div class="cartegory-top row">
-                <p>Trang chủ</p><span>&#8594;</span>
+                <!-- <p>Trang chủ</p><span>&#8594;</span>
                 <p>Sản phẩm</p><span>&#8594;</span>
-                <p>Canon</p>
+                <p>Canon</p> -->
             </div>
         </div>
         <div class="content-container">
@@ -27,7 +29,7 @@
                 <div class="cartegory-left">
                     <ul>
                         <li class="cartegory-left-li">
-                            <a href="#" onclick="showAllProducts('products')">Sản phẩm</a>
+                            <a href="#" onclick="displayProducts('products')">Sản phẩm</a>
                             <ul>
                                 <li><a href="#" onclick="updateBrand('Canon')">Canon</a></li>
                                 <li><a href="#" onclick="updateBrand('Nikon')">Nikon</a></li>
@@ -36,8 +38,7 @@
                                 <li><a href="#" onclick="updateBrand('Panasonic')">Panasonic</a></li>
                             </ul>
                         </li>
-                        <li class="cartegory-left-li"><a href="#" onclick="showAllProducts('accessories')">Phụ kiện</a>
-
+                        <li class="cartegory-left-li"><a href="#" onclick="displayProducts('accessories')">Phụ kiện</a>
                             <ul>
                                 <li><a href="#" onclick="updateBrand('ongkinh')">Ống Kính</a></li>
                                 <li><a href="#" onclick="updateBrand('boloc')">Bộ Lọc (Filter)</a></li>

@@ -256,6 +256,7 @@ button.closeBtn.showOnMobile {
     margin-top: 20px;
 }
 
+
 /* -------------------------------------------- Search ----------------------------------------*/
 .search_box {
     border: solid 1px gray;
@@ -751,7 +752,7 @@ h2.titleNikon,
 h2.titleSony {
     font-family: "Gill Sans", sans-serif;
     margin-top: 2%;
-    margin-left: 10%;
+    /* margin-left: 10%; */
     font-size: 25px;
 }
 
@@ -840,13 +841,19 @@ button.addCart {
     display: none;
 }
 
-.content .product-group {
+.content .product-group,
+.content .discountProductcss {
     display: flex;
     position: absolute;
     left: 0;
     transition: 0.3s;
     padding-left: 25px;
     padding-right: 25px;
+}
+
+.discountProductcss {
+    display: inline-flex;
+    width: 100%;
 }
 
 .content #product {
@@ -1042,7 +1049,7 @@ h2.priceTemp {
 }
 
 /* ----------------------------------- Product Detail --------------------------------------- */
-.product {
+.productDetail {
     padding: 100px 0;
 }
 
@@ -1103,16 +1110,35 @@ h2.priceTemp {
 }
 
 .product-content-right-product-color img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+    width: 50px;
+    height: 40px;
+    box-shadow: 0px 0px 5px 0px rgb(247, 148, 29);
+}
+
+.quatang_content img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.quatang_content {
+    display: flex;
+    padding-top: 8px;
+    align-items: center;
+}
+
+.table-detail {
+    width: 500px;
+}
+
+.table-detail tr td {
+    border-top: 1px solid #e7e7e7;
+    padding: 8px 0px !important;
 }
 
 .product-content-right-product-color-img {
-    width: 40px;
+    width: 50px;
     height: 40px;
     margin: 12px 0;
-    border: 1px solid #333;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1127,6 +1153,8 @@ h2.priceTemp {
     width: 35px;
     padding-left: 3px;
     /* background-color: #333; */
+    margin-left: 10px;
+    padding: 3px;
 }
 
 .product-content-right-product-button button {
@@ -1177,7 +1205,14 @@ h2.priceTemp {
 
 .product-content-right-product-icon {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* flex-wrap: wrap; */
+    /* height: 74px; */
+    /* justify-content: space-between; */
+    gap: 10px;
 }
+
 
 .product-content-right-product-icon-item {
     display: flex;

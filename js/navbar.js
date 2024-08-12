@@ -14,9 +14,9 @@ document.getElementById("navBar").innerHTML = `
         </a>
         </div>
         <div class="dropdown">
-          <a href="category.html" ><button class="subBtn" >Sản phẩm</button></a>
+          <a href="category.html" onload="displayProducts('products')"><button class="subBtn" >Sản phẩm</button></a>
           <div class="dropdown-content">
-            <a href="#" class="brand-link">Canon</a>
+            <a href="#" >Canon</a>
             <div class="sub-dropdown">
               <li>
                 <p>Phân loại</p>
@@ -119,7 +119,7 @@ document.getElementById("navBar").innerHTML = `
           </div>
         </div>
         <div class="dropdown">
-          <a href="category.html"><button class="subBtn">Phụ kiện</button></a>
+          <a href="category.html" onclick="displayProducts('accessories')"><button class="subBtn">Phụ kiện</button></a>
           <div class="dropdown-content">
 
             <a href="#" >Ống Kính</a>
@@ -157,7 +157,9 @@ document.getElementById("navBar").innerHTML = `
           <a href="repair.html"><button class="subBtn">Sửa chữa</button></a>
         </div>
         <div class="dropdown">
-          <button class="subBtn">Khuyến mãi</button>
+          <a href="event.html">
+            <button class="subBtn">Khuyến mãi</button>
+          </a>
         </div>
         <div class="dropdown">
           <a href="contact.html"><button class="subBtn">Liên hệ</button></a>
