@@ -6,7 +6,7 @@ const product = [
         title: "Canon 200D",
         price: 40000,
         type: "canon",
-        quantity: 100
+        dathanhtoan: 1
     },
     {
         id: 2,

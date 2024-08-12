@@ -5,118 +5,39 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <link rel="stylesheet" href="style/style.css">
         <style>
+                .repair-container {
+                        padding: 100px 0;
+                }
+
                 .col-sm-9 {
                         flex: 0 0 75%;
                         max-width: 75%;
-                }
-
-                .col-sm-9 h6 {
-                        font-size: 20px;
                 }
 
                 .col-sm-3 {
                         flex: 0 0 25%;
                         max-width: 25%;
                 }
-
-                .repair {
-                        display: flex;
-                }
-
-                .f-news-view-detail {
-                        box-sizing: border-box;
-                        color: rgb(64, 64, 64);
-                        font-size: 13px;
-                        line-height: 21px;
-                }
-
-                .f-news-view-detail-p {
-                        box-sizing: border-box;
-                        margin: 0px 0px 10px;
-                        padding: 0px;
-                        text-align: center;
-                }
-
-                .f-news-view-detail-p span {
-                        box-sizing: border-box;
-                        font-size: 14px;
-                }
-
-                .f-news-view-detail-p span img {
-                        box-sizing: border-box;
-                        border: none;
-                        vertical-align: middle;
-                        margin: 0px;
-                        padding: 0px;
-                        width: 500px;
-                        height: 334px;
-                }
-
-                .f-new-view-detail-content {
-                        box-sizing: border-box;
-                        margin: 0px 0px 10px;
-                        padding: 0px;
-                }
-
-                .f-new-view-detail-content span {
-                        box-sizing: border-box;
-                        font-size: 14px;
-                }
-
-                .repair-item {
-                        display: flex;
-                        /* Sử dụng Flexbox */
-                        justify-content: center;
-                        /* Căn giữa theo chiều ngang */
-                        align-items: center;
-                        /* Căn giữa theo chiều dọc */
-                        text-align: center;
-                        /* Căn giữa nội dung bên trong */
-                        margin: 0 auto;
-                        /* Tự động căn giữa phần tử cha */
-                        border: 1px solid #ccc;
-                        /* Border mỏng */
-                        border-radius: 5px;
-                        /* Bo góc cho border */
-                        padding: 10px;
-                        /* Khoảng cách bên trong */
-                }
-
-                .name {
-                        font-size: 18px;
-                        /* Kích thước font lớn hơn cho tên sản phẩm */
-                        font-weight: bold;
-                        /* Đậm tên sản phẩm */
-                }
-
-                .price {
-                        font-size: 16px;
-                        /* Kích thước font lớn hơn cho giá */
-                        color: #b22222;
-                        /* Màu đỏ thẩm */
-                        font-weight: bold;
-                }
-
-                .img img {
-                        width: 75%;
-                        height: 75%;
-                }
         </style>
 </head>
 
 <body>
 
-        <div class="container">
-                <div class="repair row">
+        <!-- navbar -->
+        <div id="navBar">
+        </div>
+
+        <div class="repair-container">
+                <div class="row">
                         <div class="col-sm-9 col-12">
                                 <h1 class="page_title mt-2 mb-2">Sửa chữa</h1>
-                                <h6 class="detail-new-teaser text-justify">
-                                        <strong>Dịch vụ cơ bản sửa chữa, thay thế
+                                <h6 class="detail-new-teaser text-justify"> <strong>Dịch vụ cơ bản sửa chữa, thay thế
                                                 máy ảnh và một
                                                 số lưu ý khi sử dụng và sửa máy ảnh tại PROCAM
-                                        </strong>
-                                </h6>
+                                        </strong> </h6>
+                                <p></p>
                                 <p><span style="color: rgb(64, 64, 64); font-size: 14px;">Chúng
                                                 ta đang sống trong thời đại công nghệ số không ngừng phát triển mạnh mẽ
                                                 với những sản phẩm
@@ -134,18 +55,25 @@
                                                 sản xuất không thể
                                                 tránh
                                                 khỏi, do bảo quản không đúng cách, do tại nạn ngoài ý muốn.</span></p>
-                                <div class="f-news-view-detail">
-                                        <p class="f-news-view-detail-p">
-                                                <span><img alt="" src="img/canon/200D/200D.png"></span>
+                                <div class="f-news-view-detail"
+                                        style="box-sizing: border-box; color: rgb(64, 64, 64); font-size: 13px; line-height: 21px;">
+                                        <p
+                                                style="box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; text-align: center;">
+                                                <span style="box-sizing: border-box; font-size: 14px;"><img alt=""
+                                                                src="img/canon/200D/200D.png"
+                                                                style="box-sizing: border-box; border: none; vertical-align: middle; margin: 0px; padding: 0px;"
+                                                                width="500" height="334"></span>
                                         </p>
-                                        <p class="f-new-view-detail-content"><span>Với đội
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">Với đội
                                                         ngũ kỹ thuật viên được đào tạo
                                                         chuyên sâu, kinh nghiệm lâu năm trong ngành, cùng với tác phong
                                                         làm việc chuyên
                                                         nghiệp, chúng tôi tự hào có thể sửa chữa mọi hư hỏng cho chiếc
                                                         máy ảnh, máy quay phim kỹ
                                                         thuật số thân yêu của bạn.</span></p>
-                                        <p class="f-new-view-detail-content"><span>Đến với
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">Đến với
                                                         trung tâm sửa
                                                         chữa máy
                                                         ảnh, máy quay PROCAM tại địa chỉ 112 Trần Hưng Đạo, Quận 1,
@@ -168,7 +96,8 @@
                                                         </span>lựa
                                                         chọn phương pháp sửa chữa, thay thế phù hợp nhất với mức giá
                                                         tiết kiệm nhất.</span></p>
-                                        <p class="f-new-view-detail-content"><span>PROCAM
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">PROCAM
                                                         cam kết tất cả những linh
                                                         kiện,
                                                         phụ kiện khi thay thế cho khách hàng là những sản phẩm chính
@@ -181,7 +110,8 @@
                                                         vậy, Quý khách hàng sẽ hoàn toàn yên tâm khi gửi máy sửa chữa
                                                         tại PROCAM.</span>
                                         </p>
-                                        <p class="f-new-view-detail-content"><span><span
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;"><span
                                                                 style="box-sizing: border-box; font-weight: bolder;">Điểm
                                                                 khác biệt lớn nhất khi sửa
                                                                 chữa máy ảnh, máy quay phim tại PROCAM là thời gian sửa
@@ -199,7 +129,8 @@
                                                         tiết và trong
                                                         thời
                                                         gian sớm nhất.</span></p>
-                                        <p class="f-new-view-detail-content"><span><span
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;"><span
                                                                 style="box-sizing: border-box; font-weight: bolder;">Giá
                                                                 dịch vụ sửa chữa tại Ngọc
                                                                 Camera đảm bảo tốt nhất thị trường </span>nhờ yếu tố con
@@ -215,7 +146,8 @@
                                                                 khác để sửa và kê thêm chi
                                                                 phí
                                                                 nên giá sửa cao và không được đảm bảo.</span></span></p>
-                                        <p class="f-new-view-detail-content"><span>Tất cả
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">Tất cả
                                                         máy ảnh, máy quay phim... được
                                                         sửa
                                                         chữa tại PROCAM đều được bảo hành từ 3 tháng đến một năm cho nội
@@ -223,14 +155,16 @@
                                                         chữa, với lỗi đã khắc phục, trong thời gian bảo hành lỗi đã sửa
                                                         được xử lí miễn
                                                         phí.</span></p>
-                                        <p class="f-new-view-detail-content"><span> PROCAM
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;"> PROCAM
                                                         áp dụng chế độ hỗ trợ
                                                         cho
                                                         khách hàng mượn máy khác để sử dụng nếu sản phẩm của khách hàng
                                                         mua tại PROCAM bị
                                                         hư
                                                         hỏng đang trong thời gian bảo hành, sửa chữa...</span></p>
-                                        <p class="f-new-view-detail-content"><span><span
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;"><span
                                                                 style="box-sizing: border-box; font-weight: bolder;">PROCAM
                                                                 khẳng định luôn
                                                                 trung
@@ -241,81 +175,100 @@
                                                                 style="box-sizing: border-box; font-weight: bolder;">cung
                                                                 cấp hóa đơn sửa chữa, thay
                                                                 thế</span> (nếu cần).</span></p>
-                                        <p class="f-new-view-detail-content"><span><span
+                                        <p class="f-new-view-detail-content"> </p>
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;"><span
                                                                 style="box-sizing: border-box; font-weight: bolder;">Một
                                                                 số dịch vụ cơ bản sửa chữa,
                                                                 thay thế:</span></span></p>
-                                        <p class="f-new-view-detail-content"><span>- Thay
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Thay
                                                         màn hình máy ảnh các loại</span>
                                         </p>
-                                        <p class="f-new-view-detail-content"><span>- Lau
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Lau
                                                         mốc, rễ tre, vệ sinh các loại ống
                                                         kính máy ảnh</span></p>
-                                        <p class="f-new-view-detail-content"><span>- Khắc
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Khắc
                                                         phục lỗi đứt dây khẩu ống
                                                         kính</span></p>
-                                        <p class="f-new-view-detail-content"><span>- Khắc
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Khắc
                                                         phục lỗi chân cắm thẻ CF của máy
                                                         ảnh
                                                         DSLR</span></p>
-                                        <p class="f-new-view-detail-content"><span>- Khắc
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Khắc
                                                         phục lỗi ống kính, lỗi main, lỗi
                                                         đèn
                                                         flash</span></p>
-                                        <p class="f-new-view-detail-content"><span>- Thay
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Thay
                                                         cáp màn hình máy ảnh các
                                                         loại</span>
                                         </p>
-                                        <p class="f-new-view-detail-content"><span>- Thay
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Thay
                                                         cáp cơ máy quay</span></p>
-                                        <p class="f-new-view-detail-content"><span>- Thay
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Thay
                                                         sensor, gương lật máy ảnh
                                                         DSLR</span></p>
-                                        <p class="f-new-view-detail-content"><span>- Khắc
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Khắc
                                                         phục các lỗi máy ảnh DSLR
                                                         (Nikon,
                                                         Canon...)</span></p>
-                                        <p class="f-new-view-detail-content"><span><span
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;"><span
                                                                 style="box-sizing: border-box; font-weight: bolder;">-
                                                                 Khám bệnh máy ảnh miễn
                                                                 phí</span></span></p>
-                                        <p class="f-new-view-detail-content"><span>- Tư vấn
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Tư vấn
                                                         tự khắc phục lỗi cơ bản, khắc
                                                         phục
                                                         tạm thời các lỗi của máy ảnh DSLR miễn phí</span></p>
-                                        <p class="f-new-view-detail-content"><span>Dịch vụ
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">Dịch vụ
                                                         sửa chữa máy
                                                         ảnh số,
                                                         máy ảnh chuyên nghiệp, uy tín, giá rẻ nhất</span></p>
-                                        <div class="minhhoa"
+                                        <p class="f-new-view-detail-content"> </p>
+                                        <div
                                                 style="box-sizing: border-box; margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; background-color: rgb(255, 252, 252); text-align: center;">
                                                 <span style="box-sizing: border-box; font-size: 14px;"><img alt=""
-                                                                src="img/banner3.jpg"
-                                                                style="box-sizing: border-box; border: none; vertical-align: middle; height: 300px; margin: 0px; padding: 0px; width: 75%;"></span>
+                                                                src="./Sửa chữa_files/16147833222_16145743532_1499161551_5ds_feature_01a1.jpg"
+                                                                style="box-sizing: border-box; border: none; vertical-align: middle; height: 200px; margin: 0px; padding: 0px; width: 524px;"></span>
                                         </div>
                                         <div
                                                 style="box-sizing: border-box; margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; background-color: rgb(255, 252, 252);">
                                                 <p class="f-new-view-detail-content">
                                                 </p>
                                         </div>
-                                        <p class="f-new-view-detail-content"><span><span
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;"><span
                                                                 style="box-sizing: border-box; font-weight: bolder;">Một
                                                                 số lưu ý khi sử dụng
                                                                 và sửa máy ảnh</span></span></p>
-                                        <p class="f-new-view-detail-content"><span>- Máy
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Máy
                                                         ảnh rất ít khi tự hỏng bởi nó ít
                                                         phần
                                                         mềm bên trong, máy ảnh chủ yếu bị hỏng do sử dụng không đúng
                                                         cách và bảo quản không đúng
                                                         cách. </span></p>
-                                        <p class="f-new-view-detail-content"><span>- Khí
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Khí
                                                         hậu nước ta là nhiệt đới nóng ẩm,
                                                         dễ
                                                         bị ẩm mốc nên: cần có tủ bảo quản hoặc thỉnh thoảng mang máy ảnh
                                                         ra phơi nửa tiếng dưới
                                                         trời
                                                         nắng. </span></p>
-                                        <p class="f-new-view-detail-content"><span>- Địa
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Địa
                                                         chỉ sửa chữa (ngoài những trung
                                                         tâm
                                                         bảo hành chính hãng): có rất nhiều địa chỉ nhưng chưa có một
@@ -329,7 +282,8 @@
                                                         nhận máy và chuyển nơi khác sửa chữa để ăn chênh lệch, do đó bạn
                                                         chỉ nên sửa khi tận mắt
                                                         nhìn thấy phòng máy và thợ sửa máy. </span></p>
-                                        <p class="f-new-view-detail-content"><span>- Giá
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Giá
                                                         sửa chữa, thời gian sửa chữa,
                                                         linh
                                                         kiện thay thế mỗi nơi cũng khác nhau. Nếu hỏi giá sửa chữa thì
@@ -345,17 +299,20 @@
                                                         nặng phải thay thế đắt
                                                         tiền
                                                         thì bạn nên cân nhắc việc mua máy mới. </span></p>
-                                        <p class="f-new-view-detail-content"><span>- Khi đi
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Khi đi
                                                         sửa máy, cần yêu cầu cửa hàng
                                                         có
                                                         xác nhận tình trạng máy trước khi sửa chữa, ký tên vào các bộ
                                                         phận linh kiện bên trong
                                                         nếu
                                                         máy bị lỗi phải bổ máy, thay thế linh kiện. </span></p>
-                                        <p class="f-new-view-detail-content"><span>- Có
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Có
                                                         thỏa thuận bảo hành sau sửa
                                                         chữa. </span></p>
-                                        <p class="f-new-view-detail-content"><span>- Nên
+                                        <p class="f-new-view-detail-content"><span
+                                                        style="box-sizing: border-box; font-size: 14px;">- Nên
                                                         đến những địa chỉ sửa chữa, bảo
                                                         hành
                                                         chính hãng vì ở đó có qui trình sửa chữa cụ thể, chuyên
@@ -363,7 +320,7 @@
                                         <div
                                                 style="box-sizing: border-box; margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; background-color: rgb(255, 252, 252);">
                                                 <p class="f-new-view-detail-content">
-                                                        <span><span
+                                                        <span style="box-sizing: border-box; font-size: 14px;"><span
                                                                         style="box-sizing: border-box; font-family: tahoma, geneva, sans-serif;"><span
                                                                                 style="box-sizing: border-box; font-weight: bolder;">Trung
                                                                                 Tâm Bảo Hành -
@@ -377,19 +334,21 @@
                                                                 <div
                                                                         style="box-sizing: border-box; margin: 0px; padding: 0px;">
                                                                         <p class="f-new-view-detail-content">
-                                                                                <span><span
+                                                                                <span
+                                                                                        style="box-sizing: border-box; font-size: 14px;"><span
                                                                                                 style="box-sizing: border-box; color: rgb(0, 0, 0);"><span
                                                                                                         style="box-sizing: border-box; font-weight: bolder;"><img
                                                                                                                 alt=""
                                                                                                                 src="img/ProCam.png"
-                                                                                                                style="box-sizing: border-box; border: none; vertical-align: middle; float: left; margin: 30px 15px; padding: 0px;">
+                                                                                                                style="box-sizing: border-box; border: none; vertical-align: middle; float: left; width: 170px;height: 115px; margin: 30px 15px; padding: 0px; ">
                                                                                                         PROCAM -
                                                                                                         Prfessional
                                                                                                         Camera &amp;
                                                                                                         Accessories</span></span></span>
                                                                         </p>
                                                                         <p class="f-new-view-detail-content">
-                                                                                <span><span
+                                                                                <span
+                                                                                        style="box-sizing: border-box; font-size: 14px;"><span
                                                                                                 style="box-sizing: border-box; color: rgb(0, 0, 0);"><span
                                                                                                         style="box-sizing: border-box; font-weight: bolder;">
                                                                                                 </span>Công Ty TNHH
@@ -398,7 +357,8 @@
                                                                                         </span></span>
                                                                         </p>
                                                                         <p class="f-new-view-detail-content">
-                                                                                <span><span
+                                                                                <span
+                                                                                        style="box-sizing: border-box; font-size: 14px;"><span
                                                                                                 style="box-sizing: border-box; color: rgb(0, 0, 0);">
                                                                                                 88 Điện Biên Phủ, Phường
                                                                                                 Đa Kao, Quận 1, Thành
@@ -406,7 +366,8 @@
                                                                                                 Minh</span></span>
                                                                         </p>
                                                                         <p class="f-new-view-detail-content">
-                                                                                <span><span
+                                                                                <span
+                                                                                        style="box-sizing: border-box; font-size: 14px;"><span
                                                                                                 style="box-sizing: border-box; color: rgb(0, 0, 0);">
                                                                                                 Điện
                                                                                                 thoại<span
@@ -418,7 +379,8 @@
                                                                                                         581</span></span></span>
                                                                         </p>
                                                                         <p class="f-new-view-detail-content">
-                                                                                <span><span
+                                                                                <span
+                                                                                        style="box-sizing: border-box; font-size: 14px;"><span
                                                                                                 style="box-sizing: border-box; color: rgb(0, 0, 0);">
                                                                                                 <span
                                                                                                         style="box-sizing: border-box; color: rgb(64, 64, 64);">Phòng
@@ -428,11 +390,12 @@
                                                                                                         855</span></span></span>
                                                                         </p>
                                                                         <p class="f-new-view-detail-content">
-                                                                                <span><span
+                                                                                <span
+                                                                                        style="box-sizing: border-box; font-size: 14px;"><span
                                                                                                 style="box-sizing: border-box; color: rgb(0, 0, 0);">
-                                                                                                Email: contact@procam.vn
+                                                                                                Email: kqtt@gmail.com
                                                                                                 - Website:
-                                                                                                www.procam.vn</span></span>
+                                                                                                www.kqtcamera.vn</span></span>
                                                                         </p>
                                                                 </div>
                                                         </div>
@@ -444,70 +407,52 @@
                         <div class="col-sm-3 col-12">
                                 <div class="block-product-item">
                                         <h3 class="page_title text-center">Sản phẩm nổi bật</h3>
-                                        <div class="repair-item"> <a
-                                                        href="https://www.ngoccamera.vn/san-pham/dji-osmo-pocket-3-id4690">
-                                                        <div class="img"> <img
-                                                                        data-src="/data/products/small_zyr1723170157.jpg"
-                                                                        src="img/canon/3000D-Kit/3000D-kit.png"
-                                                                        alt="Canon 3000D" class="img-responsive ">
+                                        <div class="item"> <a href="product.html">
+                                                        <div class="img"> <img src="img/canon/3000D-Kit/3000D-kit.png"
+                                                                        alt="" class="img-responsive ">
                                                         </div>
                                                         <div class="content">
-                                                                <p class="name">Canon 3000D</p>
+                                                                <p class="name">DJI Osmo Pocket 3</p>
                                                                 <p class="price"> <span>Giá từ: </span>12.990.000đ </p>
                                                         </div>
                                                 </a></div>
-                                        <div class="repair-item"> <a
-                                                        href="https://www.ngoccamera.vn/san-pham/canon-eos-r1-id4689">
-                                                        <div class="img"> <img
-                                                                        data-src="/data/products/small_qvw1723021881.png"
-                                                                        src="img/canon/200D/200D.png" alt="Canon 200D"
-                                                                        class="img-responsive ">
+                                        <div class="item"> <a href="product.html">
+                                                        <div class="img"> <img src="img/canon/3000D-Kit/3000D-kit.png"
+                                                                        alt="Canon EOS R1" class="img-responsive ">
                                                         </div>
                                                         <div class="content">
-                                                                <p class="name">Canon 200D</p>
+                                                                <p class="name">Canon EOS R1</p>
                                                                 <p class="price"> <span>Giá từ: </span>169.990.000đ </p>
                                                         </div>
                                                 </a></div>
-                                        <div class="repair-item"> <a
-                                                        href="https://www.ngoccamera.vn/san-pham/ricoh-g900se-id4686">
-                                                        <div class="img"> <img
-                                                                        data-src="/data/products/small_lrl1723015659.jpg"
-                                                                        src="img/canon/1500D-Kit/1500D-kit.png"
-                                                                        alt="Canon 1500D" class="img-responsive ">
+                                        <div class="item"> <a href="product.html">
+                                                        <div class="img"> <img src="img/canon/R50/R50.png"
+                                                                        alt="Ricoh G900SE" class="img-responsive ">
                                                         </div>
                                                         <div class="content">
-                                                                <p class="name">Canon 1500D</p>
+                                                                <p class="name">Ricoh G900SE</p>
                                                                 <p class="price"> <span>Giá từ: </span>44.900.000đ </p>
                                                         </div>
                                                 </a></div>
-                                        <div class="repair-item"> <a
-                                                        href="https://www.ngoccamera.vn/san-pham/ricoh-wg-90-id4684">
-                                                        <div class="img"> <img
-                                                                        data-src="/data/products/small_byi1723011728.jpg"
-                                                                        src="img/canon/G7-X-mark/G7-X-mark.png"
-                                                                        alt="G7-X-mark" class="img-responsive ">
+                                        <div class="item"> <a href="product.html">
+                                                        <div class="img"> <img src="img/canon/R50/R50.png"
+                                                                        alt="Ricoh WG-90" class="img-responsive ">
                                                         </div>
                                                         <div class="content">
-                                                                <p class="name">G7-X-Mark</p>
+                                                                <p class="name">Ricoh WG-90</p>
                                                                 <p class="price"> <span>Giá từ: </span>8.890.000đ </p>
                                                         </div>
                                                 </a></div>
-                                        <div class="repair-item"> <a
-                                                        href="https://www.ngoccamera.vn/san-pham/pentax-17-id4683">
-                                                        <div class="img"> <img
-                                                                        data-src="/data/products/small_oge1723010982.jpg"
-                                                                        src="./Sửa chữa_files/small_oge1723010982.jpg"
+                                        <div class="item"> <a href="product.html">
+                                                        <div class="img"> <img src="img/canon/R50/R50.png"
                                                                         alt="Pentax 17" class="img-responsive "> </div>
                                                         <div class="content">
                                                                 <p class="name">Pentax 17</p>
                                                                 <p class="price"> <span>Giá từ: </span>14.490.000đ </p>
                                                         </div>
                                                 </a></div>
-                                        <div class="repair-item"> <a
-                                                        href="https://www.procam.vn/san-pham/canon-eos-r5-mark-ii-id4682">
-                                                        <div class="img"> <img
-                                                                        data-src="/data/products/small_kdj1722322014.jpg"
-                                                                        src="./Sửa chữa_files/small_kdj1722322014.jpg"
+                                        <div class="item"> <a href="product.html">
+                                                        <div class="img"> <img src="img/canon/R50/R50.png"
                                                                         alt="Canon EOS R5 Mark II"
                                                                         class="img-responsive "> </div>
                                                         <div class="content">
@@ -518,8 +463,18 @@
                                 </div>
                         </div>
                 </div>
-</body>
 
+
+                <!-- footer  -->
+                <div class="footer" id="footer">
+                </div>
+
+                <script src="js/navbar.js" type="text/javascript"></script>
+                <script src="js/product-slider.js" type="text/javascript"></script>
+                <script src="js/product-cart.js" type="text/javascript"></script>
+                <script src="js/banner.js" type="text/javascript"></script>
+                <script src="js/autocomplete.js" type="text/javascript"></script>
+                <script src="js/footer.js" type="text/javascript"></script>
 </body>
 
 </html>

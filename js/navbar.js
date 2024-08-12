@@ -16,7 +16,7 @@ document.getElementById("navBar").innerHTML = `
         <div class="dropdown">
           <a href="category.html"><button class="subBtn">Sản phẩm</button></a>
           <div class="dropdown-content">
-            <a href="#" class="brand-link">Canon</a>
+            <a href="#" class="brand-link" >Canon</a>
             <div class="sub-dropdown">
               <li>
                 <p>Phân loại</p>
@@ -198,7 +198,7 @@ document.getElementById("navBar").innerHTML = `
           </div>
         </div>
         <div class="dropdown">
-          <button class="subBtn">Sửa chữa</button>
+          <a href="repair.html"><button class="subBtn">Sửa chữa</button></a>
         </div>
         <div class="dropdown">
           <button class="subBtn">Khuyến mãi</button>
@@ -230,9 +230,7 @@ document.getElementById("navBar").innerHTML = `
       </div>
     </div>
 
-
-
-
+    
     <div class="sideBar hideOnNavbar">
       <div class="logo">
         <a href="Home.html">
