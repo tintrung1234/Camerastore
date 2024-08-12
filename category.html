@@ -27,7 +27,7 @@
                 <div class="cartegory-left">
                     <ul>
                         <li class="cartegory-left-li">
-                            <a href="#" onclick="updateBrand('Sản phẩm')">Sản phẩm</a>
+                            <a href="#" onclick="showAllProducts('products')">Sản phẩm</a>
                             <ul>
                                 <li><a href="#" onclick="updateBrand('Canon')">Canon</a></li>
                                 <li><a href="#" onclick="updateBrand('Nikon')">Nikon</a></li>
@@ -36,17 +36,16 @@
                                 <li><a href="#" onclick="updateBrand('Panasonic')">Panasonic</a></li>
                             </ul>
                         </li>
-                        <li class="cartegory-left-li"><a href="#" onclick="updateBrand('Phụ kiện')">Phụ kiện</a>
+                        <li class="cartegory-left-li"><a href="#" onclick="showAllProducts('accessories')">Phụ kiện</a>
 
                             <ul>
-                                <li><a href="#" onclick="updateBrand('Ống Kính')">Ống Kính</a></li>
-                                <li><a href="#" onclick="updateBrand('Bộ Lọc (Filter)')">Bộ Lọc (Filter)</a></li>
-                                <li><a href="#" onclick="updateBrand('Phụ Kiện Ánh Sáng')">Phụ Kiện Ánh Sáng</a></li>
-                                <li><a href="#" onclick="updateBrand('Bộ Giá Đỡ và Chân Máy')">Bộ Giá Đỡ và Chân Máy</a>
+                                <li><a href="#" onclick="updateBrand('ongkinh')">Ống Kính</a></li>
+                                <li><a href="#" onclick="updateBrand('boloc')">Bộ Lọc (Filter)</a></li>
+                                <li><a href="#" onclick="updateBrand('phukienanhsang')">Phụ Kiện Ánh Sáng</a></li>
+                                <li><a href="#" onclick="updateBrand('giado')">Bộ Giá Đỡ và Chân Máy</a>
                                 </li>
-                                <li><a href="#" onclick="updateBrand('Lưu Trữ')">Lưu Trữ</a></li>
-                                <li><a href="#" onclick="updateBrand('Khác')">Khác</a></li>
-
+                                <li><a href="#" onclick="updateBrand('luutru')">Lưu Trữ</a></li>
+                                <li><a href="#" onclick="updateBrand('khac')">Khác</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -54,7 +53,7 @@
                 <div class="cartegory-right row">
                     <div class="top-item">
                         <div class="cartegory-right-top-item">
-                            <p id="brand">Canon</p>
+                            <p id="brand"></p>
                         </div>
                         <div class="cartegory-right-top-item">
                             <button id="filter-toggle"><span>Bộ Lọc</span><i>&#11206;</i></button>
@@ -88,51 +87,14 @@
                         </div>
                     </div>
                     <div class="cartegory-right-content row" id="cartegory-right-content">
-                        <div class="cartegory-right-content-item">
-                            <a>
-                                <img src="/img/canon/200D/200D.png" alt="Canon 200D">
-                                <h1>Canon 200D</h1>
-                            </a>
-                            <p>1.000.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cartegory-right-content-item">
-                            <a><img src="/img/canon/1500D-Kit/1500D-kit.png" alt="Canon 1500D">
-                                <h1>Canon 1500D</h1>
-                            </a>
-                            <p>1.000.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cartegory-right-content-item">
-                            <a>
-                                <img src="/img/canon/200D/200D.png" alt="Canon 200D">
-                                <h1>Canon 200D</h1>
-                            </a>
-                            <p>1.000.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cartegory-right-content-item">
-                            <a><img src="/img/canon/1500D-Kit/1500D-kit.png" alt="Canon 1500D">
-                                <h1>Canon 1500D</h1>
-                            </a>
-                            <p>1.000.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cartegory-right-content-item">
-                            <a>
-                                <img src="/img/canon/200D/200D.png" alt="Canon 200D">
-                                <h1>Canon 200D</h1>
-                            </a>
-                            <p>1.000.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cartegory-right-content-item">
-                            <a><img src="/img/canon/1500D-Kit/1500D-kit.png" alt="Canon 1500D">
-                                <h1>Canon 1500D</h1>
-                            </a>
-                            <p>1.000.000<sup>đ</sup></p>
-                        </div>
+
+
 
                     </div>
 
                     <div class="cartegory-right-bottom">
                         <div class="category-right-bottom-item">
-                            <p><span>&#171;</span> 1 2 3 4 5 <span>&#187;</span> Trang Cuối</p>
+                            <!-- <p><span>&#171;</span> 1 2 3 4 5 <span>&#187;</span> Trang Cuối</p> -->
                         </div>
                     </div>
                 </div>
