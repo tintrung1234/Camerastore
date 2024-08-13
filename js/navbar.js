@@ -1,11 +1,11 @@
 document.getElementById("navBar").innerHTML = `
-<div class="container aligncenter">
+<div class="container ">
+<div class="logo">
+  <a href="home.html">
+    <img src="./img/ProCam.png" alt="" />
+  </a>
+</div>
       <div class="blockNav1 hideOnMobile">
-        <div class="logo">
-          <a href="home.html">
-            <img src="./img/ProCam.png" alt="" />
-          </a>
-        </div>
         <div class="dropdown">
         <a href="home.html">
           <button class="subBtn">
@@ -168,7 +168,7 @@ document.getElementById("navBar").innerHTML = `
           <button class="subBtn">Bảo hành</button>
         </div>
         </div>
-        <button onclick=showSidebar() class="showOnMobile hideOnNavbar "><img class='menuImg' src='./img/menu.png'></button>
+        <button onclick=showSidebar() class="showOnMobile hideOnNavbar ml-mobile"><img class='menuImg' src='./img/menu.png'></button>
       <div class="blockNav2 hideOnMobile widthOnMobile">
         <div class="search_box hideOn">
           <div class="row-search-box">

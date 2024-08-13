@@ -4,109 +4,107 @@ const productsDetail = [
     images: [
       "./img/canon/200D/200D.png",
       "./img/canon/200D/200D-2.png",
-      "./img/canon/200D/200D-3.png"
+      "./img/canon/200D/200D-3.png",
     ],
     type: "canon",
     title: "Canon 200D",
-    price: 40000
+    price: 40000,
   },
   {
     id: 2,
     images: [
       "./img/canon/1500D-kit/1500D-kit.png",
       "./img/canon/1500D-kit/1500D-kit-2.png",
-      "./img/canon/1500D-kit/1500D-kit-3.png"
+      "./img/canon/1500D-kit/1500D-kit-3.png",
     ],
     type: "canon",
     title: "Canon 1500D-kit",
-    price: 43000
+    price: 43000,
   },
   {
     id: 3,
     images: [
       "./img/canon/3000D-kit/3000D-kit.png",
       "./img/canon/3000D-kit/3000D-kit-2.png",
-      "./img/canon/3000D-kit/3000D-kit-3.png"
+      "./img/canon/3000D-kit/3000D-kit-3.png",
     ],
     type: "canon",
     title: "Canon 3000D-kit",
-    price: 16000
+    price: 16000,
   },
   {
     id: 4,
     images: [
       "./img/canon/G7-X-mark/G7-X-mark.png",
       "./img/canon/G7-X-mark/G7-X-mark-2.png",
-      "./img/canon/G7-X-mark/G7-X-mark-3.png"
+      "./img/canon/G7-X-mark/G7-X-mark-3.png",
     ],
     type: "canon",
     title: "Canon G7-X-mark",
-    price: 23100
+    price: 23100,
   },
   {
     id: 5,
-    images: [
-      "./img/canon/phukien/speedlite.png"
-    ],
+    images: ["./img/canon/phukien/speedlite.png"],
     type: "phu kien",
     title: "Đèn speedlite",
-    price: 5400
+    price: 5400,
   },
   {
     id: 6,
     images: [
       "./img/canon/R7/R7.png",
       "./img/canon/R7/R7-2.png",
-      "./img/canon/R7/R7-3.png"
+      "./img/canon/R7/R7-3.png",
     ],
     type: "canon",
     title: "Canon R7",
-    price: 54322
+    price: 54322,
   },
   {
     id: 7,
     images: [
       "./img/canon/R8/R8.png",
       "./img/canon/R8/R8-2.png",
-      "./img/canon/R8/R8-3.png"
+      "./img/canon/R8/R8-3.png",
     ],
     type: "canon",
     title: "Canon R8",
-    price: 54323
+    price: 54323,
   },
   {
     id: 8,
     images: [
       "./img/canon/R50/R50.png",
       "./img/canon/R50/R50-2.png",
-      "./img/canon/R50/R50-3.png"
+      "./img/canon/R50/R50-3.png",
     ],
     type: "canon",
     title: "Canon R50",
-    price: 32554
+    price: 32554,
   },
   {
     id: 9,
     images: [
       "./img/canon/R100/R100.png",
       "./img/canon/R100/R100-2.png",
-      "./img/canon/R100/R100-3.png"
+      "./img/canon/R100/R100-3.png",
     ],
     type: "canon",
     title: "Canon R100",
-    price: 4325220
+    price: 4325220,
   },
   {
     id: 10,
     images: [
       "./img/canon/SX740-HS/SX740-HS.png",
       "./img/canon/SX740-HS/SX740-HS-2.png",
-      "./img/canon/SX740-HS/SX740-HS-3.png"
+      "./img/canon/SX740-HS/SX740-HS-3.png",
     ],
     type: "canon",
     title: "Canon SX740-HS",
-    price: 540030
-  }
+    price: 540030,
+  },
 ];
 
 // Function to get query parameter by name
@@ -116,16 +114,17 @@ function getQueryParam(param) {
 }
 
 // Get the product ID from the URL
-const productId = getQueryParam('id');
+const productId = getQueryParam("id");
 
 // Find the product by ID
-const product_detail = productsDetail.find(p => p.id == productId);
+const product_detail = productsDetail.find((p) => p.id == productId);
 console.log(productId);
 
 // Display the product details
 if (product_detail) {
-  document.getElementsByClassName("productDetail")[0].innerHTML =
-    `<div class="container">
+  document.getElementsByClassName(
+    "productDetail"
+  )[0].innerHTML = `<div class="container">
       <div class="product-top row">
         <p>Trang chủ</p>
         <span>&#10230;</span>
@@ -139,12 +138,20 @@ if (product_detail) {
       <div class="product-content rowFlexTop">
         <div class="product-content-left rowFlexTop">
           <div class="product-content-left-big-img">
-            <img src="${product_detail.images[0]}" alt="${product_detail.title}">
+            <img src="${product_detail.images[0]}" alt="${
+    product_detail.title
+  }">
           </div>
           <div class="product-content-left-small-img">
-            <img src="${product_detail.images[0]}" alt="${product_detail.title} Image 2">
-            <img src="${product_detail.images[1]}" alt="${product_detail.title} Image 3">
-            <img src="${product_detail.images[2]}" alt="${product_detail.title} Image 4">
+            <img src="${product_detail.images[0]}" alt="${
+    product_detail.title
+  } Image 2">
+            <img src="${product_detail.images[1]}" alt="${
+    product_detail.title
+  } Image 3">
+            <img src="${product_detail.images[2]}" alt="${
+    product_detail.title
+  } Image 4">
           </div>
         </div>
 
@@ -274,10 +281,11 @@ if (product_detail) {
             </div>
           </div>
         </div>
-      </div>`
-    ;
+      </div>`;
 } else {
-  document.getElementById("productDetail").innerHTML = `<p>Product not found.</p>`;
+  document.getElementsByClassName(
+    "productDetail"
+  ).innerHTML = `<p>Product not found.</p>`;
 }
 
 function addToCart(productId) {
