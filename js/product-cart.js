@@ -207,7 +207,7 @@ var cartIcon = './img/carticon.png';
 
 const canonProducts = product.filter(item => item.type === 'canon');
 const nikonProducts = product.filter(item => item.type === 'nikon');
-// const sonyProducts = product.filter(item => item.type === 'sony');
+const sonyProducts = product.filter(item => item.type === 'sony');
 
 
 // Function to display products in a specific group
@@ -235,7 +235,7 @@ function openProductDetail(id) {
 // Display Canon and Nikon products
 displayProducts(canonProducts, "canon-product-group");
 displayProducts(nikonProducts, "nikon-product-group");
-// displayProducts(sonyProducts, "sony-product-group");
+displayProducts(sonyProducts, "sony-product-group");
 
 
 document.getElementById("buyBox").innerHTML = categories
