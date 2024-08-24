@@ -206,7 +206,7 @@ const products = [
 ];
 
 // Function to display products
-function displayProducts(category) {
+function displayProducts() {
   const container = document.getElementById("cartegory-right-content");
 
   products.forEach((product) => {
@@ -224,14 +224,9 @@ function displayProducts(category) {
 
     container.appendChild(productDiv);
   });
+}
 
-  //   const productItems = document.querySelectorAll(
-  //     '.cartegory-right-content-item[id="Nikon"], .cartegory-right-content-item[id="Canon"], .cartegory-right-content-item[id="Fujifilm"], .cartegory-right-content-item[id="Panasonic"], .cartegory-right-content-item[id="Sony"],.cartegory-right-content-item[id="ongkinh"], .cartegory-right-content-item[id="boloc"], .cartegory-right-content-item[id="phukienanhsang"], .cartegory-right-content-item[id="giado"], .cartegory-right-content-item[id="luutru"], .cartegory-right-content-item[id="khac"]'
-  //   );
-  //   productItems.forEach((product) => {
-  //     product.style.display = "block"; // Show all products
-  //   });
-
+function showAllProducts(category) {
   document.getElementById("brand").innerText =
     category === "products" ? "Sản phẩm" : "Phụ kiện";
 
@@ -260,33 +255,5 @@ function displayProducts(category) {
   }
 }
 
-// function showAllProducts(category) {
-//   document.getElementById("brand").innerText =
-//     category === "products" ? "Sản phẩm" : "Phụ kiện";
-
-//   // Hide all products first
-//   const allProducts = document.querySelectorAll(
-//     ".cartegory-right-content-item"
-//   );
-//   allProducts.forEach((product) => {
-//     product.style.display = "none"; // Hide all products
-//   });
-
-//   if (category === "products") {
-//     const productItems = document.querySelectorAll(
-//       '.cartegory-right-content-item[id="Nikon"], .cartegory-right-content-item[id="Canon"], .cartegory-right-content-item[id="Fujifilm"], .cartegory-right-content-item[id="Panasonic"], .cartegory-right-content-item[id="Sony"]'
-//     );
-//     productItems.forEach((product) => {
-//       product.style.display = "block"; // Show all products
-//     });
-//   } else if (category === "accessories") {
-//     const accessoryItems = document.querySelectorAll(
-//       '.cartegory-right-content-item[id="ongkinh"], .cartegory-right-content-item[id="boloc"], .cartegory-right-content-item[id="phukienanhsang"], .cartegory-right-content-item[id="giado"], .cartegory-right-content-item[id="luutru"], .cartegory-right-content-item[id="khac"]'
-//     );
-//     accessoryItems.forEach((product) => {
-//       product.style.display = "block"; // Show all accessories
-//     });
-//   }
-// }
 // Call the function to display products
-// displayProducts();
+displayProducts();

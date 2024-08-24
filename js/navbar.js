@@ -14,7 +14,7 @@ document.getElementById("navBar").innerHTML = `
         </a>
         </div>
         <div class="dropdown">
-          <a href="category.html" onload="displayProducts('products')"><button class="subBtn" >Sản phẩm</button></a>
+          <a href="category.html"><button class="subBtn">Sản phẩm</button></a>
           <div class="dropdown-content">
             <a href="#" >Canon</a>
             <div class="sub-dropdown">
@@ -119,7 +119,7 @@ document.getElementById("navBar").innerHTML = `
           </div>
         </div>
         <div class="dropdown">
-          <a href="category.html" onclick="displayProducts('accessories')"><button class="subBtn">Phụ kiện</button></a>
+          <a href="category.html"><button class="subBtn">Phụ kiện</button></a>
           <div class="dropdown-content">
 
             <a href="#" >Ống Kính</a>
@@ -180,7 +180,7 @@ document.getElementById("navBar").innerHTML = `
           <div class="result-box"></div>
         </div>
 
-        <div id="login" class='hideOnMobile'>
+        <div class="login-icon" class='hideOnMobile'>
           <a href="login.html">
             <img class='hideOnMobile' width=30px src="img/signin-icon.png" alt="" />
           </a>

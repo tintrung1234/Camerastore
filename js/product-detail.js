@@ -207,10 +207,9 @@ if (product_detail) {
               <p>Bộ vệ sinh K&F Concept 3 in 1</p>
             </div>
           </div>
-
-
+          
           <div class="product-content-right-product-button">
-            <button>
+            <button onclick='displayBuyBox(${product_detail.id})'>
               <img src="img/carticon.png" alt="Giỏ hàng">
               <p>MUA HÀNG</p>
             </button>
@@ -281,6 +280,7 @@ if (product_detail) {
             </div>
           </div>
         </div>
+        
       </div>`;
 } else {
   document.getElementsByClassName(
@@ -291,4 +291,60 @@ if (product_detail) {
 function addToCart(productId) {
   // Add to cart functionality here
   alert(`Product ${productId} added to cart!`);
+}
+
+//Xu ly chi tiet xem them
+const des = document.querySelector(".describe");
+const info = document.querySelector(".info");
+const bigImg = document.querySelector(".product-content-left-big-img img");
+const smallImg = document.querySelectorAll(
+  ".product-content-left-small-img img"
+);
+const butTon = document.querySelector(".product-content-right-bottom-top");
+const bigContent = document.querySelector(
+  ".product-content-right-bottom-content-big"
+);
+
+if (bigContent) {
+  bigContent.style.display = "none";
+}
+
+smallImg.forEach(function (imgItem) {
+  imgItem.addEventListener("click", function () {
+    bigImg.src = imgItem.src;
+  });
+});
+
+if (des) {
+  des.addEventListener("click", function () {
+    document.querySelector(
+      ".product-content-right-bottom-content-describe"
+    ).style.display = "block";
+    document.querySelector(
+      ".product-content-right-bottom-content-info"
+    ).style.display = "none";
+  });
+}
+
+if (info) {
+  info.addEventListener("click", function () {
+    document.querySelector(
+      ".product-content-right-bottom-content-describe"
+    ).style.display = "none";
+    document.querySelector(
+      ".product-content-right-bottom-content-info"
+    ).style.display = "block";
+  });
+}
+
+if (butTon) {
+  butTon.addEventListener("click", function () {
+    bigContent.classList.toggle("activeB");
+
+    if (bigContent.classList.contains("activeB")) {
+      bigContent.style.display = "block";
+    } else {
+      bigContent.style.display = "none";
+    }
+  });
 }
