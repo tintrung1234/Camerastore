@@ -1,13 +1,13 @@
 document.getElementById("navBar").innerHTML = `
 <div class="container ">
 <div class="logo">
-  <a href="home.html">
+  <a href="Home.php">
     <img src="./img/ProCam.png" alt="" />
   </a>
 </div>
       <div class="blockNav1 hideOnMobile">
         <div class="dropdown">
-        <a href="home.html">
+        <a href="Home.php">
           <button class="subBtn">
             Trang chủ
           </button>
@@ -191,7 +191,7 @@ document.getElementById("navBar").innerHTML = `
     
     <div class="sideBar hideOnNavbar">
       <div class="logo">
-        <a href="Home.html">
+        <a href="Home.php">
           <img src="./img/ProCam.png" alt="" />
         </a>
         <button onclick=hideSidebar() class="closeBtn showOnMobile"><img class='menuImg' src='./img/close.png'></button>
@@ -199,7 +199,7 @@ document.getElementById("navBar").innerHTML = `
       <div class="blockNav1 hideOnMobile">
 
         <div class="dropdown">
-        <a href="Home.html">
+        <a href="Home.php">
           <button class="subBtn">
             Trang chủ
           </button>

@@ -1,6 +1,7 @@
 <?php
 include("./php/db.php");
 include("./php/products.php");
+include("./php/db-type-product.php");
 
 ?>
 
@@ -94,7 +95,75 @@ include("./php/products.php");
     <div class="content">
       <div class="product-group" id="canon-product-group">
         <?php
-        foreach ($products as $item) {
+        foreach ($canonProducts as $item) {
+          $id = $item['id'];
+          $images = json_decode($item['images'], true); // Decode JSON string
+          $primaryImage = $images[0]; // Use the first image
+          $title = htmlspecialchars($item['title'], ENT_QUOTES);
+          $price = htmlspecialchars($item['price'], ENT_QUOTES);
+          echo "<div id='product' class=''>
+                            <a class='productLink' onclick='openProductDetail($id)'>
+                                <img class='productImg' src='$primaryImage' alt=''>
+                            </a>
+                            <label class='productName' for=''>$title</label>
+                            <p class='productPrice'>Giá từ <strong>$price</strong></p>
+                            <button class='addCart' onclick='displayBuyBox($id)'>
+                                <img src='img/carticon.png' alt='cartIcon'> 
+                                <p class='muahang'> Mua hàng</p>
+                            </button>
+                          </div>";
+        }
+        ?>
+      </div>
+      <button class="ctrl-btn pro-prev">
+        <img src="img/left-arrow.png" alt="" />
+      </button>
+      <button class="ctrl-btn pro-next">
+        <img src="img/right-arrow.png" alt="" />
+      </button>
+    </div>
+  </div>
+
+  <div class="nikon-item">
+    <h2 class="titleNikon">Nikon Camera</h2>
+    <div class="content">
+      <div class="product-group" id="nikon-product-group">
+        <?php
+        foreach ($nikonProducts as $item) {
+          $id = $item['id'];
+          $images = json_decode($item['images'], true); // Decode JSON string
+          $primaryImage = $images[0]; // Use the first image
+          $title = htmlspecialchars($item['title'], ENT_QUOTES);
+          $price = htmlspecialchars($item['price'], ENT_QUOTES);
+          echo "<div id='product' class=''>
+                            <a class='productLink' onclick='openProductDetail($id)'>
+                                <img class='productImg' src='$primaryImage' alt=''>
+                            </a>
+                            <label class='productName' for=''>$title</label>
+                            <p class='productPrice'>Giá từ <strong>$price</strong></p>
+                            <button class='addCart' onclick='displayBuyBox($id)'>
+                                <img src='img/carticon.png' alt='cartIcon'> 
+                                <p class='muahang'> Mua hàng</p>
+                            </button>
+                          </div>";
+        }
+        ?>
+      </div>
+      <button class="ctrl-btn pro-prev">
+        <img src="img/left-arrow.png" alt="" />
+      </button>
+      <button class="ctrl-btn pro-next">
+        <img src="img/right-arrow.png" alt="" />
+      </button>
+    </div>
+  </div>
+
+  <div class="sony-item">
+    <h2 class="titleSony">Sony Camera</h2>
+    <div class="content">
+      <div class="product-group" id="sony-product-group">
+        <?php
+        foreach ($sonyProducts as $item) {
           $id = $item['id'];
           $images = json_decode($item['images'], true); // Decode JSON string
           $primaryImage = $images[0]; // Use the first image
@@ -124,49 +193,46 @@ include("./php/products.php");
   </div>
 
   <!-- Repeat for Nikon and Sony Cameras as needed -->
-
   <div id="buyBox">
     <?php foreach ($products as $product): ?>
-      <?php $image = json_decode($product['images'])[0]; ?>
-      <div class="notiBox-<?php echo $product['id']; ?>" id="notiBox" style="display: none;">
-        <div class="backgroundNoti"></div>
-        <div class="littleBox">
-          <button class="exitBtn" id="exitBtn" onclick="this.parentElement.parentElement.style.display='none'">X</button>
-          <div class="firstInfo">
-            <div class="imgAndInfo">
-              <img src="<?php echo $image; ?>" alt="" class="imgInLittleBox">
-              <div class="productInfo">
-                <h2><?php echo $product['title']; ?></h2>
-                <p>VND <?php echo $product['price']; ?></p>
+      <form method="POST" action="./php/products.php">
+        <?php $image = json_decode($product['images'])[0]; ?>
+        <div class="notiBox-<?php echo $product['id']; ?>" id="notiBox" style="display: none;">
+          <div class="backgroundNoti"></div>
+          <div class="littleBox">
+            <button class="exitBtn" id="exitBtn" type="button" onclick="this.parentElement.parentElement.style.display='none'">X</button>
+            <div class="firstInfo">
+              <div class="imgAndInfo">
+                <img src="<?php echo $image; ?>" alt="" class="imgInLittleBox">
+                <div class="productInfo">
+                  <h2><?php echo $product['title']; ?></h2>
+                  <p>VND <?php echo $product['price']; ?></p>
+                </div>
+              </div>
+              <div class="amountproduct">
+                <button type="button" class="addToCart" data-id="<?php echo $product['id']; ?>">+</button>
+                <input name="quantity" id="userCount-<?php echo $product['id']; ?>" class="amountProduct" value="0">
+                <button type="button" class="delToCart" data-id="<?php echo $product['id']; ?>">-</button>
+                <input type="hidden" name="quantity-<?php echo $product['id']; ?>" id="inputQuantity-<?php echo $product['id']; ?>" value="0">
               </div>
             </div>
-            <div class="amountproduct">
-              <button type="button" class="addToCart" data-id="<?php echo $product['id']; ?>">+</button>
-              <p id="userCount-<?php echo $product['id']; ?>">0</p>
-              <button type="button" class="delToCart" data-id="<?php echo $product['id']; ?>">-</button>
-              <input type="hidden" name="quantity-<?php echo $product['id']; ?>" id="inputQuantity-<?php echo $product['id']; ?>" value="0">
-            </div>
-          </div>
 
-          <div class="eventGift">
-            <h2><img class="giftIcon" src="img/giftbox.png" alt="">Chương trình khuyến mãi</h2>
-            <p class="eventDes">Tặng thẻ nhớ 64GB</p>
-          </div>
-          <div class="lastInfo">
-            <div class="countBox">
-              <h2 class="priceTemp">Tạm tính: <strong class='displayPrice'>0</strong></h2>
+            <div class="eventGift">
+              <h2><img class="giftIcon" src="img/giftbox.png" alt="">Chương trình khuyến mãi</h2>
+              <p class="eventDes">Tặng thẻ nhớ 64GB</p>
             </div>
-            <!-- Individual form for each product -->
-            <form method="POST" action="./php/products.php">
+            <div class="lastInfo">
+              <div class="countBox">
+                <h2 class="priceTemp">Tạm tính: <strong class='displayPrice'>0</strong></h2>
+              </div>
               <input type="hidden" name="productId" value="<?php echo $product['id']; ?>">
               <input type="hidden" name="nameproduct" value="<?php echo $product['title']; ?>">
-              <input type="hidden" name="quantity" id="inputQuantity-<?php echo $product['id']; ?>" value="0">
               <input type="hidden" name="price" value="<?php echo $product['price']; ?>">
               <button type="submit" class="buyBtn">Xác nhận mua</button>
-            </form>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     <?php endforeach; ?>
   </div>
 

@@ -35,6 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Check the quantity before processing the order
     if ($quantity > 0) {
+        addToCart($productId, $productName, $quantity, $price);
+
+        // Redirect to the cart details page
+        header("Location: ../cart_detail.html");
+        exit();
         // Process order logic (e.g., save to database, update cart)
     } else {
         // Handle the case where quantity is zero

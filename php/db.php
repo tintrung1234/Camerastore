@@ -1,4 +1,3 @@
-<!-- fetch_products.php -->
 <?php
 $servername = "localhost"; // Update with your server details
 $username = "root";
@@ -21,10 +20,3 @@ if ($result->num_rows > 0) {
         $products[] = $row;
     }
 }
-
-// $conn->close();
-
-// echo json_encode($products);
-
-
-?>

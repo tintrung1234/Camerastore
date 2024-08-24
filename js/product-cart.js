@@ -49,50 +49,27 @@ let products = [];
 //     })
 // // .catch(error => console.error('Error fetching products:', error));
 
-
 document.querySelectorAll('.addToCart').forEach(button => {
-    button.addEventListener('click', function () {
-        const productId = this.getAttribute('data-id');
-        const userCountElement = document.getElementById('userCount-' + productId);
-        const quantityInput = document.getElementById('inputQuantity-' + productId);
-        let count = parseInt(userCountElement.innerText);
-        count++;
-        userCountElement.innerText = count;
-        quantityInput.value = count; // Update the hidden input
-        // updateDisplayPrice(productId); // Call function to update price
+    button.addEventListener('click', () => {
+        const id = button.getAttribute('data-id');
+        const quantityInput = document.getElementById(`userCount-${id}`);
+        let currentValue = parseInt(quantityInput.value);
+        quantityInput.value = ++currentValue;
+        console.log(quantityInput.value);
     });
 });
 
 document.querySelectorAll('.delToCart').forEach(button => {
-    button.addEventListener('click', function () {
-        const productId = this.getAttribute('data-id');
-        const userCountElement = document.getElementById('userCount-' + productId);
-        const quantityInput = document.getElementById('inputQuantity-' + productId);
-        let count = parseInt(userCountElement.innerText);
-        if (count > 0) {
-            count--;
-            userCountElement.innerText = count;
-            quantityInput.value = count; // Update the hidden input
-        }
-        // updateDisplayPrice(productId); // Call function to update price
-    });
-});
-
-// Listen for form submission
-document.querySelectorAll('form').forEach(form => {
-    form.addEventListener('submit', function (event) {
-        const productId = this.querySelector('input[name="productId"]').value;
-        // Ensure the quantity is up-to-date before submission
-        const quantityInput = document.getElementById(`inputQuantity-${productId}`);
-        // Optionally check if quantity is zero and handle accordingly
-        if (parseInt(quantityInput.value) <= 0) {
-            event.preventDefault(); // Prevent submission if quantity is zero
-            alert('Please select a quantity greater than zero.');
+    button.addEventListener('click', () => {
+        const id = button.getAttribute('data-id');
+        const quantityInput = document.getElementById(`userCount-${id}`);
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > 0) {
+            quantityInput.value = --currentValue;
+            console.log(quantityInput.value);
         }
     });
 });
-
-
 // Cart functionality
 var cart = [];
 

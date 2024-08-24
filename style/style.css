@@ -975,6 +975,11 @@ img.imgInLittleBox {
     justify-content: center;
 }
 
+.amountProduct {
+    width: 30px;
+    text-align: center;
+}
+
 .amountproduct {
     display: flex;
     align-items: center;
