@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 23, 2024 lúc 05:41 PM
+-- Thời gian đã tạo: Th8 24, 2024 lúc 04:59 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -41,7 +41,16 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `product_id`, `product_name`, `quantity`, `day_buy`, `price`) VALUES
-(28, 2, 'Canon 1500D-kit', 0, '2024-08-23 17:40:08', 43000.00);
+(1, 1, 'Canon 200D', 6, '2024-08-24 16:33:32', 40000.00),
+(2, 1, 'Canon 200D', 6, '2024-08-24 16:33:41', 40000.00),
+(3, 2, 'Canon 1500D-kit', 3, '2024-08-24 16:33:49', 43000.00),
+(4, 2, 'Canon 1500D-kit', 3, '2024-08-24 16:33:55', 43000.00),
+(5, 1, 'Canon 200D', 2, '2024-08-24 16:36:36', 40000.00),
+(6, 1, 'Canon 200D', 1, '2024-08-24 16:36:45', 40000.00),
+(7, 2, 'Canon 1500D-kit', 1, '2024-08-24 16:37:54', 43000.00),
+(8, 2, 'Canon 1500D-kit', 1, '2024-08-24 16:38:15', 43000.00),
+(9, 2, 'Canon 1500D-kit', 1, '2024-08-24 16:38:29', 43000.00),
+(10, 2, 'Canon 1500D-kit', 4, '2024-08-24 16:55:45', 43000.00);
 
 -- --------------------------------------------------------
 
@@ -97,8 +106,7 @@ INSERT INTO `products` (`id`, `images`, `type`, `title`, `price`, `quantity`, `d
 -- Chỉ mục cho bảng `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `unique_product` (`product_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `products`
@@ -114,7 +122,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
