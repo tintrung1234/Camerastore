@@ -203,6 +203,36 @@ const products = [
     name: "Speedlite EL-1",
     price: "900.000<sup>đ</sup>",
   },
+  {
+    id: "giado",
+    imgSrc: "img/PhuKien/tripodK&F.jpg",
+    name: "Tripod K&F",
+    price: "900.000<sup>đ</sup>",
+  },
+  {
+    id: "giado",
+    imgSrc: "img/PhuKien/tripodK&F-MS05.jpg",
+    name: "Tripod K&F MS05",
+    price: "900.000<sup>đ</sup>",
+  },
+  {
+    id: "phukienanhsang",
+    imgSrc: "img/PhuKien/Dù-phan-bac.jpg",
+    name: "Dù phản bạc",
+    price: "900.000<sup>đ</sup>",
+  },
+  {
+    id: "luutru",
+    imgSrc: "img/PhuKien/sandisk-extreme-pro-25.jpg",
+    name: "MicroSD 256GB Sandisk Extreme Pro ",
+    price: "900.000<sup>đ</sup>",
+  },
+  {
+    id: "phukienanhsang",
+    imgSrc: "img/PhuKien/hat_sang.jpg",
+    name: "Tấm hắt sáng",
+    price: "900.000<sup>đ</sup>",
+  },
 ];
 
 // Function to display products
@@ -255,5 +285,4 @@ function showAllProducts(category) {
   }
 }
 
-// Call the function to display products
 displayProducts();

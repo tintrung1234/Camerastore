@@ -13,6 +13,13 @@ document.getElementById("sideBarAdmin").innerHTML = `
                 </a>
             </div>
             <div class="dropdown">
+                <a href="category.html">
+                    <button class="subBtn">
+                        Danh mục
+                    </button>
+                </a>
+            </div>            
+            <div class="dropdown">
                 <a href="productAdmin.html">
                     <button class="subBtn">Sản phẩm</button>
                 </a>

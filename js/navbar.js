@@ -14,7 +14,7 @@ document.getElementById("navBar").innerHTML = `
         </a>
         </div>
         <div class="dropdown">
-          <a href="category.html"><button class="subBtn">Sản phẩm</button></a>
+          <a href="category.html" onload="showAllProducts('products')" ><button class="subBtn" >Sản phẩm</button></a>
           <div class="dropdown-content">
             <a href="#" >Canon</a>
             <div class="sub-dropdown">
