@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 24, 2024 lúc 04:59 PM
+-- Thời gian đã tạo: Th8 26, 2024 lúc 11:09 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -50,7 +50,51 @@ INSERT INTO `cart` (`id`, `product_id`, `product_name`, `quantity`, `day_buy`, `
 (7, 2, 'Canon 1500D-kit', 1, '2024-08-24 16:37:54', 43000.00),
 (8, 2, 'Canon 1500D-kit', 1, '2024-08-24 16:38:15', 43000.00),
 (9, 2, 'Canon 1500D-kit', 1, '2024-08-24 16:38:29', 43000.00),
-(10, 2, 'Canon 1500D-kit', 4, '2024-08-24 16:55:45', 43000.00);
+(10, 2, 'Canon 1500D-kit', 4, '2024-08-24 16:55:45', 43000.00),
+(11, 3, 'Canon 3000D-kit', 1, '2024-08-26 10:14:02', 16000.00);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `forget_password`
+--
+
+CREATE TABLE `forget_password` (
+  `id` int(11) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `temp_key` varchar(200) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `forget_password`
+--
+
+INSERT INTO `forget_password` (`id`, `email`, `temp_key`, `created`) VALUES
+(0, 'huynhtrungtin2222@gmail.com', '11a9f4e074617d45bba381de5a1026b6', '2024-08-26 04:49:34'),
+(0, 'huynhtrungtin2222@gmail.com', '48dd4f483a4e11f6e7dd2bf75a6480b2', '2024-08-26 05:07:49'),
+(0, 'huynhtrungtin2222@gmail.com', 'd4a184d88cf4f00c52c0e68df1a7577c', '2024-08-26 06:23:45'),
+(0, 'huynhtrungtin1506@gmail.com', 'dd356bcd8c3f2438d91556a2ffb5a6b0', '2024-08-26 06:26:48'),
+(0, 'huynhtrungtin1506@gmail.com', 'e971491dafed1b9f7e01a647ca468d70', '2024-08-26 06:31:11'),
+(0, 'huynhtrungtin1506@gmail.com', '65182e9afe06530eec1f788ed76f2256', '2024-08-26 06:31:20'),
+(0, 'huynhtrungtin2222@gmail.com', 'b97b3b56659c585be9ec66c3cd1a1ba4', '2024-08-26 06:32:46'),
+(0, 'huynhtrungtin2222@gmail.com', '030781b8421b1023cc99ea9d1aa14130', '2024-08-26 06:52:49'),
+(0, 'huynhtrungtin2222@gmail.com', '6d2ff679bd4992e7d7b876e2a7d3c203', '2024-08-26 06:53:38'),
+(0, 'huynhtrungtin2222@gmail.com', 'cb6f1449ed5a276124ce2e6285168bc5', '2024-08-26 06:53:45'),
+(0, 'huynhtrungtin2222@gmail.com', '52c08b2d6381338eb3857e95fd8cfddd', '2024-08-26 07:15:04'),
+(0, 'huynhtrungtin1506@gmail.com', '03579c3a9ca33269e91c1b6191c463a5', '2024-08-26 07:17:54'),
+(0, 'huynhtrungtin1506@gmail.com', '6d906c2ec05c45e1542a6b595e1d6e4c', '2024-08-26 07:21:07'),
+(0, 'huynhtrungtin2222@gmail.com', '9a7dfec1be49b29278ce0a0b41b4bd92', '2024-08-26 07:52:56'),
+(0, 'huynhtrungtin2222@gmail.com', 'a140f43ffc42ad9bafcfe71056a5ba06', '2024-08-26 07:55:08'),
+(0, 'huynhtrungtin1506@gmail.com', '944159946a24b2fd636ed358421e2539', '2024-08-26 08:14:28'),
+(0, 'huynhtrungtin1506@gmail.com', '9b759da151860fae2a056ae1886d637c', '2024-08-26 08:15:35'),
+(0, 'huynhtrungtin1506@gmail.com', '1da8263abd0112b88b798f951a81a907', '2024-08-26 08:15:39'),
+(0, 'huynhtrungtin1506@gmail.com', 'b5a1d4fabd98f9a8d231969ae0b58eeb', '2024-08-26 08:15:46'),
+(0, 'huynhtrungtin1506@gmail.com', '8c2b2eafd702268c076519eecca5ef26', '2024-08-26 08:17:18'),
+(0, 'huynhtrungtin2222@gmail.com', '128430b7f4ff7fc9a2c099e3e8920a51', '2024-08-26 08:38:07'),
+(0, 'huynhtrungtin2222@gmail.com', '9adbde8ee92858b879f3bf0f5611c2d6', '2024-08-26 08:38:45'),
+(0, 'huynhtrungtin2222@gmail.com', '67592b8b3cc9896f0a9fa09aaa1ea5f9', '2024-08-26 09:01:33'),
+(0, 'huynhtrungtin2222@gmail.com', 'be6cce436da6f9ef6f483fa0013586a9', '2024-08-26 09:02:48');
 
 -- --------------------------------------------------------
 
@@ -98,6 +142,28 @@ INSERT INTO `products` (`id`, `images`, `type`, `title`, `price`, `quantity`, `d
 (23, '[\"./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png\"]', 'sony', 'Alpha ZV-E10 II', 540030.00, 100, 0),
 (24, '[\"./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png\"]', 'sony', 'Alpha ZV-E10 II', 540030.00, 100, 0);
 
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(25) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `is_admin`) VALUES
+(4, 'tin', 'huynhtrungtin2222@gmail.com', '456', 0),
+(5, 'tin2', 'huynhtrungtin1506@gmail.com', '123', 0);
+
 --
 -- Chỉ mục cho các bảng đã đổ
 --
@@ -115,6 +181,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
 
@@ -122,7 +194,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT cho bảng `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
