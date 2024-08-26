@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>Reset Password</title>
 </head>
-<link rel="stylesheet" href="../style/style.css">
+<link rel="stylesheet" href="style/style.css">
 
 <body>
     <!-- navbar -->
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container-login" id="container-login">
             <div class="formAccount-container sign-in-container">
                 <div class="picture-side">
-                    <img src="../img/banner-account.jpg" alt="">
+                    <img src="img/banner-account.jpg" alt="">
                 </div>
                 <div class="form-account">
                     <form method="POST">
@@ -64,10 +64,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="footer" id="footer">
     </div>
 
-    <script src="../js/navbar.js" type="text/javascript"></script>
-    <script src="../js/autocomplete.js" type="text/javascript"></script>
-    <script src="../js/footer.js" type="text/javascript"></script>
-    <script src="../js/login.js" type="text/javascript"></script>
+    <script src="js/navbar.js" type="text/javascript"></script>
+    <script src="js/autocomplete.js" type="text/javascript"></script>
+    <script src="js/footer.js" type="text/javascript"></script>
+    <script src="js/login.js" type="text/javascript"></script>
 </body>
 
 </html>

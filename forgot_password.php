@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="../style/style.css">
+<link rel="stylesheet" href="style/style.css">
 
 <body>
     <!-- navbar -->
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container-login " id="container-login">
             <div class="formAccount-container sign-in-container" style="width: 100%;">
                 <div class="picture-side">
-                    <img src="../img/banner-account.jpg" alt="">
+                    <img src="img/banner-account.jpg" alt="">
                 </div>
                 <div class="form-account">
                     <form role="form" method="POST">
@@ -106,9 +106,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 
-<script src="../js/navbar.js" type="text/javascript"></script>
-<script src="../js/autocomplete.js" type="text/javascript"></script>
-<script src="../js/footer.js" type="text/javascript"></script>
-<script src="../js/login.js" type="text/javascript"></script>
+<script src="js/navbar.js" type="text/javascript"></script>
+<script src="js/autocomplete.js" type="text/javascript"></script>
+<script src="js/footer.js" type="text/javascript"></script>
+<script src="js/login.js" type="text/javascript"></script>
 
 </html>

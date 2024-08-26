@@ -63,7 +63,7 @@ if (isset($_POST['login'])) {
 
         echo "Đăng nhập thành công!";
         // Optionally, redirect to a logged-in page
-        header('Location: ../home.php');
+        header('Location: home.php');
         exit;
     } else {
         echo "Tên đăng nhập/email hoặc mật khẩu không đúng!";
