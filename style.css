@@ -630,6 +630,10 @@ button.closeBtn.showOnMobile {
     font-size: 16px;
 }
 
+.cartegory-left-li ul {
+    display: none;
+}
+
 .cartegory-left-li.block ul {
     display: block;
 }

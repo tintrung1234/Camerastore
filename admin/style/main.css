@@ -189,6 +189,8 @@ button.EditProductBtn {
     padding: 3px;
     font-size: 13px;
     border-radius: 3px;
+    width: 120%;
+    height: auto;
     background-color: white;
 }
 
@@ -200,6 +202,7 @@ button.EditProductBtn:hover {
 
 .admin-product,
 .admin-phukien,
+.category_list,
 .admin-bills {
     background-color: rgb(255, 255, 255, 0.3);
     /* padding: 20px; */
@@ -220,7 +223,7 @@ button.EditProductBtn:hover {
 }
 
 .modal {
-    display: none;
+    /* display: none; */
     position: fixed;
     z-index: 1;
     left: 0;
@@ -270,6 +273,20 @@ label {
     margin-top: 10px;
 }
 
+.btn-group select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.btn-group select:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
 input[type="text"],
 input[type="number"] {
     width: calc(100% - 20px);
@@ -316,15 +333,19 @@ button#submit:hover {
     border-color: darkorange;
 }
 
-td>button {
+td>a {
     margin-top: 10px;
     padding: 4px;
     background-color: orange;
     border: solid 1px #b79461;
 }
 
-td>button:hover {
-    background-color: darkorange;
+
+td>a>button {
+    background-color: orange;
+}
+
+td>a>button:hover {
     color: white;
     cursor: pointer;
     border-color: darkorange;

@@ -1,14 +1,16 @@
 function displayPhukienProducts() {
-    const phukienProducts = products.filter(product => product.type === 'phukien');
-    const adminPhukien = document.getElementById("admin-phukien");
+  const phukienProducts = products.filter(
+    (product) => product.type === "phukien"
+  );
+  const adminPhukien = document.getElementById("admin-phukien");
 
-    // Check if there are any 'phukien' products
-    if (phukienProducts.length === 0) {
-        adminPhukien.innerHTML = "<p>No phụ kiện products available.</p>";
-        return;
-    }
+  // Check if there are any 'phukien' products
+  if (phukienProducts.length === 0) {
+    adminPhukien.innerHTML = "<p>No phụ kiện products available.</p>";
+    return;
+  }
 
-    adminPhukien.innerHTML = `
+  adminPhukien.innerHTML = `
           <div class="container-sell">
               <h2>Sản phẩm phụ kiện</h2>
               <table>
@@ -22,9 +24,9 @@ function displayPhukienProducts() {
                       <th>Thao tác</th>
                   </tr>
                   ${phukienProducts
-            .map((item) => {
-                const { id, image, title, price, type, quantity } = item;
-                return `
+                    .map((item) => {
+                      const { id, image, title, price, type, quantity } = item;
+                      return `
                           <tr>
                               <td>${id}</td>
                               <td><img src="${image}" alt="${title}" style="width:50px;"></td>
@@ -38,8 +40,8 @@ function displayPhukienProducts() {
                               </td>
                           </tr>
                       `;
-            })
-            .join("")}
+                    })
+                    .join("")}
               </table>
           </div>
       `;
