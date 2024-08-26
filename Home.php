@@ -245,7 +245,6 @@ include("./php/db-type-product.php");
   <script src="js/banner.js" type="text/javascript"></script>
   <script src="js/autocomplete.js" type="text/javascript"></script>
   <script src="js/footer.js" type="text/javascript"></script>
-  <!-- <script src="js/productSony.js"></script> -->
 </body>
 
 </html>

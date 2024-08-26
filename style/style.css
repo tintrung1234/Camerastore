@@ -2172,3 +2172,103 @@ th.rowTitle {
     text-align: start;
     border-right: 1px solid #ddd;
 }
+
+/* --------------------------------------- account ---------------------------------- */
+
+.account-css {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ffffff, #a3c5ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.formAccount-container {
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7%;
+}
+
+.picture-side {
+    background-size: cover;
+}
+
+.picture-side img {
+    height: 100%;
+    width: 100%;
+}
+
+.form-account {
+    flex: 1;
+    padding: 40px;
+}
+
+.label-account1 {
+    margin: 0 0 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.label-account-p {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.account-username-in,
+.account-email-in,
+.account-password-in,
+#forgotEmail {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button-account {
+    width: 100%;
+    padding: 10px;
+    background-color: #6a11cb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button-account:hover {
+    background-color: #2575fc;
+}
+
+.actions-account {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 71px;
+    margin-bottom: 5px;
+}
+
+.actions-account a {
+    color: #6a11cb;
+    text-decoration: none;
+}
+
+.actions-account a:hover {
+    text-decoration: underline;
+}
+
+button#sendResetLink {
+    bottom: 0;
+    margin-top: 157px;
+}
+
+button.btn-submit-account {
+    margin-top: 5px;
+}

@@ -36,12 +36,9 @@ if (isset($_POST['register'])) {
         exit;
     }
 
-    // Hash the password
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    // Insert the new user into the database
+    // Insert the new user into the database without hashing the password
     $stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
-    $stmt->execute(['username' => $username, 'email' => $email, 'password' => $hashed_password]);
+    $stmt->execute(['username' => $username, 'email' => $email, 'password' => $password]); // Không mã hóa mật khẩu
 
     echo "Đăng ký thành công!";
     // Optionally, redirect to login page
@@ -59,7 +56,7 @@ if (isset($_POST['login'])) {
     $stmt->execute(['username' => $username_or_email, 'email' => $username_or_email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && password_verify($password, $user['password'])) {
+    if ($user && $password === $user['password']) { // So sánh trực tiếp
         // Password is correct, start a session
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
