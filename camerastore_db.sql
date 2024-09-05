@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 26, 2024 lúc 11:09 AM
+-- Thời gian đã tạo: Th8 27, 2024 lúc 02:38 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -41,17 +41,62 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `product_id`, `product_name`, `quantity`, `day_buy`, `price`) VALUES
-(1, 1, 'Canon 200D', 6, '2024-08-24 16:33:32', 40000.00),
-(2, 1, 'Canon 200D', 6, '2024-08-24 16:33:41', 40000.00),
-(3, 2, 'Canon 1500D-kit', 3, '2024-08-24 16:33:49', 43000.00),
-(4, 2, 'Canon 1500D-kit', 3, '2024-08-24 16:33:55', 43000.00),
-(5, 1, 'Canon 200D', 2, '2024-08-24 16:36:36', 40000.00),
-(6, 1, 'Canon 200D', 1, '2024-08-24 16:36:45', 40000.00),
-(7, 2, 'Canon 1500D-kit', 1, '2024-08-24 16:37:54', 43000.00),
-(8, 2, 'Canon 1500D-kit', 1, '2024-08-24 16:38:15', 43000.00),
-(9, 2, 'Canon 1500D-kit', 1, '2024-08-24 16:38:29', 43000.00),
-(10, 2, 'Canon 1500D-kit', 4, '2024-08-24 16:55:45', 43000.00),
-(11, 3, 'Canon 3000D-kit', 1, '2024-08-26 10:14:02', 16000.00);
+(15, 2, 'Canon 1500D-kit', 4, '2024-08-27 08:05:08', 43000.00),
+(16, 18, 'Alpha ZV-E10 II', 1, '2024-08-27 08:05:37', 540030.00),
+(17, 17, 'Alpha ZV-E10 II', 2, '2024-08-27 08:07:11', 540030.00),
+(21, 2, 'Canon 1500D-kit', 1, '2024-08-27 08:49:01', 43000.00),
+(22, 2, 'Canon 1500D-kit', 4, '2024-08-27 09:03:16', 43000.00);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `category`
+--
+
+CREATE TABLE `category` (
+  `category_id` int(11) NOT NULL,
+  `category_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `category`
+--
+
+INSERT INTO `category` (`category_id`, `category_name`) VALUES
+(2, 'Sản phẩm'),
+(3, 'Phụ kiện'),
+(4, 'Sửa chữa'),
+(5, 'Khuyến mãi'),
+(6, 'Liên hệ'),
+(7, 'Bảo hành'),
+(13, 'Trang chủ');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `deliveryaddress`
+--
+
+CREATE TABLE `deliveryaddress` (
+  `delevery_id` int(11) NOT NULL,
+  `full_name` varchar(100) NOT NULL,
+  `phone` char(11) NOT NULL,
+  `province` varchar(50) NOT NULL,
+  `district` varchar(50) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `customer_type` tinyint(1) NOT NULL COMMENT '1 la KL, 2 la DK',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `deliveryaddress`
+--
+
+INSERT INTO `deliveryaddress` (`delevery_id`, `full_name`, `phone`, `province`, `district`, `address`, `customer_type`, `created_at`) VALUES
+(0, 'Huỳnh Trung Tín', '09909090990', 'bentre', 'camau', '0', 2, '2024-08-26 17:27:22'),
+(0, 'HuỳnhTrungTín', '09909090990', 'bentre', 'camau', '0', 1, '2024-08-27 06:06:27'),
+(0, 'jkahaj', '132456762', 'asa', 'aaaa', '0', 1, '2024-08-27 06:49:23'),
+(0, 'Huỳnh Trung Tín', 'ttttttt', 'bentre', 'camau', '0', 1, '2024-08-27 07:03:45');
 
 -- --------------------------------------------------------
 
@@ -94,7 +139,12 @@ INSERT INTO `forget_password` (`id`, `email`, `temp_key`, `created`) VALUES
 (0, 'huynhtrungtin2222@gmail.com', '128430b7f4ff7fc9a2c099e3e8920a51', '2024-08-26 08:38:07'),
 (0, 'huynhtrungtin2222@gmail.com', '9adbde8ee92858b879f3bf0f5611c2d6', '2024-08-26 08:38:45'),
 (0, 'huynhtrungtin2222@gmail.com', '67592b8b3cc9896f0a9fa09aaa1ea5f9', '2024-08-26 09:01:33'),
-(0, 'huynhtrungtin2222@gmail.com', 'be6cce436da6f9ef6f483fa0013586a9', '2024-08-26 09:02:48');
+(0, 'huynhtrungtin2222@gmail.com', 'be6cce436da6f9ef6f483fa0013586a9', '2024-08-26 09:02:48'),
+(0, 'huynhtrungtin2222@gmail.com', 'd54ce8e864a87bc211f370df3fc0bcee', '2024-08-26 09:15:56'),
+(0, 'huynhtrungtin2222@gmail.com', 'ee3229f63b117d2cad15def334f35b12', '2024-08-27 06:08:23'),
+(0, 'huynhtrungtin1506@gmail.com', '52b8e70abea474d0050cd3cc89032c52', '2024-08-27 06:12:53'),
+(0, 'huynhtrungtin1506@gmail.com', '057df51fc4a4f5f4ea3975ea276c3a1d', '2024-08-27 06:12:59'),
+(0, 'huynhtrungtin1506@gmail.com', '65194b55935eaba995a2955f509be7bf', '2024-08-27 07:07:08');
 
 -- --------------------------------------------------------
 
@@ -121,7 +171,7 @@ INSERT INTO `products` (`id`, `images`, `type`, `title`, `price`, `quantity`, `d
 (2, '[\"./img/canon/1500D-kit/1500D-kit.png\", \"./img/canon/1500D-kit/1500D-kit-2.png\", \"./img/canon/1500D-kit/1500D-kit-3.png\"]', 'canon', 'Canon 1500D-kit', 43000.00, 100, 0),
 (3, '[\"./img/canon/3000D-kit/3000D-kit.png\", \"./img/canon/3000D-kit/3000D-kit-2.png\", \"./img/canon/3000D-kit/3000D-kit-3.png\"]', 'canon', 'Canon 3000D-kit', 16000.00, 100, 1),
 (4, '[\"./img/canon/G7-X-mark/G7-X-mark.png\", \"./img/canon/G7-X-mark/G7-X-mark-2.png\", \"./img/canon/G7-X-mark/G7-X-mark-3.png\"]', 'canon', 'Canon G7-X-mark', 23100.00, 100, 0),
-(5, '[\"./img/canon/phukien/speedlite.png\"]', 'phu kien', 'Đèn speedlite', 5400.00, 100, 1),
+(5, '[\"./img/canon/phukien/speedlite.png\"]', 'phukienanhsang', 'Đèn speedlite', 5400.00, 100, 1),
 (6, '[\"./img/canon/R7/R7.png\", \"./img/canon/R7/R7-2.png\", \"./img/canon/R7/R7-3.png\"]', 'canon', 'Canon R7', 54322.00, 100, 0),
 (7, '[\"./img/canon/R8/R8.png\", \"./img/canon/R8/R8-2.png\", \"./img/canon/R8/R8-3.png\"]', 'canon', 'Canon R8', 54323.00, 30, 1),
 (8, '[\"./img/canon/R50/R50.png\", \"./img/canon/R50/R50-2.png\", \"./img/canon/R50/R50-3.png\"]', 'canon', 'Canon R50', 32554.00, 100, 0),
@@ -134,13 +184,49 @@ INSERT INTO `products` (`id`, `images`, `type`, `title`, `price`, `quantity`, `d
 (15, '[\"./img/Sony/Alpha9III/Alpha9III-1.png\"]', 'sony', 'Alpha 9 III', 540030.00, 100, 0),
 (16, '[\"./img/Sony/Alpha6100/Alpha6100-1.png\"]', 'sony', 'Alpha 6100', 540030.00, 100, 0),
 (17, '[\"./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png\"]', 'sony', 'Alpha ZV-E10 II', 540030.00, 100, 0),
-(18, '[\"./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png\"]', 'sony', 'Alpha ZV-E10 II', 540030.00, 100, 0),
-(19, '[\"./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png\"]', 'sony', 'Alpha ZV-E10 II', 540030.00, 100, 0),
-(20, '[\"./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png\"]', 'sony', 'Alpha ZV-E10 II', 540030.00, 100, 0),
-(21, '[\"./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png\"]', 'sony', 'Alpha ZV-E10 II', 540030.00, 100, 0),
-(22, '[\"./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png\"]', 'sony', 'Alpha ZV-E10 II', 540030.00, 100, 0),
-(23, '[\"./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png\"]', 'sony', 'Alpha ZV-E10 II', 540030.00, 100, 0),
-(24, '[\"./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png\"]', 'sony', 'Alpha ZV-E10 II', 540030.00, 100, 0);
+(24, '[\"./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png\"]', 'sony', 'Alpha ZV-E10 II', 540030.00, 100, 0),
+(25, '[\"./img/PhuKien/day-deo.jpg\"]', 'khac', 'Day Đeo', 100.00, 10, 0),
+(26, '[\"./img/PhuKien/day-deo2.jpg\"]', 'khac', 'Day Đeo 2', 120.00, 15, 5),
+(27, '[\"./img/PhuKien/den-led-Ulanzi.png\"]', 'phukienanhsang', 'Đèn Led Ulanzi', 200.00, 5, 10),
+(28, '[\"./img/PhuKien/Dù-phan-bac.jpg\"]', 'phukienanhsang', 'Dù Phản Bạc', 150.00, 8, 0),
+(29, '[\"./img/PhuKien/filterK&F-67mm.jpg\"]', 'boloc', 'Filter K&F 67mm', 250.00, 12, 15),
+(30, '[\"./img/PhuKien/filterK&F.jpg\"]', 'boloc', 'Filter K&F', 230.00, 20, 10),
+(31, '[\"./img/PhuKien/fujifilm-C200-fujicolor.png\"]', 'luutru', 'Film Fujifilm C200', 80.00, 30, 0),
+(32, '[\"./img/PhuKien/gimbal-zhiyun.jpg\"]', 'giado', 'Gimbal Zhiyun', 300.00, 7, 20),
+(33, '[\"./img/PhuKien/hat_sang.jpg\"]', 'khac', 'Hát Sang', 90.00, 25, 5),
+(34, '[\"./img/PhuKien/sandisk-extreme-pro-25.jpg\"]', 'luutru', 'Sandisk Extreme Pro 25GB', 50.00, 50, 0),
+(35, '[\"./img/PhuKien/tripodK&F-MS05.jpg\"]', 'giado', 'Tripod K&F MS05', 180.00, 15, 10),
+(36, '[\"./img/PhuKien/tripodK&F.jpg\"]', 'giado', 'Tripod K&F', 160.00, 20, 5),
+(37, '[\"img/Nikon/lens/NikkorZ50/Z50f1.2 -1.png\"]', 'ongkinh', 'Lens Nikon', 12451.00, 124, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `product_type`
+--
+
+CREATE TABLE `product_type` (
+  `product_id` int(11) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `product_type`
+--
+
+INSERT INTO `product_type` (`product_id`, `product_name`, `category_id`) VALUES
+(1, 'test', 5),
+(2, 'Sony', 2),
+(3, 'Nikon', 2),
+(4, 'Fujifilm', 2),
+(5, 'Panasonic', 2),
+(6, 'Ống kính', 3),
+(7, 'Bộ lọc (Filter)', 3),
+(8, 'Phụ kiện ánh sáng', 3),
+(9, 'Bộ giá đỡ và chân máy', 3),
+(10, 'Lưu trữ', 3),
+(11, 'Khác', 3);
 
 -- --------------------------------------------------------
 
@@ -162,7 +248,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `is_admin`) VALUES
 (4, 'tin', 'huynhtrungtin2222@gmail.com', '456', 0),
-(5, 'tin2', 'huynhtrungtin1506@gmail.com', '123', 0);
+(6, 'tintrung', 't@gmail.com', '123', 0),
+(7, 'hoangquy', 'huynhtrungtin1506@gmail.com', '123', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -181,6 +268,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `product_type`
+--
+ALTER TABLE `product_type`
+  ADD PRIMARY KEY (`product_id`);
+
+--
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
@@ -194,13 +287,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
