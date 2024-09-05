@@ -1,5 +1,10 @@
 <?php
-include("db.php");
+include("navbar.php");
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'camerastore_db';
+$dbconfig = mysqli_connect($host, $username, $password, $database) or die("An Error occured when connecting to the database");
 session_start();
 
 $message = "";
@@ -26,48 +31,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Reset Password</title>
-</head>
-<link rel="stylesheet" href="style/style.css">
-
-<body>
-    <!-- navbar -->
-    <div id="navBar">
-    </div>
-    <div class="login account-css">
-        <div class="container-login" id="container-login">
-            <div class="formAccount-container sign-in-container">
-                <div class="picture-side">
-                    <img src="img/banner-account.jpg" alt="">
-                </div>
-                <div class="form-account">
-                    <form method="POST">
-                        <h1 class="label-account1">Reset Password</h1>
-                        <input type="hidden" name="key" value="<?php echo $_GET['key']; ?>">
-                        <input class="account-password-in" type="password" name="new_password" placeholder="New Password" required>
-                        <a href="login.php">Back to Login</a>
-                        <button class="btn-submit-account button-account" type="submit">Reset Password</button>
-                    </form>
-                    <?php if ($message) {
-                        echo "<p>$message</p>";
-                    } ?>
-                </div>
+<div class="login account-css">
+    <div class="container-login" id="container-login">
+        <div class="formAccount-container sign-in-container">
+            <div class="picture-side">
+                <img src="img/banner-account.jpg" alt="">
+            </div>
+            <div class="form-account">
+                <form method="POST">
+                    <h1 class="label-account1">Reset Password</h1>
+                    <input type="hidden" name="key" value="<?php echo $_GET['key']; ?>">
+                    <input class="account-password-in" type="password" name="new_password" placeholder="New Password" required>
+                    <a href="login.php">Back to Login</a>
+                    <button class="btn-submit-account button-account" type="submit">Reset Password</button>
+                </form>
+                <?php if ($message) {
+                    echo "<p>$message</p>";
+                } ?>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- footer  -->
-    <div class="footer" id="footer">
-    </div>
+<!-- footer  -->
+<div class="footer" id="footer">
+</div>
 
-    <script src="js/navbar.js" type="text/javascript"></script>
-    <script src="js/autocomplete.js" type="text/javascript"></script>
-    <script src="js/footer.js" type="text/javascript"></script>
-    <script src="js/login.js" type="text/javascript"></script>
+<script src="js/autocomplete.js" type="text/javascript"></script>
+<script src="js/footer.js" type="text/javascript"></script>
+<script src="js/login.js" type="text/javascript"></script>
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 function displayPhukienProducts() {
+<<<<<<< HEAD
     const phukienProducts = products.filter(product => product.type === 'phukien');
     const adminPhukien = document.getElementById("admin-phukien");
 
@@ -9,6 +10,20 @@ function displayPhukienProducts() {
     }
 
     adminPhukien.innerHTML = `
+=======
+  const phukienProducts = products.filter(
+    (product) => product.type === "phukien"
+  );
+  const adminPhukien = document.getElementById("admin-phukien");
+
+  // Check if there are any 'phukien' products
+  if (phukienProducts.length === 0) {
+    adminPhukien.innerHTML = "<p>No phụ kiện products available.</p>";
+    return;
+  }
+
+  adminPhukien.innerHTML = `
+>>>>>>> d59e6d6 (search_function, updatecode)
           <div class="container-sell">
               <h2>Sản phẩm phụ kiện</h2>
               <table>
@@ -22,9 +37,15 @@ function displayPhukienProducts() {
                       <th>Thao tác</th>
                   </tr>
                   ${phukienProducts
+<<<<<<< HEAD
             .map((item) => {
                 const { id, image, title, price, type, quantity } = item;
                 return `
+=======
+                    .map((item) => {
+                      const { id, image, title, price, type, quantity } = item;
+                      return `
+>>>>>>> d59e6d6 (search_function, updatecode)
                           <tr>
                               <td>${id}</td>
                               <td><img src="${image}" alt="${title}" style="width:50px;"></td>
@@ -38,11 +59,20 @@ function displayPhukienProducts() {
                               </td>
                           </tr>
                       `;
+<<<<<<< HEAD
             })
             .join("")}
+=======
+                    })
+                    .join("")}
+>>>>>>> d59e6d6 (search_function, updatecode)
               </table>
           </div>
       `;
 }
 
+<<<<<<< HEAD
 displayPhukienProducts();
+=======
+displayPhukienProducts();
+>>>>>>> d59e6d6 (search_function, updatecode)

@@ -1,4 +1,6 @@
 <?php
+require_once("config.php");
+
 class Database
 {
     public $host = DB_HOST;
@@ -6,28 +8,22 @@ class Database
     public $pass = DB_PASS;
     public $dbname = DB_NAME;
 
-
     public $link;
     public $error;
 
-
-    public function construct()
+    public function __construct()
     {
         $this->connectDB();
     }
 
-    private function __construct()
-    {
-        $this->connectDB();
-    }
-
-    private function connectDB()
+    public function connectDB()
     {
         $this->link = new mysqli($this->host, $this->user, $this->pass, $this->dbname);
-        if ($this->link) {
-            $this->error = "Connection fail" . $this->link->connect_error;;
+        if ($this->link->connect_error) {
+            $this->error = "Connection failed: " . $this->link->connect_error;
             return false;
         }
+        return true;
     }
 
     public function select($query)
@@ -40,34 +36,34 @@ class Database
         }
     }
 
-    //insert data
-    public function insert($tquery)
+    // Insert data
+    public function insert($query)
     {
-        $insert_row = $this->link->insert($tquery) or die($this->link->error . __LINE__);
+        $insert_row = $this->link->query($query) or die($this->link->error . __LINE__);
         if ($insert_row) {
-            return $insert_row;
+            return $this->link->insert_id; // Return the ID of the inserted row
         } else {
             return false;
         }
     }
 
-
-    //update data
-    public function update($tquery)
+    // Update data
+    public function update($query)
     {
-        $update_row = $this->link->update($tquery) or die($this->link->error . __LINE__);
+        $update_row = $this->link->query($query) or die($this->link->error . __LINE__);
         if ($update_row) {
-            return $update_row;
+            return $this->link->affected_rows; // Return the number of affected rows
         } else {
             return false;
         }
     }
 
-    public function delete($tquery)
+    // Delete data
+    public function delete($query)
     {
-        $delete_row = $this->link->delete($tquery)  or die($this->link->error . __LINE__);
+        $delete_row = $this->link->query($query) or die($this->link->error . __LINE__);
         if ($delete_row) {
-            return $delete_row;
+            return $this->link->affected_rows; // Return the number of affected rows
         } else {
             return false;
         }

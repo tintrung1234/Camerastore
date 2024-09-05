@@ -1,0 +1,23 @@
+<?php
+include "./php/db.php";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $cart_id = $_POST['cart_id'];
+
+    $sql = "DELETE FROM cart WHERE id = ?";
+
+    if ($stmt = $conn->prepare($sql)) {
+        $stmt->bind_param("i", $cart_id);
+
+        if ($stmt->execute()) {
+            header("Location: cart.php");
+        } else {
+            echo "Error: Could not execute the delete operation.";
+        }
+        $stmt->close();
+    } else {
+        echo "Error: Could not prepare the delete operation.";
+    }
+}
+
+$conn->close();

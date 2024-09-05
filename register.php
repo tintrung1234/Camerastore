@@ -1,11 +1,9 @@
 <?php
 include("process_login.php");
-?>
-<link rel="stylesheet" href="style/style.css">
+include("navbar.php");
 
-<!-- navbar -->
-<div id="navBar">
-</div>
+?>
+
 
 <div class="login account-css">
     <div class="container-login" id="container-login">
@@ -41,3 +39,7 @@ include("process_login.php");
 <script src="js/autocomplete.js" type="text/javascript"></script>
 <script src="js/footer.js" type="text/javascript"></script>
 <script src="js/login.js" type="text/javascript"></script>
+
+</body>
+
+</html>

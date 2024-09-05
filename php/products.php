@@ -1,11 +1,13 @@
 <!-- cart_functions.php -->
 <?php
-require_once("db.php");
+include("db.php");
 session_start();
+
 
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
+
 function addToCart($productId, $productName, $quantity, $price)
 {
     global $conn;
@@ -38,9 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         addToCart($productId, $productName, $quantity, $price);
 
         // Redirect to the cart details page
-        header("Location: ../cart_detail.html");
+        header("Location: ../cart_detail.php");
         exit();
-        // Process order logic (e.g., save to database, update cart)
     } else {
         // Handle the case where quantity is zero
         echo "Quantity must be greater than zero.";

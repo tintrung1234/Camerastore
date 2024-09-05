@@ -3,7 +3,6 @@
 productScroll();
 
 function productScroll() {
-    const slider = document.getElementById("slider");
     const nextButtons = document.getElementsByClassName("pro-next");
     const prevButtons = document.getElementsByClassName("pro-prev");
     const contentSections = document.getElementsByClassName("content");
