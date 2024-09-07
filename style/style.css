@@ -69,9 +69,14 @@ a:hover {
     box-shadow: 0 4px 8px 1px rgba(0, 0, 0, 0.08);
 }
 
+.ml-mobile {
+    background-color: white;
+}
+
 .logo {
     float: left;
     margin-right: 22px;
+    display: flex;
 }
 
 .logo>a>img {
@@ -211,7 +216,7 @@ a:hover {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    transition: 0.3s;
+    z-index: 3;
 }
 
 .sideBar>.logo {
@@ -222,12 +227,7 @@ a:hover {
 .sideBar>.logo>a>img {
     width: 100px;
     position: relative;
-    margin-left: 9px;
-    justify-items: center;
-    margin-top: 9px;
-    width: 100px;
-    position: relative;
-    margin-left: 9px;
+    margin-left: 78%;
     justify-items: center;
     margin-top: 9px;
 }
@@ -2283,4 +2283,39 @@ button#sendResetLink {
 
 button.btn-submit-account {
     margin-top: 5px;
+}
+
+/*========================================== Event Page ======================================== */
+
+.blockContain1 {
+    margin-top: 3%;
+    width: fit-content;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.blockContain1 img {
+    min-width: 100px;
+    max-width: 300px;
+    float: right;
+    margin-left: 50px;
+
+}
+
+.titleSale h1 {
+    margin-top: 10%;
+    display: inline-block;
+    text-align: center;
+    font-size: 50px;
+    width: 100%;
+}
+
+.titleSale p {
+    font-size: 75px;
+}
+
+.titleSale strong {
+    font-size: 100px;
 }

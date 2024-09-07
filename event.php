@@ -7,19 +7,15 @@ include("./php/products.php");
 $sql = "SELECT * FROM products WHERE discount = 1";
 $result = $conn->query($sql);
 ?>
-
-<style>
-    h1 {
-        margin-top: 10%;
-        display: inline-block;
-        text-align: center;
-        font-size: 20px;
-        width: 100%;
-    }
-</style>
-
+<div class="blockContain1">
+    <div class="titleSale">
+        <h1>#Khuyến Mãi Máy Ảnh</h1>
+        <p>Giảm giá <strong>10%</strong></p>
+    </div>
+    <img src="./img/anhkhuyenmai.png" alt="">
+</div>
 <div id="slider"></div>
-<h1>Khuyến Mãi Máy Ảnh</h1>
+
 <div class="content discountProductcss" id="content">
     <div class="discountProduct product-group" id="discountProduct">
         <?php
@@ -34,17 +30,16 @@ $result = $conn->query($sql);
                 $price = htmlspecialchars($row['price'], ENT_QUOTES);
                 $formattedPrice = number_format($price, 0, ',', '.'); // Format price to VND
                 echo "<div id='product' class=''>
-                    <a href='product.php?id=$id' class='productLink'>
-                        <img class='productImg' src='$primaryImage' alt='$title'>
-                    </a>
-                    <label class='productName'>$title</label>
-                    <p class='productPrice'>Giá từ <strong>$formattedPrice</strong></p>
-                    <p>Khuyến mãi: Giảm 10%</p>
-                    <button class='addCart' onclick='displayBuyBox($id)'>
-                        <img src='img/carticon.png' alt='cartIcon'>
-                        <p class='muahang'>Mua hàng</p>
-                    </button>
-                </div>";
+                            <a class='productLink' onclick='openProductDetail($id)'>
+                                <img class='productImg' src='$primaryImage' alt=''>
+                            </a>
+                            <label class='productName' for=''>$title</label>
+                            <p class='productPrice'>Giá từ <strong>$formattedPrice VNĐ</strong></p>
+                            <button class='addCart' onclick='displayBuyBox($id)'>
+                                <img src='img/carticon.png' alt='cartIcon'> 
+                                <p class='muahang'> Mua hàng</p>
+                            </button>
+                          </div>";
             }
         } else {
             echo '<p>No products available.</p>'; // Message if no products found

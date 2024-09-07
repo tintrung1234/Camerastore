@@ -43,6 +43,7 @@ if ($result->num_rows > 0) {
         <a href="Home.php">
           <img src="./img/ProCam.png" alt="" />
         </a>
+        <button onclick=showSidebar() class="showOnMobile hideOnNavbar ml-mobile"><img class='menuImg' src='./img/menu.png'></button>
       </div>
       <div class="blockNav1 hideOnMobile">
         <div class="dropdown">
@@ -123,7 +124,6 @@ if ($result->num_rows > 0) {
           <a href="contact.php"><button class="subBtn">Liên hệ</button></a>
         </div>
       </div>
-      <button onclick=showSidebar() class="showOnMobile hideOnNavbar ml-mobile"><img class='menuImg' src='./img/menu.png'></button>
       <div class="search_box hideOn">
         <form action="./php/search.php" method="GET">
           <div class="row-search-box">
