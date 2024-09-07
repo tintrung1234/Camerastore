@@ -60,7 +60,7 @@ $total_price = 0;
                 <td>
                   <form method="POST" action="/delete_from_cart.php" style="display:inline;">
                     <input type="hidden" name="cart_id" value="<?= $item['id'] ?>">
-                    <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to remove this item?');">X</button>
+                    <button class="deleteBtn" type="submit" class="delete-button" onclick="return confirm('Are you sure you want to remove this item?');">X</button>
                   </form>
                 </td>
               </tr>

@@ -5,15 +5,12 @@ include("./php/db-type-product.php");
 include("./navbar.php");
 include("./php/cart_price.php");
 header('Content-Type: text/html; charset=UTF-8');
-
 // Sample database connection (update with your actual connection details)
 $host = "localhost"; // Update with your server details
 $user = "root";
 $pass = "";
 $db = "camerastore_db";
-
 $conn = new mysqli($host, $user, $pass, $db);
-
 // Check connection
 if ($conn->connect_error) {
   die("Database connection failed: " . $conn->connect_error);
@@ -21,27 +18,37 @@ if ($conn->connect_error) {
 
 // Get product ID from the query string
 $productId = isset($_GET['id']) ? intval($_GET['id']) : 0;
-
 $product_detail = null;
+$related_products = []; // Initialize related products array
 
 if ($productId > 0) {
-  // Prepare and execute the query
+  // Prepare and execute the query for the main product
   $stmt = $conn->prepare("SELECT title, price, type, images FROM products WHERE id = ?");
   $stmt->bind_param("i", $productId);
   $stmt->execute();
-
   // Get the result
   $result = $stmt->get_result();
-
   if ($result->num_rows > 0) {
     $product_detail = $result->fetch_assoc();
-
     // Decode images JSON string into an array
     $product_detail['images'] = json_decode($product_detail['images'], true);
-
     // Check if images are an array
     if (!is_array($product_detail['images'])) {
       $product_detail['images'] = []; // Set to empty array if not valid
+    }
+  }
+
+  // Fetch related products based on the same type
+  if ($product_detail) {
+    $type = $product_detail['type'];
+    $stmt = $conn->prepare("SELECT id, title, price, images FROM products WHERE type = ? AND id != ? LIMIT 5");
+    $stmt->bind_param("si", $type, $productId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_assoc()) {
+      // Decode images JSON string into an array
+      $row['images'] = json_decode($row['images'], true);
+      $related_products[] = $row;
     }
   }
 }
@@ -137,7 +144,6 @@ $conn->close();
                 <p>Bộ vệ sinh K&F Concept 3 in 1</p>
               </div>
             </div>
-
             <div class="product-content-right-product-button">
               <button onclick='displayBuyBox(<?php echo $productId; ?>)'>
                 <img src="img/carticon.png" alt="Giỏ hàng">
@@ -147,101 +153,130 @@ $conn->close();
           </div>
         </div>
       </div>
-    <?php else: ?>
-      <p>Product not found.</p>
-    <?php endif; ?>
-  </div>
-
-  <!-- product-related -->
-  <div class="product-related container">
-    <div class="product-related-title">
-      <p>SẢN PHẨM LIÊN QUAN</p>
-    </div>
-    <div class="row product-content">
-      <div class="product-related-item">
-        <img src="img/canon/200D/200D.png">
-        <h1>CANON 200D</h1>
-        <p>20.000.000đ <del>25.000.000đ</del></p>
-      </div>
-      <div class="product-related-item">
-        <img src="img/canon/200D/200D.png">
-        <h1>CANON 200D</h1>
-        <p>20.000.000đ <del>25.000.000đ</del></p>
-      </div>
-      <div class="product-related-item">
-        <img src="img/canon/200D/200D.png">
-        <h1>CANON 200D</h1>
-        <p>20.000.000đ <del>25.000.000đ</del></p>
-      </div>
-      <div class="product-related-item">
-        <img src="img/canon/200D/200D.png">
-        <h1>CANON 200D</h1>
-        <p>20.000.000đ <del>25.000.000đ</del></p>
-      </div>
-      <div class="product-related-item">
-        <img src="img/canon/200D/200D.png">
-        <h1>CANON 200D</h1>
-        <p>20.000.000đ <del>25.000.000đ</del></p>
-      </div>
-      <!-- Repeat similar blocks for other related products -->
-    </div>
-  </div>
-
-  <div id="buyBox">
-    <?php foreach ($products as $product): ?>
-      <form method="POST" action="./php/products.php" header="./cart_detail.php">
-        <?php $image = json_decode($product['images'])[0]; ?>
-        <div class="notiBox-<?php echo $product['id']; ?>" id="notiBox" style="display: none;">
-          <div class="backgroundNoti"></div>
-          <div class="littleBox">
-            <button class="exitBtn" id="exitBtn" type="button" onclick="this.parentElement.parentElement.style.display='none'">X</button>
-            <div class="firstInfo">
-              <div class="imgAndInfo">
-                <img src="<?php echo $image; ?>" alt="" class="imgInLittleBox">
-                <div class="productInfo">
-                  <h2><?php echo $product['title']; ?></h2>
-                  <p>
-                    <span id="priceOfProduct"></span><?php echo $formattedPrice = number_format($product['price'], 0, ',', '.'); ?>
-                    <span>VND</span>
-                  </p>
-                </div>
-              </div>
-              <div class="amountproduct">
-                <button type="button" class="addToCart" data-id="<?php echo $product['id']; ?>" data-price="<?php echo $product['price']; ?>">+</button>
-                <input name="quantity" id="userCount-<?php echo $product['id']; ?>" class="amountProduct" value="0" readonly>
-                <button type="button" class="delToCart" data-id="<?php echo $product['id']; ?>">-</button>
-                <input type="hidden" name="quantity-<?php echo $product['id']; ?>" id="inputQuantity-<?php echo $product['id']; ?>" value="0">
-              </div>
+      <div class="product-content-right-bottom">
+        <div class="product-content-right-bottom-top">
+          &#8744
+        </div>
+        <div class="product-content-right-bottom-content-big">
+          <div class="product-content-right-bottom-content-title row">
+            <div class="product-content-right-bottom-content-title-item describe">
+              <p>Mô tả sản phẩm</p>
             </div>
-
-            <div class="eventGift">
-              <h2><img class="giftIcon" src="img/giftbox.png" alt="">Chương trình khuyến mãi</h2>
-              <p class="eventDes">Tặng thẻ nhớ 64GB</p>
+            <div class="product-content-right-bottom-content-title-item info">
+              <p>Thông số kỹ thuật</p>
             </div>
-            <div class="lastInfo">
-              <div class="countBox">
-                <h2 class="priceTemp">Tạm tính: <strong class='displayPrice' id="displayPrice-<?php echo $product['id']; ?>">0</strong></h2>
-              </div>
-              <input type="hidden" name="productId" value="<?php echo $product['id']; ?>">
-              <input type="hidden" name="nameproduct" value="<?php echo $product['title']; ?>">
-              <input type="hidden" name="price" value="<?php echo $product['price']; ?>">
-              <button type="submit" class="buyBtn">Xác nhận mua</button>
+          </div>
+          <div class="product-content-right-bottom-content">
+            <div class="product-content-right-bottom-content-describe">
+              <p><?php echo $product_detail['title'] ?></p>
+              <?php echo $product_detail['title'] ?> có ngoại hình tương tự như chiếc Canon EOS 200D và những tính
+              năng gần giống với chiếc máy ảnh không gương lật Canon M50,<br>
+              chiếc máy ảnh mới <?php echo $product_detail['title'] ?> được xem là chiếc máy ảnh DSLR có màn hình
+              xoay lật nhỏ gọn nhất trên thị trường hiện nay.
+            </div>
+            <div class="product-content-right-bottom-content-info">
+              <p>Chi Tiết</p>
+              Cảm biến CMOS 24,1mpx<br>
+              Bộ xử lý hình ảnh DIGIC 8<br>
+              ISO 100 – 25600, mở rộng lên 51200<br>
+              Dual Pixel CMOS AF với tối đa 3975 vị trí AF trên màn hình<br>
+              Ống ngắm quang học, hệ AF 9 điểm<br>
+              Tốc độ chụp liên tiếp tối đa tới 5 hình/giây<br>
+              Màn hình xoay lật cảm ứng 3 inch<br>
+              29 ngôn ngữ, trong đó có tiếng Việt<br>
+              Khung thân hợp kim nhôm và chất dẻo<br>
+              Kết nối wifi, bluetooth<br>
+              1 khe thẻ SD, hỗ trợ SD/SDHC/SDXC<br>
+              Pin: LP-E17, tối đa tới 1070 tấm khi sạc đầy<br>
+              Kích thước: 122 x 93 x 70 mm<br>
+              Khối lượng: 449g<br>
             </div>
           </div>
         </div>
-      </form>
-    <?php endforeach; ?>
-  </div>
+      <?php endif; ?>
 
-  <!-- footer  -->
-  <div class="footer" id="footer">
-  </div>
+      <!-- product-related -->
+      <div class="product-related container">
+        <div class="product-related-title">
+          <p>SẢN PHẨM LIÊN QUAN</p>
+        </div>
+        <div class="row product-content">
+          <?php if (!empty($related_products)): ?>
+            <?php foreach ($related_products as $related_product): ?>
+              <div class="product-related-item">
+                <a class='productLink' onclick="openProductDetail(<?php echo $related_product['id'] ?>)">
+                  <img src="<?php echo htmlspecialchars($related_product['images'][0]); ?>" alt="<?php echo htmlspecialchars($related_product['title']); ?>">
+                </a>
+                <h1><?php echo htmlspecialchars($related_product['title']); ?></h1>
+                <p><?php echo number_format($related_product['price'], 0, ',', '.'); ?> VNĐ </p>
+                <button class='addCart' onclick="displayBuyBox(<?php echo $related_product['id'] ?>)"
+                  style="margin-left: auto; margin-right: auto;">
+                  <img src='img/carticon.png' alt='cartIcon'>
+                  <p class='muahang'> Mua hàng</p>
+                </button>
+              </div>
+            <?php endforeach; ?>
+          <?php else: ?>
+            <p>Không có sản phẩm liên quan.</p>
+          <?php endif; ?>
+        </div>
+      </div>
 
-  <script src="js/navbar.js" type="text/javascript"></script>
-  <script src="./js/product-cart.js" type="text/javascript"></script>
-  <script src="js/autocomplete.js" type="text/javascript"></script>
-  <script src="js/footer.js" type="text/javascript"></script>
-  <!-- <script src="js/product-detail.js"></script> -->
+      <div id="buyBox">
+        <?php foreach ($products as $product): ?>
+          <form method="POST" action="./php/products.php" header="./cart_detail.php">
+            <?php $image = json_decode($product['images'])[0]; ?>
+            <div class="notiBox-<?php echo $product['id']; ?>" id="notiBox" style="display: none;">
+              <div class="backgroundNoti"></div>
+              <div class="littleBox">
+                <button class="exitBtn" id="exitBtn" type="button" onclick="this.parentElement.parentElement.style.display='none'">X</button>
+                <div class="firstInfo">
+                  <div class="imgAndInfo">
+                    <img src="<?php echo $image; ?>" alt="" class="imgInLittleBox">
+                    <div class="productInfo">
+                      <h2><?php echo $product['title']; ?></h2>
+                      <p>
+                        <span id="priceOfProduct"></span><?php echo $formattedPrice = number_format($product['price'], 0, ',', '.'); ?>
+                        <span>VND</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="amountproduct">
+                    <button type="button" class="addToCart" data-id="<?php echo $product['id']; ?>" data-price="<?php echo $product['price']; ?>">+</button>
+                    <input name="quantity" id="userCount-<?php echo $product['id']; ?>" class="amountProduct" value="0" readonly>
+                    <button type="button" class="delToCart" data-id="<?php echo $product['id']; ?>">-</button>
+                    <input type="hidden" name="quantity-<?php echo $product['id']; ?>" id="inputQuantity-<?php echo $product['id']; ?>" value="0">
+                  </div>
+                </div>
+
+                <div class="eventGift">
+                  <h2><img class="giftIcon" src="img/giftbox.png" alt="">Chương trình khuyến mãi</h2>
+                  <p class="eventDes">Tặng thẻ nhớ 64GB</p>
+                </div>
+                <div class="lastInfo">
+                  <div class="countBox">
+                    <h2 class="priceTemp">Tạm tính: <strong class='displayPrice' id="displayPrice-<?php echo $product['id']; ?>">0</strong></h2>
+                  </div>
+                  <input type="hidden" name="productId" value="<?php echo $product['id']; ?>">
+                  <input type="hidden" name="nameproduct" value="<?php echo $product['title']; ?>">
+                  <input type="hidden" name="price" value="<?php echo $product['price']; ?>">
+                  <button type="submit" class="buyBtn">Xác nhận mua</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        <?php endforeach; ?>
+      </div>
+
+      <!-- footer  -->
+      <div class="footer" id="footer">
+      </div>
+
+      <script src="js/navbar.js" type="text/javascript"></script>
+      <script src="./js/product-cart.js" type="text/javascript"></script>
+      <script src="js/autocomplete.js" type="text/javascript"></script>
+      <script src="js/footer.js" type="text/javascript"></script>
+      <script src="js/product.js"></script>
 </body>
 
 </html>

@@ -78,14 +78,15 @@ INSERT INTO `category` (`category_id`, `category_name`) VALUES
 --
 
 CREATE TABLE `deliveryaddress` (
-  `delevery_id` int(11) NOT NULL,
+  `delevery_id` int(11) NOT NULL AUTO_INCREMENT,
   `full_name` varchar(100) NOT NULL,
   `phone` char(11) NOT NULL,
   `province` varchar(50) NOT NULL,
   `district` varchar(50) NOT NULL,
   `address` varchar(255) NOT NULL,
   `customer_type` tinyint(1) NOT NULL COMMENT '1 la KL, 2 la DK',
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`delevery_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

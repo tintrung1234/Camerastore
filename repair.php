@@ -1,6 +1,34 @@
 <?php
 include("./php/db.php");
 include("./navbar.php");
+// Sample database connection (update with your actual connection details)
+$host = "localhost"; // Update with your server details
+$user = "root";
+$pass = "";
+$db = "camerastore_db";
+$conn = new mysqli($host, $user, $pass, $db);
+
+// Check connection
+if ($conn->connect_error) {
+        die("Database connection failed: " . $conn->connect_error);
+}
+
+// Fetch products with discount = 1
+$discounted_products = [];
+$stmt = $conn->prepare("SELECT id, title, price, images FROM products WHERE discount = ? LIMIT 3");
+$discount = 1; // Set discount value
+$stmt->bind_param("i", $discount);
+$stmt->execute();
+$result = $stmt->get_result();
+
+while ($row = $result->fetch_assoc()) {
+        // Decode images JSON string into an array
+        $row['images'] = json_decode($row['images'], true);
+        $discounted_products[] = $row;
+}
+
+$stmt->close();
+$conn->close();
 ?>
 
 <style>
@@ -22,7 +50,7 @@ include("./navbar.php");
 
 <div class="repair-container">
         <div class="row">
-                <div class="col-sm-9 col-12">
+                <div class="col-sm-9 col-12" style="padding-right: 15px;">
                         <h1 class="page_title mt-2 mb-2">Sửa chữa</h1>
                         <h6 class="detail-new-teaser text-justify"> <strong>Dịch vụ cơ bản sửa chữa, thay thế
                                         máy ảnh và một
@@ -390,39 +418,23 @@ include("./navbar.php");
                 <div class="col-sm-3 col-12">
                         <div class="block-product-item">
                                 <h3 class="page_title text-center">Sản phẩm nổi bật</h3>
-                                <div class="item"> <a href="product.php?id=1" style="text-decoration: none;">
-                                </div>
-                                <div class="content" style=" background-color: burlywood;">
-                                        <div class="img" style="text-align: center; color: black; ">
-                                                <img src="img/canon/3000D-Kit/3000D-kit.png" alt=""
-                                                        class="img-responsive " style="width: 100%;  ">
-                                                <p class="name">Canon 200D</p>
-                                                <p class="price"> <span>Giá từ: </span>12.990.000đ </p>
-                                        </div>
-                                        </a>
-                                </div>
-                                <div class="item"> <a href="product.php?id=1" style="text-decoration: none;">
-                                </div>
-                                <div class="content" style=" background-color: burlywood;">
-                                        <div class="img" style="text-align: center; color: black; ">
-                                                <img src="img/canon/3000D-Kit/3000D-kit.png" alt=""
-                                                        class="img-responsive " style="width: 100%;  ">
-                                                <p class="name">Canon 200D</p>
-                                                <p class="price"> <span>Giá từ: </span>12.990.000đ </p>
-                                        </div>
-                                        </a>
-                                </div>
-                                <div class="item"> <a href="product.php?id=1" style="text-decoration: none;">
-                                </div>
-                                <div class="content" style=" background-color: burlywood;">
-                                        <div class="img" style="text-align: center; color: black; ">
-                                                <img src="img/canon/3000D-Kit/3000D-kit.png" alt=""
-                                                        class="img-responsive " style="width: 100%;  ">
-                                                <p class="name">Canon 200D</p>
-                                                <p class="price"> <span>Giá từ: </span>12.990.000đ </p>
-                                        </div>
-                                        </a>
-                                </div>
+                                <?php if (!empty($discounted_products)): ?>
+                                        <?php foreach ($discounted_products as $product): ?>
+                                                <div class="item"> <a href="product.php?id=<?php echo $product['id']; ?>" style="text-decoration: none;">
+                                                </div>
+                                                <div class="content" style=" background-color: burlywood;">
+                                                        <div class="img" style="text-align: center; color: black; ">
+                                                                <img src="<?php echo htmlspecialchars($product['images'][0]); ?>" alt="<?php echo htmlspecialchars($product['title']); ?>"
+                                                                        class="img-responsive " style="width: 100%;  ">
+                                                                <label class="productPrice" style="font-style:bole; font-size:30px"><?php echo htmlspecialchars($product['title']); ?></label>
+                                                                <p class="productPrice" style="font-size:20px">Giá từ: <strong><?php echo number_format($product['price'], 0, ',', '.'); ?>đ </strong> </p>
+                                                        </div>
+                                                        </a>
+                                                </div>
+                                        <?php endforeach; ?>
+                                <?php else: ?>
+                                        <p>Không có sản phẩm nào có giảm giá.</p>
+                                <?php endif; ?>
                         </div>
                 </div>
         </div>
