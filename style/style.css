@@ -530,7 +530,6 @@ button.closeBtn.showOnMobile {
     height: 100%;
     object-fit: cover;
     transition: all 0.8s !important;
-
 }
 
 .block-img2>.bb1>img,
@@ -542,10 +541,6 @@ button.closeBtn.showOnMobile {
     max-width: 100%;
     max-height: 60vh;
 }
-
-/* .block-img2>.bb1>.img1-block2 {
-    padding-bottom: 5px;
-} */
 
 .little-banner {
     display: flex;
@@ -788,7 +783,12 @@ h2.titleSony {
 
 .productImg {
     width: 140px;
-    margin-top: -37px;
+    margin-top: -26px;
+}
+
+#product:hover>.productLink img {
+    transform: scale(1.4);
+    transition: 0.5s;
 }
 
 .addCart>img {
@@ -798,12 +798,12 @@ h2.titleSony {
 
 label.productName {
     font-size: 18px;
-    padding: 10px;
+    padding: 25px 0 5px;
 }
 
 p.productPrice {
     font-size: 14px;
-    margin-top: 16px;
+    margin-top: 8px;
     color: gray;
 }
 
