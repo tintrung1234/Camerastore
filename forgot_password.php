@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Nội dung email
             $mail->isHTML(true);
             $mail->Subject = "Password Recovery";
-            $mail->Body    = "Hi,<br><br>Click <a href='http://localhost/camerastore/account/resetpassword.php?key=$key'>here</a> to reset your password.";
+            $mail->Body    = "Hi,<br><br>Click <a href='http://localhost/camerastore/resetpassword.php?key=$key'>here</a> to reset your password.";
 
             // Gửi email
             $mail->send();
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container-login " id="container-login">
         <div class="formAccount-container sign-in-container" style="width: 100%;">
             <div class="picture-side">
-                <img src="img/banner-account.jpg" alt="">
+                <img src="./uploads/img/banner-account.jpg" alt="">
             </div>
             <div class="form-account">
                 <form role="form" method="POST">

@@ -51,7 +51,7 @@ include("./navbar.php");
                                 <p
                                         style="box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; text-align: center;">
                                         <span style="box-sizing: border-box; font-size: 14px;"><img alt=""
-                                                        src="img/canon/200D/200D.png"
+                                                        src="./uploads/img/canon/200D/200D.png"
                                                         style="box-sizing: border-box; border: none; vertical-align: middle; margin: 0px; padding: 0px;"
                                                         width="500" height="334"></span>
                                 </p>
@@ -228,7 +228,7 @@ include("./navbar.php");
                                 <div
                                         style="box-sizing: border-box; margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; background-color: rgb(255, 252, 252); text-align: center;">
                                         <span style="box-sizing: border-box; font-size: 14px;"><img alt=""
-                                                        src="./img/banner1.jpg"
+                                                        src="./uploads/img/banner1.jpg"
                                                         style="box-sizing: border-box; border: none; vertical-align: middle; height: 200px; margin: 0px; padding: 0px; width: 524px;"></span>
                                 </div>
                                 <div
@@ -328,7 +328,7 @@ include("./navbar.php");
                                                                                         style="box-sizing: border-box; color: rgb(0, 0, 0);"><span
                                                                                                 style="box-sizing: border-box; font-weight: bolder;"><img
                                                                                                         alt=""
-                                                                                                        src="img/ProCam.png"
+                                                                                                        src="./uploads/img/ProCam.png"
                                                                                                         style="box-sizing: border-box; border: none; vertical-align: middle; float: left; width: 150px;height: 90px; margin: 30px 15px; padding: 0px; ">
                                                                                                 PROCAM -
                                                                                                 Prfessional
@@ -394,7 +394,7 @@ include("./navbar.php");
                                 </div>
                                 <div class="content" style=" background-color: burlywood;">
                                         <div class="img" style="text-align: center; color: black; ">
-                                                <img src="img/canon/3000D-Kit/3000D-kit.png" alt=""
+                                                <img src="./uploads/img/canon/3000D-Kit/3000D-kit.png" alt=""
                                                         class="img-responsive " style="width: 100%;  ">
                                                 <p class="name">Canon 200D</p>
                                                 <p class="price"> <span>Giá từ: </span>12.990.000đ </p>
@@ -405,7 +405,7 @@ include("./navbar.php");
                                 </div>
                                 <div class="content" style=" background-color: burlywood;">
                                         <div class="img" style="text-align: center; color: black; ">
-                                                <img src="img/canon/3000D-Kit/3000D-kit.png" alt=""
+                                                <img src="./uploads/img/canon/3000D-Kit/3000D-kit.png" alt=""
                                                         class="img-responsive " style="width: 100%;  ">
                                                 <p class="name">Canon 200D</p>
                                                 <p class="price"> <span>Giá từ: </span>12.990.000đ </p>
@@ -416,7 +416,7 @@ include("./navbar.php");
                                 </div>
                                 <div class="content" style=" background-color: burlywood;">
                                         <div class="img" style="text-align: center; color: black; ">
-                                                <img src="img/canon/3000D-Kit/3000D-kit.png" alt=""
+                                                <img src="./uploads/img/canon/3000D-Kit/3000D-kit.png" alt=""
                                                         class="img-responsive " style="width: 100%;  ">
                                                 <p class="name">Canon 200D</p>
                                                 <p class="price"> <span>Giá từ: </span>12.990.000đ </p>

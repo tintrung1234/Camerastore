@@ -43,7 +43,7 @@ class products
 
             if (in_array($image_ext, $allowed_ext)) {
                 $image_new_name = uniqid('', true) . '.' . $image_ext;
-                $image_destination = 'uploads/' . $image_new_name;
+                $image_destination = '../uploads/' . $image_new_name;
                 if (!move_uploaded_file($image_tmp, $image_destination)) {
                     $errors['imageError'] = "Không thể tải lên hình ảnh!";
                 }
@@ -73,7 +73,7 @@ class products
             $image_des_ext = strtolower(pathinfo($image_des, PATHINFO_EXTENSION));
             if (in_array($image_des_ext, $allowed_ext)) {
                 $image_des_new_name = uniqid('', true) . '.' . $image_des_ext;
-                $image_des_destination = 'uploads/' . $image_des_new_name;
+                $image_des_destination = '../uploads/' . $image_des_new_name;
                 if (!move_uploaded_file($image_des_tmp, $image_des_destination)) {
                     $errors['imageDesError'] = "Không thể tải lên ảnh mô tả!";
                 } else {
@@ -164,7 +164,7 @@ class products
         $permited = array('jpg', 'jpeg', 'png', 'gif');
         $fileExt = strtolower(pathinfo($image, PATHINFO_EXTENSION));
         $uniqueImage = substr(md5(time()), 0, 10) . '.' . $fileExt;
-        $uploadedImage = "uploads/" . $uniqueImage;
+        $uploadedImage = "../uploads/" . $uniqueImage;
 
         if ($imageSize > 0) {
             if ($imageSize > 2097152) { // 2MB
@@ -222,7 +222,7 @@ class products
             $image = $product['images'];
 
             // Delete the main image file
-            if ($image && file_exists("uploads/" . $image)) {
+            if ($image && file_exists("../uploads/" . $image)) {
                 unlink("uploads/" . $image);
             }
 
@@ -231,7 +231,7 @@ class products
             $resultDesImages = $this->db->select($queryDesImages);
             if ($resultDesImages->num_rows > 0) {
                 while ($imageDes = $resultDesImages->fetch_assoc()) {
-                    $imageDesPath = "uploads/" . $imageDes['images_description'];
+                    $imageDesPath = "../uploads/" . $imageDes['images_description'];
                     if (file_exists($imageDesPath)) {
                         unlink($imageDesPath);
                     }

@@ -2,7 +2,7 @@
 include "./php/db.php";
 include "navbar.php";
 
-$cart_items = $conn->query("SELECT c.product_id, c.quantity, p.title, p.price, p.discount FROM cart c JOIN products p ON c.product_id = p.id");
+$cart_items = $conn->query("SELECT c.product_id, c.quantity, p.title, p.price, p.discount FROM cart c JOIN products p ON c.product_id = p.products_id");
 
 // Initialize total price
 $total_price = 0;
@@ -15,15 +15,15 @@ $total_price = 0;
     <div class="delivery-top-wrap">
       <div class="delivery-top">
         <div class="delivery-top-cart delivery-top-item">
-          <img src="img/carticon.png" alt="" />
+          <img src="./uploads/img/carticon.png" alt="" />
           <span>Giỏ Hàng</span>
         </div>
         <div class="delivery-top-address delivery-top-item">
-          <img src="img/location-icon.png" alt="" />
+          <img src="./uploads/img/location-icon.png" alt="" />
           <span>Giao hàng</span>
         </div>
         <div class="delivery-top-payment delivery-top-item">
-          <img src="img/money-icon.png" alt="" />
+          <img src="./uploads/img/money-icon.png" alt="" />
           <span>Thanh toán</span>
         </div>
       </div>
@@ -36,7 +36,7 @@ $total_price = 0;
 
         <label>Vui lòng chọn địa chỉ giao hàng:</label>
         <div class="delivery-content-left-login row">
-          <img width="15px" src="img/login-icon.png" alt="">
+          <img width="15px" src="./uploads/img/login-icon.png" alt="">
           <p style="margin-left: 6px;">Đăng nhập (Nếu bạn đã có tài khoản của PROCAM)</p>
         </div>
 

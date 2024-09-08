@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="text" name="discount" id="discount" value="<?php echo htmlspecialchars($result['discount']); ?>" required>
 
             <label for="images">Ảnh sản phẩm <span style="color: red;">*</span></label>
-            <img style="width: 50%; " src="uploads/<?= $result['images'] ?> "><br>
+            <img style="width: 50%; " src="../uploads/<?= $result['images'] ?> "><br>
 
             <input type="file" name="images" id="images">
             <span style="color: red;"><?php echo isset($errorMessages['imageError']) ? $errorMessages['imageError'] : ''; ?></span>
@@ -152,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <?php $images_des = $products->get_images_des($result['products_id']);
             if ($images_des) {
                 while ($result_images_des = $images_des->fetch_assoc()) { ?>
-                    <img style="width: 25%; " src="uploads/<?= $result_images_des['images_description'] ?> ">
+                    <img style="width: 25%; " src="../uploads/<?= $result_images_des['images_description'] ?> ">
             <?php }
             } ?>
             <br>
@@ -187,7 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ?>
                     <tr>
                         <td> <?php echo $i ?></td>
-                        <td> <img src="uploads/<?= $result['images'] ?>" alt=""></td>
+                        <td> <img src="../uploads/<?= $result['images'] ?>" alt=""></td>
                         <td> <?php echo $product['type'] ?></td>
                         <td> <?php echo number_format($product['price']) ?></td>
                         <td> <?php echo $product['title'] ?></td>

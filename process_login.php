@@ -24,7 +24,10 @@ if (isset($_POST['register'])) {
 
     // Check if the passwords match
     if ($password !== $confirm_password) {
-        echo "Mật khẩu không khớp!";
+        echo "<script>
+            alert('Mật khẩu không khớp!');
+            window.history.back();
+        </script>";
         exit;
     }
 
@@ -32,7 +35,10 @@ if (isset($_POST['register'])) {
     $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username OR email = :email");
     $stmt->execute(['username' => $username, 'email' => $email]);
     if ($stmt->rowCount() > 0) {
-        echo "Tên đăng nhập hoặc email đã tồn tại!";
+        echo "<script>
+            alert('Tên đăng nhập hoặc email đã tồn tại!');
+            window.history.back();
+        </script>";
         exit;
     }
 
@@ -40,9 +46,11 @@ if (isset($_POST['register'])) {
     $stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
     $stmt->execute(['username' => $username, 'email' => $email, 'password' => $password]); // Không mã hóa mật khẩu
 
-    echo "Đăng ký thành công!";
-    // Optionally, redirect to login page
-    header('Location: login.php');
+    echo "<script>
+        alert('Đăng ký thành công!');
+        window.location.href = 'login.php';
+    </script>";
+
     exit;
 }
 
@@ -61,12 +69,16 @@ if (isset($_POST['login'])) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
 
-        echo "Đăng nhập thành công!";
-        // Optionally, redirect to a logged-in page
-        header('Location: home.php');
+        echo "<script>
+            alert('Đăng nhập thành công!');
+            window.location.href = 'Home.php';
+        </script>";
         exit;
     } else {
-        echo "Tên đăng nhập/email hoặc mật khẩu không đúng!";
+        echo "<script>
+            alert('Tên đăng nhập/email hoặc mật khẩu không đúng!');
+            window.history.back();
+        </script>";
         exit;
     }
 }

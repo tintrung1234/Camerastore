@@ -2,10 +2,9 @@
 include "./php/db.php";
 include "navbar.php";
 
-$sql = "
-  SELECT cart.id, cart.quantity, cart.price, products.title, products.images 
+$sql = "SELECT cart.*, products.*
   FROM cart 
-  JOIN products ON cart.product_id = products.id";
+  JOIN products ON cart.product_id = products.products_id";
 $cart_items = $conn->query($sql);
 
 $total_products = 0;
@@ -18,15 +17,15 @@ $total_price = 0;
     <div class="cart-top-wrap">
       <div class="cart-top">
         <div class="cart-top-cart cart-top-item">
-          <img src="img/carticon.png" alt="">
+          <img src="./uploads/img/carticon.png" alt="">
           <span>Giỏ Hàng</span>
         </div>
         <div class="cart-top-address cart-top-item">
-          <img src="img/location-icon.png" alt="">
+          <img src="./uploads/img/location-icon.png" alt="">
           <span>Giao hàng</span>
         </div>
         <div class="cart-top-payment cart-top-item">
-          <img src="img/money-icon.png" alt="">
+          <img src="./uploads/img/money-icon.png" alt="">
           <span>Thanh toán</span>
         </div>
       </div>
@@ -48,25 +47,25 @@ $total_price = 0;
           <?php if ($cart_items->num_rows > 0): ?>
             <?php while ($item = $cart_items->fetch_assoc()): ?>
               <tr>
-                <td><img src="<?= json_decode($item['images'])[0] ?>" alt=""></td>
+                <td><img src="./uploads/<?= $item['images'] ?>" alt=""></td>
                 <td>
                   <p><?= $item['title'] ?></p>
                 </td>
-                <td><img src="img/spcolor.png" alt=""></td>
+                <td><img src="./uploads/img/spcolor.png" alt=""></td>
                 <td><input type="number" min="1" value="<?= $item['quantity'] ?>"></td>
                 <td>
-                  <p><?= number_format($item['price'] * $item['quantity'], 0, ',', '.') ?>đ</p>
+                  <p><?= number_format($item['total_price'] * $item['quantity'], 0, ',', '.') ?>đ</p>
                 </td>
                 <td>
-                  <form method="POST" action="/delete_from_cart.php" style="display:inline;">
-                    <input type="hidden" name="cart_id" value="<?= $item['id'] ?>">
+                  <form method="POST" action="./delete_from_cart.php" style="display:inline;">
+                    <input type="hidden" name="cart_id" value="<?= $item['cart_id'] ?>">
                     <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to remove this item?');">X</button>
                   </form>
                 </td>
               </tr>
               <?php
               $total_products += $item['quantity'];
-              $total_price += $item['price'] * $item['quantity'];
+              $total_price += $item['total_price'] * $item['quantity'];
               ?>
             <?php endwhile; ?>
           <?php else: ?>
@@ -116,7 +115,7 @@ $total_price = 0;
         </div>
         <div class="cart-content-right-login">
           <p>TÀI KHOẢN PROCAM</p>
-          <p>Hãy <a href="login.html">đăng nhập</a> tài khoản của bạn để tích điểm thành viên</p>
+          <p>Hãy <a href="login.php">đăng nhập</a> tài khoản của bạn để tích điểm thành viên</p>
         </div>
       </div>
     </div>

@@ -69,9 +69,14 @@ a:hover {
     box-shadow: 0 4px 8px 1px rgba(0, 0, 0, 0.08);
 }
 
+.ml-mobile {
+    background-color: white;
+}
+
 .logo {
     float: left;
     margin-right: 22px;
+    display: flex;
 }
 
 .logo>a>img {
@@ -211,7 +216,7 @@ a:hover {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    transition: 0.3s;
+    z-index: 3;
 }
 
 .sideBar>.logo {
@@ -222,12 +227,7 @@ a:hover {
 .sideBar>.logo>a>img {
     width: 100px;
     position: relative;
-    margin-left: 9px;
-    justify-items: center;
-    margin-top: 9px;
-    width: 100px;
-    position: relative;
-    margin-left: 9px;
+    margin-left: 78%;
     justify-items: center;
     margin-top: 9px;
 }
@@ -424,7 +424,7 @@ button.closeBtn.showOnMobile {
     position: relative;
     padding-top: 42%;
     transition: 0.3s;
-    margin-top: 2%;
+    margin-top: 5%;
 }
 
 .aspect-ratio-169 img {
@@ -530,7 +530,6 @@ button.closeBtn.showOnMobile {
     height: 100%;
     object-fit: cover;
     transition: all 0.8s !important;
-
 }
 
 .block-img2>.bb1>img,
@@ -542,10 +541,6 @@ button.closeBtn.showOnMobile {
     max-width: 100%;
     max-height: 60vh;
 }
-
-/* .block-img2>.bb1>.img1-block2 {
-    padding-bottom: 5px;
-} */
 
 .little-banner {
     display: flex;
@@ -704,30 +699,24 @@ content {
 }
 
 .cartegory-right-content-item {
-    background-image: url("../img/background_product.jpg");
+    background-image: url("../uploads/img/background_product.jpg");
     width: calc(100% / 4);
     text-align: center;
     padding: 12px 0;
     position: relative;
     flex: 1 1 calc(25% - 20px);
-    /* display: none; */
     border: 1px solid #ccc;
-    /* Lighter border color */
     border-radius: 10px;
     background-color: #f9f9f9;
-    /* Light background for contrast */
     transition: transform 0.2s;
-    /* Smooth scaling effect */
 }
 
 .cartegory-right-content-item:hover {
     transform: scale(1.05);
-    /* Slightly enlarge on hover */
 }
 
 .cartegory-right-content-item h1 {
     font-size: 14px;
-    /* Increased font size */
     margin-top: 6px;
     color: #333333;
 }
@@ -735,16 +724,12 @@ content {
 .cartegory-right-content-item img {
     width: 150px;
     border-radius: 5px;
-    /* Rounded corners for images */
 }
 
 .cartegory-right-content-item p {
     font-size: 16px;
-    /* Increased font size for price */
     color: red;
-    /* Red color for price */
     font-weight: bold;
-    /* Bold text for emphasis */
 }
 
 
@@ -773,7 +758,7 @@ h2.titleSony {
 }
 
 #product {
-    background-image: url("../img/background_product.jpg");
+    background-image: url("../uploads/img/background_product.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -788,7 +773,12 @@ h2.titleSony {
 
 .productImg {
     width: 140px;
-    margin-top: -37px;
+    margin-top: -26px;
+}
+
+#product:hover>.productLink img {
+    transform: scale(1.4);
+    transition: 0.5s;
 }
 
 .addCart>img {
@@ -798,12 +788,12 @@ h2.titleSony {
 
 label.productName {
     font-size: 18px;
-    padding: 10px;
+    padding: 25px 0 5px;
 }
 
 p.productPrice {
     font-size: 14px;
-    margin-top: 16px;
+    margin-top: 8px;
     color: gray;
 }
 
@@ -1069,11 +1059,12 @@ h2.priceTemp {
 
 /* ----------------------------------- Product Detail --------------------------------------- */
 .productDetail {
-    padding: 100px 0;
+    padding: 3% 0;
 }
 
 .product-top {
     margin-bottom: 30px;
+    margin-top: 5%;
 }
 
 .product-top p {
@@ -1262,7 +1253,7 @@ h2.priceTemp {
 
 .product-content-right-bottom {
     border-top: 1px solid #dddddd;
-    padding: 40px;
+    padding: 40px 0;
     position: relative;
 }
 
@@ -1281,10 +1272,6 @@ h2.priceTemp {
     transform: translateX(-50%);
     cursor: pointer;
 }
-
-/* .product-content-right-bottom-content-title {
-        border-bottom: 2px solid #dddddd;
-    } */
 
 .product-content-right-bottom-content-title-item {
     padding: 6px;
@@ -1336,7 +1323,7 @@ h2.priceTemp {
     text-align: center;
 }
 
-.product-related-item img {
+.product-related-item>a>img {
     width: 100%;
 }
 
@@ -1351,7 +1338,7 @@ h2.priceTemp {
     font-size: 17px;
 }
 
-.product-related-item p {
+.product-related-item>p {
     font-size: 20px;
     font-weight: bold;
     color: red;
@@ -1443,6 +1430,11 @@ h2.priceTemp {
 .container-cartdetail {
     width: 90%;
     margin: 0 auto;
+}
+
+.deleteBtn {
+    padding: 10px;
+    cursor: pointer;
 }
 
 .cart {
@@ -1538,7 +1530,7 @@ h2.priceTemp {
 }
 
 .cart-content-left table input {
-    width: 30px;
+    width: 20%;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -2283,4 +2275,39 @@ button#sendResetLink {
 
 button.btn-submit-account {
     margin-top: 5px;
+}
+
+/*========================================== Event Page ======================================== */
+
+.blockContain1 {
+    margin-top: 3%;
+    width: fit-content;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.blockContain1 img {
+    min-width: 100px;
+    max-width: 300px;
+    float: right;
+    margin-left: 50px;
+
+}
+
+.titleSale h1 {
+    margin-top: 10%;
+    display: inline-block;
+    text-align: center;
+    font-size: 50px;
+    width: 100%;
+}
+
+.titleSale p {
+    font-size: 75px;
+}
+
+.titleSale strong {
+    font-size: 100px;
 }

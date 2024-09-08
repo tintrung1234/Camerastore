@@ -93,7 +93,7 @@ include("./navbar.php");
 
                             echo "<div class='cartegory-right-content-item' id='$type' >
                                     <a  onclick='openProductDetail($id)'>
-                                        <img src='admin/uploads/$images' alt=''>
+                                        <img src='./uploads/$images' alt=''>
                                         <h1>$title</h1>
                                     </a>
                                     <p>$price VND</p>

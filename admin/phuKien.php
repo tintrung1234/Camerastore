@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ?>
                     <tr>
                         <td> <?php echo $i ?></td>
-                        <td> <img src="uploads/<?= $phukien['images'] ?>" alt=""></td>
+                        <td> <img src="../uploads/<?= $phukien['images'] ?>" alt=""></td>
                         <td> <?php echo $phukien['type'] ?></td>
                         <td> <?php echo number_format($phukien['price']) ?></td>
                         <td> <?php echo $phukien['title'] ?></td>

@@ -32,7 +32,7 @@ if ($result->num_rows > 0) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home Page</title>
   <link rel="stylesheet" href="style/style.css" />
-  <link rel="icon" href="img/ProCam.png" type="image/x-icon">
+  <link rel="icon" href="./uploads/img/ProCam.png" type="image/x-icon">
 </head>
 
 <body>
@@ -41,7 +41,7 @@ if ($result->num_rows > 0) {
     <div class="container ">
       <div class="logo">
         <a href="Home.php">
-          <img src="./img/ProCam.png" alt="" />
+          <img src="./uploads/img/ProCam.png" alt="" />
         </a>
       </div>
       <div class="blockNav1 hideOnMobile">
@@ -123,13 +123,13 @@ if ($result->num_rows > 0) {
           <a href="contact.php"><button class="subBtn">Liên hệ</button></a>
         </div>
       </div>
-      <button onclick=showSidebar() class="showOnMobile hideOnNavbar ml-mobile"><img class='menuImg' src='./img/menu.png'></button>
+      <button onclick=showSidebar() class="showOnMobile hideOnNavbar ml-mobile"><img class='menuImg' src='./uploads/img/menu.png'></button>
       <div class="search_box hideOn">
         <form action="./php/search.php" method="GET">
           <div class="row-search-box">
             <input type="text" id="input-box" name="query" autocomplete="off" placeholder="Tìm kiếm" />
             <button type="submit">
-              <img src="img/SearchIcon.png" alt="Search" />
+              <img src="./uploads/img/SearchIcon.png" alt="Search" />
             </button>
           </div>
           <div class="result-box"></div>
@@ -137,13 +137,13 @@ if ($result->num_rows > 0) {
       </div>
       <div class="login-icon" class='hideOnMobile'>
         <a href="login.php">
-          <img class='hideOnMobile' width=30px src="img/signin-icon.png" alt="" />
+          <img class='hideOnMobile' width=30px src="./uploads/img/signin-icon.png" alt="" />
         </a>
       </div>
       <div id="totalCart" class='hideOnMobile'>
         <p class='hideOnMobile' id="count"><?php echo $totalQuantity; ?></p>
         <a href="cart_detail.php">
-          <img src="./img/carticon.png" alt="" />
+          <img src="./uploads/img/carticon.png" alt="" />
         </a>
       </div>
     </div>
@@ -152,9 +152,9 @@ if ($result->num_rows > 0) {
   <div class="sideBar hideOnNavbar">
     <div class="logo">
       <a href="Home.php">
-        <img src="./img/ProCam.png" alt="" />
+        <img src="./uploads/img/ProCam.png" alt="" />
       </a>
-      <button onclick=hideSidebar() class="closeBtn showOnMobile"><img class='menuImg' src='./img/close.png'></button>
+      <button onclick=hideSidebar() class="closeBtn showOnMobile"><img class='menuImg' src='./uploads/img/close.png'></button>
     </div>
     <div class="blockNav1 hideOnMobile">
 

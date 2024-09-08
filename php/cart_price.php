@@ -8,14 +8,14 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 function getCartTotal($conn)
 {
-    $sql = "SELECT price FROM cart";
+    $sql = "SELECT total_price FROM cart";
     $result = $conn->query($sql);
 
     $total = 0;
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $total = $row['total'];
+        $total = $row['total_price'];
     }
 
     return $total;

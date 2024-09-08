@@ -121,23 +121,16 @@ include "navbar.php";
     }
 </style>
 
-
 <div class="contact">
-    <div class="contact-top row">
-        <p>Trang chủ</p> <span>&#10230;</span>
-        <p>Liên hệ</p>
-    </div>
     <div class="contact-container">
-
         <div class="contact-content-left">
-
             <h2>Liên Hệ Với Chúng Tôi</h2>
             <p>
                 Nếu bạn có bất kỳ câu hỏi hoặc phản hồi nào, vui lòng điền vào mẫu dưới
                 đây. Chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.
             </p>
 
-            <form action="submit_contact.php" method="post">
+            <form action="./php/submit_contact.php" method="post">
                 <div class="form-group">
                     <label for="name">Họ và Tên:</label>
                     <input type="text" id="name" name="name" required />
@@ -147,12 +140,12 @@ include "navbar.php";
                     <input type="email" id="email" name="email" required />
                 </div>
                 <div class="form-group">
-                    <label for="email">Điện thoại:</label>
-                    <input type="email" id="email" name="email" required />
+                    <label for="phone">Điện thoại:</label>
+                    <input type="numer" id="phone" name="phone" required />
                 </div>
                 <div class="form-group">
-                    <label for="email">Địa chỉ:</label>
-                    <input type="email" id="email" name="email" required />
+                    <label for="address">Địa chỉ:</label>
+                    <input type="text" id="address" name="address" required />
                 </div>
                 <div class="form-group">
                     <label for="message">Nội Dung:</label>
