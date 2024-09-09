@@ -13,10 +13,21 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
+// Check if the user is logged in
+if (isset($_SESSION['user_id'])) {
+  // If the user is logged in, use their user ID
+  $user_id = $_SESSION['user_id'];
+} else {
+  // If the user is not logged in, set customer_id to 0
+  $user_id = 0;
+}
 
-// SQL query to sum the total quantity of products in the cart
-$sql = "SELECT SUM(quantity) as total_quantity FROM cart";
-$result = $conn->query($sql);
+// SQL query to sum the total quantity of products in the cart based on the customer_id (either user_id or 0)
+$sql = "SELECT SUM(quantity) as total_quantity FROM cart WHERE customer_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
 
 // Initialize total quantity to 0
 $totalQuantity = 0;
@@ -35,6 +46,7 @@ if ($result) {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

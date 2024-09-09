@@ -41,41 +41,40 @@ $total_price = 0;
           <p style="margin-left: 6px;">Đăng nhập (Nếu bạn đã có tài khoản của PROCAM)</p>
         </div>
 
-        <form action="./delivery_xuli.php" method="POST" action="">
+        <form action="./delivery_xuli.php" method="POST">
           <div class="delivery-content-left-customer row">
-            <input checked type="radio" name="customer" value="customer" />
-            <p>
+            <input checked type="radio" name="customer" value="customer" id="customer" />
+            <label for="customer">
               <span style="font-weight: bold">Khách lẻ</span> (Nếu bạn không muốn lưu lại thông tin)
-            </p>
+            </label>
           </div>
           <div class="delivery-content-left-signup row">
-            <input type="radio" name="customer" value="signup" />
-            <p>
+            <input type="radio" name="customer" value="signup" id="signup" />
+            <label for="signup">
               <span style="font-weight: bold">Đăng ký</span> (Tạo tài khoản mới với thông tin bên dưới)
-            </p>
+            </label>
           </div>
-
           <div class="delivery-content-left-input-top row">
             <div class="delivery-content-left-input-top-item">
-              <label for="">Họ tên: <span style="color: red">*</span></label>
-              <input type="text" name="full_name" required />
+              <label for="full_name">Họ tên: <span style="color: red">*</span></label>
+              <input type="text" name="full_name" id="full_name" required />
             </div>
             <div class="delivery-content-left-input-top-item">
-              <label for="">Điện thoại: <span style="color: red">*</span></label>
-              <input type="text" name="phone" required />
+              <label for="phone">Điện thoại: <span style="color: red">*</span></label>
+              <input type="tel" name="phone" id="phone" required />
             </div>
             <div class="delivery-content-left-input-top-item">
-              <label for="">Tỉnh/TP: <span style="color: red">*</span></label>
-              <input type="text" name="province" required />
+              <label for="province">Tỉnh/TP: <span style="color: red">*</span></label>
+              <input type="text" name="province" id="province" required />
             </div>
             <div class="delivery-content-left-input-top-item">
-              <label for="">Quận/Huyện: <span style="color: red">*</span></label>
-              <input type="text" name="district" required />
+              <label for="district">Quận/Huyện: <span style="color: red">*</span></label>
+              <input type="text" name="district" id="district" required />
             </div>
           </div>
           <div class="delivery-content-left-input-bottom row">
-            <label for="">Địa chỉ: <span style="color: red">*</span></label>
-            <input type="text" name="address" required />
+            <label for="address">Địa chỉ: <span style="color: red">*</span></label>
+            <input type="text" name="address" id="address" required />
           </div>
           <div class="delivery-content-left-button row">
             <a href="cart_detail.php"><span>&#171;</span>
@@ -150,3 +149,4 @@ $total_price = 0;
 
 <script src="js/autocomplete.js" type="text/javascript"></script>
 <script src="js/footer.js" type="text/javascript"></script>
+<script src="./js/navbar.js"></script>

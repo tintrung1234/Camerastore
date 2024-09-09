@@ -102,3 +102,4 @@ include "navbar.php";
 
 <script src="js/autocomplete.js" type="text/javascript"></script>
 <script src="js/footer.js" type="text/javascript"></script>
+<script src="./js/navbar.js"></script>

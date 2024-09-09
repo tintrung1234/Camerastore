@@ -1,13 +1,28 @@
 <?php
-include "./php/db.php";
-include "navbar.php";
+include("./php/db.php");
+include("./php/products.php");
+include("./php/db-type-product.php");
+include("./navbar.php");
+include("./php/cart_price.php");
 
+// Check if the session user_id is set
+if (isset($_SESSION['user_id'])) {
+  $user_id = $_SESSION['user_id'];
+  echo "Logged in as user: $user_id";
+} else {
+  // If user is not logged in, set $user_id to 0
+  $user_id = 0;
+  echo "Not logged in, user_id is $user_id";
+}
+
+// SQL query to fetch cart items for the current customer
 $sql = "
   SELECT cart.cart_id, cart.quantity, cart.total_price, products.title, products.images 
   FROM cart 
-  JOIN products ON cart.product_id = products.products_id";
-$cart_items = $conn->query($sql);
+  JOIN products ON cart.product_id = products.products_id 
+  WHERE cart.customer_id = $user_id"; // Filter by customer_id
 
+$cart_items = $conn->query($sql);
 $total_products = 0;
 $total_price = 0;
 ?>
@@ -32,7 +47,6 @@ $total_price = 0;
       </div>
     </div>
   </div>
-
   <div class="container-cartdetail">
     <div class="cart-content row">
       <div class="cart-content-left">
@@ -53,14 +67,16 @@ $total_price = 0;
                   <p><?= $item['title'] ?></p>
                 </td>
                 <td><img src="./uploads/img/spcolor.png" alt=""></td>
-                <td><input type="number" min="1" value="<?= $item['quantity'] ?>"></td>
+                <td>
+                  <input type="number" min="1" value="<?= $item['quantity'] ?>" onchange="updateQuantity(<?= $item['cart_id'] ?>, this.value)">
+                </td>
                 <td>
                   <p><?= number_format($item['total_price'] * $item['quantity'], 0, ',', '.') ?>đ</p>
                 </td>
                 <td>
                   <form method="POST" action="./delete_from_cart.php" style="display:inline;">
                     <input type="hidden" name="cart_id" value="<?= $item['cart_id'] ?>">
-                    <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to remove this item?');">X</button>
+                    <button style="padding: 10px;" type="submit" class="delete-button" onclick="return confirm('Are you sure you want to remove this item?');">X</button>
                   </form>
                 </td>
               </tr>
@@ -74,7 +90,6 @@ $total_price = 0;
               <td colspan="6">Không có sản phẩm nào trong giỏ hàng.</td>
             </tr>
           <?php endif; ?>
-
         </table>
       </div>
       <div class="cart-content-right">
@@ -107,7 +122,6 @@ $total_price = 0;
             </p>
           <?php endif; ?>
         </div>
-
         <div class="cart-content-right-button">
           <a href="category.php"><button>TIẾP TỤC MUA SẮM</button></a>
           <a href="delivery.php"><button>
@@ -122,12 +136,9 @@ $total_price = 0;
     </div>
   </div>
 </div>
-
-
 <!-- footer  -->
 <div class="footer" id="footer">
 </div>
-
 <script src="js/autocomplete.js" type="text/javascript"></script>
 <script src="js/footer.js" type="text/javascript"></script>
 <script>
@@ -136,7 +147,6 @@ $total_price = 0;
       e.preventDefault(); // Prevent the default form submission
       const form = this.closest('form');
       const formData = new FormData(form);
-
       fetch('./delete_from_cart.php', {
           method: 'POST',
           body: formData
@@ -151,4 +161,32 @@ $total_price = 0;
         });
     });
   });
+
+  function updateQuantity(cartId, quantity) {
+    if (quantity < 1) {
+      alert("Quantity must be at least 1.");
+      return;
+    }
+    // Send the updated quantity to the server
+    fetch('./update_cart.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          cart_id: cartId,
+          quantity: quantity
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          // Optionally, update the total price displayed in the cart
+          location.reload(); // Reload to reflect the updated quantities and prices
+        } else {
+          alert('Failed to update quantity.');
+        }
+      });
+  }
 </script>
+<script src="./js/navbar.js"></script>

@@ -1,7 +1,6 @@
 <?php
-include("process_login.php");
 include("navbar.php");
-
+include("process_login.php");
 ?>
 <!-- SIGN IN-->
 <div class="login account-css">

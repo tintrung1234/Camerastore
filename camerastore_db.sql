@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th9 09, 2024 lúc 11:36 AM
+-- Thời gian đã tạo: Th9 09, 2024 lúc 08:48 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -44,7 +44,12 @@ INSERT INTO `cart` (`cart_id`, `customer_id`, `product_id`, `quantity`, `day_buy
 (1, 6, 2, 1, '2024-09-09 10:58:08', 43000.00),
 (2, 6, 3, 2, '2024-09-09 10:58:37', 16000.00),
 (3, 6, 17, 1, '2024-09-09 11:08:13', 540030.00),
-(4, 6, 14, 1, '2024-09-09 11:19:19', 540030.00);
+(4, 6, 14, 1, '2024-09-09 11:19:19', 540030.00),
+(5, 0, 13, 1, '2024-09-09 16:24:14', 540030.00),
+(7, 0, 13, 4, '2024-09-09 20:09:13', 540030.00),
+(8, 0, 16, 1, '2024-09-09 20:26:28', 540030.00),
+(9, 0, 16, 1, '2024-09-09 20:27:42', 540030.00),
+(10, 6, 14, 1, '2024-09-09 20:32:38', 540030.00);
 
 -- --------------------------------------------------------
 
@@ -102,8 +107,9 @@ INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `address`, `message`, `s
 
 CREATE TABLE `customer` (
   `customer_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `customer_name` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
+  `_address` varchar(255) NOT NULL,
   `district` varchar(50) NOT NULL,
   `province` varchar(50) NOT NULL,
   `phone` int(11) NOT NULL
@@ -113,10 +119,48 @@ CREATE TABLE `customer` (
 -- Đang đổ dữ liệu cho bảng `customer`
 --
 
-INSERT INTO `customer` (`customer_id`, `customer_name`, `address`, `district`, `province`, `phone`) VALUES
-(6, 'tintrung', 'aaaaaa', 'camau', 'bentre', 0),
-(17, 'Minh Kham777', 'Soc Trang', '0', '', 999999),
-(18, 'Trung Tin', 'Bạc Liêu1', '0', '', 9999999);
+INSERT INTO `customer` (`customer_id`, `user_id`, `customer_name`, `_address`, `district`, `province`, `phone`) VALUES
+(6, 0, 'tintrung', '', '', '', 0),
+(30, 6, 'HuỳnhTrungTín', 'dang o nha', 'koco', 'alabana', 942450038),
+(31, 6, 'HuỳnhTrungTín', 'dang o nha', 'koco', 'alabana', 942450038),
+(32, 6, 'HuỳnhTrungTín', 'dang o nha', 'koco', 'alabana', 942450038),
+(33, 6, 'HuỳnhTrungTín', 'dang o nha', 'koco', 'alabana', 942450038),
+(34, 6, 'Huỳnh Trung Tín', '325ds', 'camau', 'bentre', 2147483647),
+(35, 6, 'Huỳnh Trung Tín', '325ds', 'camau', 'bentre', 2147483647),
+(36, 6, 'Huỳnh Trung Tín', '325ds', 'camau', 'bentre', 2147483647),
+(37, 6, 'Huỳnh Trung Tín', '325ds', 'camau', 'bentre', 2147483647),
+(38, 6, 'Huỳnh Trung Tín', '325ds', 'camaucas', 'bentre', 2147483647),
+(39, 6, 'Huỳnh Trung Tín', '325ds', 'camaucas', 'bentre', 2147483647),
+(40, 0, '', '', '', '', 0),
+(41, 6, 'jkahaj', 'danonha', 'camau', 'bentrecasc', 2147483647),
+(42, 0, '', '', '', '', 0),
+(43, 0, '', '', '', '', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `customer_product`
+--
+
+CREATE TABLE `customer_product` (
+  `customer_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `customer_product`
+--
+
+INSERT INTO `customer_product` (`customer_id`, `product_id`, `quantity`) VALUES
+(39, 2, 1),
+(39, 3, 2),
+(39, 14, 1),
+(39, 17, 1),
+(41, 2, 1),
+(41, 3, 2),
+(41, 14, 1),
+(41, 17, 1);
 
 -- --------------------------------------------------------
 
@@ -131,7 +175,7 @@ CREATE TABLE `deliveryaddress` (
   `phone` char(11) NOT NULL,
   `province` varchar(50) NOT NULL,
   `district` varchar(50) NOT NULL,
-  `address` varchar(255) NOT NULL,
+  `_address` varchar(255) NOT NULL,
   `customer_type` tinyint(1) NOT NULL COMMENT '1 la KL, 2 la DK',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -140,9 +184,10 @@ CREATE TABLE `deliveryaddress` (
 -- Đang đổ dữ liệu cho bảng `deliveryaddress`
 --
 
-INSERT INTO `deliveryaddress` (`delevery_id`, `user_id`, `full_name`, `phone`, `province`, `district`, `address`, `customer_type`, `created_at`) VALUES
-(8, 6, 'Huỳnh Trung Tín', '09909090990', 'bentre', 'camau', '0', 1, '2024-09-09 09:30:52'),
-(9, 6, 'Huỳnh Trung Tín', '09909090990', 'bentre', 'camau', '0', 1, '2024-09-09 09:35:13');
+INSERT INTO `deliveryaddress` (`delevery_id`, `user_id`, `full_name`, `phone`, `province`, `district`, `_address`, `customer_type`, `created_at`) VALUES
+(30, 6, 'HuỳnhTrungTín', '0942450038', 'alabana', 'koco', '0', 1, '2024-09-09 16:22:52'),
+(31, 6, 'HuỳnhTrungTín', '0942450038', 'alabana', 'koco', '0', 1, '2024-09-09 16:25:08'),
+(32, 6, 'HuỳnhTrungTín', '0942450038', 'alabana', 'koco', '0', 1, '2024-09-09 16:27:33');
 
 -- --------------------------------------------------------
 
@@ -339,6 +384,12 @@ ALTER TABLE `customer`
   ADD PRIMARY KEY (`customer_id`);
 
 --
+-- Chỉ mục cho bảng `customer_product`
+--
+ALTER TABLE `customer_product`
+  ADD PRIMARY KEY (`customer_id`,`product_id`);
+
+--
 -- Chỉ mục cho bảng `deliveryaddress`
 --
 ALTER TABLE `deliveryaddress`
@@ -386,7 +437,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
@@ -404,13 +455,13 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT cho bảng `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT cho bảng `deliveryaddress`
 --
 ALTER TABLE `deliveryaddress`
-  MODIFY `delevery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `delevery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT cho bảng `forget_password`

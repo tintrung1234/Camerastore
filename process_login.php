@@ -1,5 +1,4 @@
 <?php
-// Start session
 session_start();
 
 // Database connection (replace with your actual database credentials)
