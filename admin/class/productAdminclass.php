@@ -147,65 +147,82 @@ class products
 
     public function update_product($data, $files)
     {
-        $productId = $data['products_id'];
-        $productName = mysqli_real_escape_string($this->db->link, $data['productName']);
-        $categoryId = mysqli_real_escape_string($this->db->link, $data['category']);
-        $productType = mysqli_real_escape_string($this->db->link, $data['productType']);
-        $price = mysqli_real_escape_string($this->db->link, $data['price']);
-        $quantity = mysqli_real_escape_string($this->db->link, $data['quantity']);
-        $description = mysqli_real_escape_string($this->db->link, $data['description']);
-        $discount = mysqli_real_escape_string($this->db->link, $data['discount']);
+        // Kết nối đến cơ sở dữ liệu
+        $conn = $this->db->link;
 
-        // Kiểm tra và xử lý hình ảnh sản phẩm
+        // Lấy dữ liệu từ form
+        $products_id = mysqli_real_escape_string($conn, $data['products_id']);
+        $productName = mysqli_real_escape_string($conn, $data['productName']);
+        $category = mysqli_real_escape_string($conn, $data['category']);
+        $productType = mysqli_real_escape_string($conn, $data['productType']);
+        $price = mysqli_real_escape_string($conn, $data['price']);
+        $quantity = mysqli_real_escape_string($conn, $data['quantity']);
+        $description = mysqli_real_escape_string($conn, $data['description']);
+        $discount = mysqli_real_escape_string($conn, $data['discount']);
+
+        // Kiểm tra và upload ảnh sản phẩm
         $image = $files['images']['name'];
-        $imageTmp = $files['images']['tmp_name'];
-        $imageSize = $files['images']['size'];
+        if ($image) {
+            $target_dir = "../uploads/";
+            $target_file = $target_dir . basename($image);
+            move_uploaded_file($files['images']['tmp_name'], $target_file);
 
-        $permited = array('jpg', 'jpeg', 'png', 'gif');
-        $fileExt = strtolower(pathinfo($image, PATHINFO_EXTENSION));
-        $uniqueImage = substr(md5(time()), 0, 10) . '.' . $fileExt;
-        $uploadedImage = "../uploads/" . $uniqueImage;
-
-        if ($imageSize > 0) {
-            if ($imageSize > 2097152) { // 2MB
-                return "<span class='error'>Kích thước ảnh quá lớn. Chọn ảnh có kích thước nhỏ hơn 2MB.</span>";
-            }
-            if (in_array($fileExt, $permited) === false) {
-                return "<span class='error'>Chỉ chấp nhận các tệp: " . implode(', ', $permited) . "</span>";
-            }
-            // Xóa ảnh cũ (nếu có) và cập nhật ảnh mới
-            move_uploaded_file($imageTmp, $uploadedImage);
+            // Cập nhật sản phẩm cùng với đường dẫn ảnh mới
             $query = "UPDATE products 
-                      SET 
-                          title = '$productName', 
-                          category_id = '$categoryId', 
-                          type = '$productType', 
-                          price = '$price', 
-                          quantity = '$quantity', 
-                          description = '$description', 
-                          discount = '$discount',
-                          images = '$uniqueImage'
-                      WHERE products_id = '$productId'";
+                  SET title = '$productName', category_id = '$category', type = '$productType', price = '$price', 
+                      quantity = '$quantity', description = '$description', discount = '$discount', images = '$image' 
+                  WHERE products_id = '$products_id'";
         } else {
-            // Nếu không có hình ảnh mới, chỉ cập nhật các trường khác
+            // Cập nhật sản phẩm mà không thay đổi ảnh
             $query = "UPDATE products 
-                      SET 
-                          title = '$productName', 
-                          category_id = '$categoryId', 
-                          type = '$productType', 
-                          price = '$price', 
-                          quantity = '$quantity', 
-                          description = '$description', 
-                          discount = '$discount'
-                      WHERE products_id = '$productId'";
+                  SET title = '$productName', category_id = '$category', type = '$productType', price = '$price', 
+                      quantity = '$quantity', description = '$description', discount = '$discount' 
+                  WHERE products_id = '$products_id'";
         }
 
-        $updated_row = $this->db->update($query);
+        $update_row = $conn->query($query);
 
-        if ($updated_row) {
-            return "<span class='success'>Cập nhật sản phẩm thành công.</span>";
+        // Xử lý ảnh mô tả sản phẩm
+        if (isset($files['images_des']) && $files['images_des']['error'][0] == 0) {
+            // Xóa ảnh mô tả cũ
+            $images_des = $this->get_images_des($products_id);
+            if ($images_des) {
+                while ($result_images_des = $images_des->fetch_assoc()) {
+                    $old_image_des = $result_images_des['images_description'];
+                    $old_image_path = "../uploads/" . $old_image_des;
+                    if (file_exists($old_image_path)) {
+                        unlink($old_image_path);
+                    }
+                }
+                // Xóa các bản ghi ảnh mô tả cũ khỏi cơ sở dữ liệu
+                $query = "DELETE FROM images_des WHERE products_id = '$products_id'";
+                $conn->query($query);
+            }
+
+            // Thêm ảnh mô tả mới
+            $new_images_des = $files['images_des']['name'];
+            $count = count($new_images_des);
+            for ($i = 0; $i < $count; $i++) {
+                $image_des_name = $new_images_des[$i];
+                $image_des_tmp = $files['images_des']['tmp_name'][$i];
+                $target_dir1 = "../uploads/";
+                $target_file = $target_dir1 . basename($image_des_name);
+                move_uploaded_file($image_des_tmp, $target_file);
+
+                // Thêm ảnh mô tả vào bảng `images_des`
+                $query = "INSERT INTO images_des (products_id, images_description) 
+                      VALUES ('$products_id', '$image_des_name')";
+                $conn->query($query);
+            }
+        }
+
+        // Kiểm tra xem cập nhật có thành công không
+        if ($update_row) {
+            $msg = "<span class='success'>Sản phẩm đã được cập nhật thành công.</span>";
+            return $msg;
         } else {
-            return "<span class='error'>Cập nhật sản phẩm thất bại.</span>";
+            $msg = "<span class='error'>Sản phẩm cập nhật không thành công.</span>";
+            return $msg;
         }
     }
 

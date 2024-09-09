@@ -23,7 +23,29 @@ if ($result->num_rows > 0) {
   $row = $result->fetch_assoc();
   $totalQuantity = $row['total_quantity'];
 }
+
+// Tạo mảng để lưu các kết quả theo category
+$categories = [
+  2 => [], // Sản phẩm
+  3 => [], // Phụ kiện
+  4 => [], // Sửa chữa
+  5 => [], // Khuyến mãi
+  6 => []  // Liên hệ
+];
+
+// Lấy tất cả các product_type_name cho các category cần thiết
+$query = "SELECT product_type_name, category_id FROM product_type WHERE category_id IN (2, 3, 4, 5, 6)";
+$result = $conn->query($query);
+
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()) {
+    $categories[$row['category_id']][] = $row['product_type_name'];
+  }
+}
+
+$conn->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,82 +69,85 @@ if ($result->num_rows > 0) {
       <div class="blockNav1 hideOnMobile">
         <div class="dropdown">
           <a href="Home.php">
-            <button class="subBtn">
-              Trang chủ
-            </button>
+            <button class="subBtn">Trang chủ</button>
           </a>
+          <?php if (!empty($categories[1])): ?>
+            <div class="dropdown-content">
+              <?php
+              foreach ($categories[1] as $product_type_name) {
+                echo '<a href="#">' . $product_type_name . '</a>';
+              }
+              ?>
+            </div>
+          <?php endif; ?>
         </div>
+
         <div class="dropdown">
           <a href="category.php"><button class="subBtn">Sản phẩm</button></a>
-          <div class="dropdown-content">
-            <a href="#">Canon</a>
-            <div class="sub-dropdown">
+          <?php if (!empty($categories[2])): ?>
+            <div class="dropdown-content">
+              <?php
+              foreach ($categories[2] as $product_type_name) {
+                echo '<a href="#">' . $product_type_name . '</a>';
+              }
+              ?>
             </div>
-
-            <a href="#">Nikon</a>
-            <div class="sub-dropdown">
-            </div>
-
-            <a href="#">Fujifilm</a>
-            <div class="sub-dropdown">
-            </div>
-
-            <a href="#">Sony</a>
-            <div class="sub-dropdown">
-            </div>
-
-            <a href="#">Panasonic</a>
-            <div class="sub-dropdown">
-            </div>
-          </div>
+          <?php endif; ?>
         </div>
+
         <div class="dropdown">
           <a href="category.php"><button class="subBtn">Phụ kiện</button></a>
-          <div class="dropdown-content">
-
-            <a href="#">Ống Kính</a>
-            <div class="sub-dropdown">
-
+          <?php if (!empty($categories[3])): ?>
+            <div class="dropdown-content">
+              <?php
+              foreach ($categories[3] as $accessory_type_name) {
+                echo '<a href="#">' . $accessory_type_name . '</a>';
+              }
+              ?>
             </div>
-
-            <a href="#">Bộ Lọc (Filter)</a>
-            <div class="sub-dropdown">
-
-            </div>
-
-            <a href="#">Phụ Kiện Ánh Sáng</a>
-            <div class="sub-dropdown">
-
-            </div>
-
-            <a href="#">Bộ Giá Đỡ và Chân Máy</a>
-            <div class="sub-dropdown">
-
-            </div>
-
-            <a href="#">Lưu Trữ</a>
-            <div class="sub-dropdown">
-
-            </div>
-
-            <a href="#">Khác</a>
-            <div class="sub-dropdown">
-
-            </div>
-          </div>
+          <?php endif; ?>
         </div>
+
         <div class="dropdown">
           <a href="repair.php"><button class="subBtn">Sửa chữa</button></a>
+          <?php if (!empty($categories[4])): ?>
+            <div class="dropdown-content">
+              <?php
+              foreach ($categories[4] as $repair_type_name) {
+                echo '<a href="#">' . $repair_type_name . '</a>';
+              }
+              ?>
+            </div>
+          <?php endif; ?>
         </div>
+
         <div class="dropdown">
-          <a href="event.php">
-            <button class="subBtn">Khuyến mãi</button>
-          </a>
+          <a href="event.php"><button class="subBtn">Khuyến mãi</button></a>
+          <?php if (!empty($categories[5])): ?>
+            <div class="dropdown-content">
+              <?php
+              foreach ($categories[5] as $event_type_name) {
+                echo '<a href="#">' . $event_type_name . '</a>';
+              }
+              ?>
+            </div>
+          <?php endif; ?>
         </div>
+
         <div class="dropdown">
           <a href="contact.php"><button class="subBtn">Liên hệ</button></a>
+          <?php if (!empty($categories[6])): ?>
+            <div class="dropdown-content">
+              <?php
+              foreach ($categories[6] as $contact_type_name) {
+                echo '<a href="#">' . $contact_type_name . '</a>';
+              }
+              ?>
+            </div>
+          <?php endif; ?>
         </div>
       </div>
+
       <button onclick=showSidebar() class="showOnMobile hideOnNavbar ml-mobile"><img class='menuImg' src='./uploads/img/menu.png'></button>
       <div class="search_box hideOn">
         <form action="./php/search.php" method="GET">

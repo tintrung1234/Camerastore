@@ -2,7 +2,7 @@
 include "./php/db.php";
 include "navbar.php";
 
-$sql = "SELECT cart.*, products.*
+$sql = "SELECT cart.*, products.title, products.images, products.price
   FROM cart 
   JOIN products ON cart.product_id = products.products_id";
 $cart_items = $conn->query($sql);
@@ -82,7 +82,7 @@ $total_price = 0;
             <th colspan="2">TỔNG TIỀN GIỎ HÀNG</th>
           </tr>
           <tr>
-            <td>TỔNG SẢN PHẨM</td>
+            <td>TỔNG SỐ LƯỢNG</td>
             <td><?= $total_products ?></td>
           </tr>
           <tr>

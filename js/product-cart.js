@@ -11,9 +11,11 @@ document.querySelectorAll(".addToCart").forEach((button) => {
     const productPrice = parseFloat(button.getAttribute("data-price")); // Get product price from data attribute
     const totalPrice = (productPrice * currentValue).toFixed(2); // Calculate total price
     const displayPrice = document.getElementById(`displayPrice-${id}`); // Get the corresponding display price element
-    const formattedPrice = Number(totalPrice).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+    const formattedPrice = Number(totalPrice).toLocaleString("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    });
     displayPrice.textContent = formattedPrice;
-
   });
 });
 
@@ -26,12 +28,16 @@ document.querySelectorAll(".delToCart").forEach((button) => {
       quantityInput.value = --currentValue; // Decrement quantity
       console.log(quantityInput.value);
 
-      const productPrice = parseFloat(button.closest('form').querySelector('input[name="price"]').value); // Get product price from hidden input
+      const productPrice = parseFloat(
+        button.closest("form").querySelector('input[name="price"]').value
+      ); // Get product price from hidden input
       const totalPrice = (productPrice * currentValue).toFixed(2); // Calculate total price
       const displayPrice = document.getElementById(`displayPrice-${id}`); // Get the corresponding display price element
-      const formattedPrice = Number(totalPrice).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+      const formattedPrice = Number(totalPrice).toLocaleString("vi-VN", {
+        style: "currency",
+        currency: "VND",
+      });
       displayPrice.textContent = formattedPrice;
-
     }
   });
 });
@@ -48,4 +54,29 @@ function displayBuyBox(id) {
 
 function openProductDetail(id) {
   window.location.href = `product.php?id=${id}`;
+}
+
+const des = document.querySelector(".describe");
+const info = document.querySelector(".info");
+
+if (des) {
+  des.addEventListener("click", function () {
+    document.querySelector(
+      ".product-content-right-bottom-content-describe"
+    ).style.display = "none";
+    document.querySelector(
+      ".product-content-right-bottom-content-info"
+    ).style.display = "block";
+  });
+}
+
+if (info) {
+  info.addEventListener("click", function () {
+    document.querySelector(
+      ".product-content-right-bottom-content-describe"
+    ).style.display = "block";
+    document.querySelector(
+      ".product-content-right-bottom-content-info"
+    ).style.display = "none";
+  });
 }

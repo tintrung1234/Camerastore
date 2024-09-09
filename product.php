@@ -260,7 +260,6 @@ if ($productId > 0) {
     <script src="js/product-cart.js" type="text/javascript"></script>
     <script src="js/autocomplete.js" type="text/javascript"></script>
     <script src="js/footer.js" type="text/javascript"></script>
-    <script src="js/product.js"></script>
     </body>
 
     </html>
