@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 27, 2024 lúc 02:38 PM
+-- Thời gian đã tạo: Th9 09, 2024 lúc 05:29 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -28,24 +28,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cart` (
-  `id` int(11) NOT NULL,
+  `cart_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `product_name` varchar(255) NOT NULL,
   `quantity` int(11) NOT NULL,
   `day_buy` datetime NOT NULL,
-  `price` decimal(10,2) NOT NULL
+  `total_price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `cart`
 --
 
-INSERT INTO `cart` (`id`, `product_id`, `product_name`, `quantity`, `day_buy`, `price`) VALUES
-(15, 2, 'Canon 1500D-kit', 4, '2024-08-27 08:05:08', 43000.00),
-(16, 18, 'Alpha ZV-E10 II', 1, '2024-08-27 08:05:37', 540030.00),
-(17, 17, 'Alpha ZV-E10 II', 2, '2024-08-27 08:07:11', 540030.00),
-(21, 2, 'Canon 1500D-kit', 1, '2024-08-27 08:49:01', 43000.00),
-(22, 2, 'Canon 1500D-kit', 4, '2024-08-27 09:03:16', 43000.00);
+INSERT INTO `cart` (`cart_id`, `customer_id`, `product_id`, `quantity`, `day_buy`, `total_price`) VALUES
+(51, 17, 1, 5, '2024-09-08 00:00:00', 200000.00),
+(52, 17, 5, 5, '2024-09-08 00:00:00', 27000.00),
+(53, 18, 2, 1, '2024-09-04 00:00:00', 43000.00);
 
 -- --------------------------------------------------------
 
@@ -63,13 +61,59 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`category_id`, `category_name`) VALUES
+(1, 'Trang chủ'),
 (2, 'Sản phẩm'),
 (3, 'Phụ kiện'),
 (4, 'Sửa chữa'),
 (5, 'Khuyến mãi'),
 (6, 'Liên hệ'),
-(7, 'Bảo hành'),
-(13, 'Trang chủ');
+(7, 'Bảo hành');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` int(11) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `message` text DEFAULT NULL,
+  `submitted_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `address`, `message`, `submitted_at`) VALUES
+(6, 'Trung Tin', 'tin@gmail.com', 111111, 'Sai Gon', 'dđ', '2024-09-08 04:41:55'),
+(11, 'Trung tin', 'tin@gmail.com', 111111, 'Sai Gon', 'bbbbb', '2024-09-08 04:49:58');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `customer`
+--
+
+CREATE TABLE `customer` (
+  `customer_id` int(11) NOT NULL,
+  `customer_name` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `phone` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `customer`
+--
+
+INSERT INTO `customer` (`customer_id`, `customer_name`, `address`, `city`, `phone`) VALUES
+(17, 'Minh Kham777', 'Soc Trang', '', 999999),
+(18, 'Trung Tin', 'Bạc Liêu1', '', 9999999);
 
 -- --------------------------------------------------------
 
@@ -78,15 +122,14 @@ INSERT INTO `category` (`category_id`, `category_name`) VALUES
 --
 
 CREATE TABLE `deliveryaddress` (
-  `delevery_id` int(11) NOT NULL AUTO_INCREMENT,
+  `delevery_id` int(11) NOT NULL,
   `full_name` varchar(100) NOT NULL,
   `phone` char(11) NOT NULL,
   `province` varchar(50) NOT NULL,
   `district` varchar(50) NOT NULL,
   `address` varchar(255) NOT NULL,
   `customer_type` tinyint(1) NOT NULL COMMENT '1 la KL, 2 la DK',
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`delevery_id`)
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -94,10 +137,11 @@ CREATE TABLE `deliveryaddress` (
 --
 
 INSERT INTO `deliveryaddress` (`delevery_id`, `full_name`, `phone`, `province`, `district`, `address`, `customer_type`, `created_at`) VALUES
-(0, 'Huỳnh Trung Tín', '09909090990', 'bentre', 'camau', '0', 2, '2024-08-26 17:27:22'),
-(0, 'HuỳnhTrungTín', '09909090990', 'bentre', 'camau', '0', 1, '2024-08-27 06:06:27'),
-(0, 'jkahaj', '132456762', 'asa', 'aaaa', '0', 1, '2024-08-27 06:49:23'),
-(0, 'Huỳnh Trung Tín', 'ttttttt', 'bentre', 'camau', '0', 1, '2024-08-27 07:03:45');
+(1, 'Huỳnh Trung Tín', '09909090990', 'bentre', 'camau', '0', 2, '2024-08-26 10:27:22'),
+(2, 'HuỳnhTrungTín', '09909090990', 'bentre', 'camau', '0', 1, '2024-08-26 23:06:27'),
+(3, 'jkahaj', '132456762', 'asa', 'aaaa', '0', 1, '2024-08-26 23:49:23'),
+(4, 'Huỳnh Trung Tín', 'ttttttt', 'bentre', 'camau', '0', 1, '2024-08-27 00:03:45'),
+(5, 'Huỳnh Trung Tín', '09909090990', 'bentre', 'camau', '0', 1, '2024-09-08 15:26:41');
 
 -- --------------------------------------------------------
 
@@ -107,45 +151,55 @@ INSERT INTO `deliveryaddress` (`delevery_id`, `full_name`, `phone`, `province`, 
 
 CREATE TABLE `forget_password` (
   `id` int(11) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `temp_key` varchar(200) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `temp_key` varchar(255) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+-- --------------------------------------------------------
+
 --
--- Đang đổ dữ liệu cho bảng `forget_password`
+-- Cấu trúc bảng cho bảng `images_des`
 --
 
-INSERT INTO `forget_password` (`id`, `email`, `temp_key`, `created`) VALUES
-(0, 'huynhtrungtin2222@gmail.com', '11a9f4e074617d45bba381de5a1026b6', '2024-08-26 04:49:34'),
-(0, 'huynhtrungtin2222@gmail.com', '48dd4f483a4e11f6e7dd2bf75a6480b2', '2024-08-26 05:07:49'),
-(0, 'huynhtrungtin2222@gmail.com', 'd4a184d88cf4f00c52c0e68df1a7577c', '2024-08-26 06:23:45'),
-(0, 'huynhtrungtin1506@gmail.com', 'dd356bcd8c3f2438d91556a2ffb5a6b0', '2024-08-26 06:26:48'),
-(0, 'huynhtrungtin1506@gmail.com', 'e971491dafed1b9f7e01a647ca468d70', '2024-08-26 06:31:11'),
-(0, 'huynhtrungtin1506@gmail.com', '65182e9afe06530eec1f788ed76f2256', '2024-08-26 06:31:20'),
-(0, 'huynhtrungtin2222@gmail.com', 'b97b3b56659c585be9ec66c3cd1a1ba4', '2024-08-26 06:32:46'),
-(0, 'huynhtrungtin2222@gmail.com', '030781b8421b1023cc99ea9d1aa14130', '2024-08-26 06:52:49'),
-(0, 'huynhtrungtin2222@gmail.com', '6d2ff679bd4992e7d7b876e2a7d3c203', '2024-08-26 06:53:38'),
-(0, 'huynhtrungtin2222@gmail.com', 'cb6f1449ed5a276124ce2e6285168bc5', '2024-08-26 06:53:45'),
-(0, 'huynhtrungtin2222@gmail.com', '52c08b2d6381338eb3857e95fd8cfddd', '2024-08-26 07:15:04'),
-(0, 'huynhtrungtin1506@gmail.com', '03579c3a9ca33269e91c1b6191c463a5', '2024-08-26 07:17:54'),
-(0, 'huynhtrungtin1506@gmail.com', '6d906c2ec05c45e1542a6b595e1d6e4c', '2024-08-26 07:21:07'),
-(0, 'huynhtrungtin2222@gmail.com', '9a7dfec1be49b29278ce0a0b41b4bd92', '2024-08-26 07:52:56'),
-(0, 'huynhtrungtin2222@gmail.com', 'a140f43ffc42ad9bafcfe71056a5ba06', '2024-08-26 07:55:08'),
-(0, 'huynhtrungtin1506@gmail.com', '944159946a24b2fd636ed358421e2539', '2024-08-26 08:14:28'),
-(0, 'huynhtrungtin1506@gmail.com', '9b759da151860fae2a056ae1886d637c', '2024-08-26 08:15:35'),
-(0, 'huynhtrungtin1506@gmail.com', '1da8263abd0112b88b798f951a81a907', '2024-08-26 08:15:39'),
-(0, 'huynhtrungtin1506@gmail.com', 'b5a1d4fabd98f9a8d231969ae0b58eeb', '2024-08-26 08:15:46'),
-(0, 'huynhtrungtin1506@gmail.com', '8c2b2eafd702268c076519eecca5ef26', '2024-08-26 08:17:18'),
-(0, 'huynhtrungtin2222@gmail.com', '128430b7f4ff7fc9a2c099e3e8920a51', '2024-08-26 08:38:07'),
-(0, 'huynhtrungtin2222@gmail.com', '9adbde8ee92858b879f3bf0f5611c2d6', '2024-08-26 08:38:45'),
-(0, 'huynhtrungtin2222@gmail.com', '67592b8b3cc9896f0a9fa09aaa1ea5f9', '2024-08-26 09:01:33'),
-(0, 'huynhtrungtin2222@gmail.com', 'be6cce436da6f9ef6f483fa0013586a9', '2024-08-26 09:02:48'),
-(0, 'huynhtrungtin2222@gmail.com', 'd54ce8e864a87bc211f370df3fc0bcee', '2024-08-26 09:15:56'),
-(0, 'huynhtrungtin2222@gmail.com', 'ee3229f63b117d2cad15def334f35b12', '2024-08-27 06:08:23'),
-(0, 'huynhtrungtin1506@gmail.com', '52b8e70abea474d0050cd3cc89032c52', '2024-08-27 06:12:53'),
-(0, 'huynhtrungtin1506@gmail.com', '057df51fc4a4f5f4ea3975ea276c3a1d', '2024-08-27 06:12:59'),
-(0, 'huynhtrungtin1506@gmail.com', '65194b55935eaba995a2955f509be7bf', '2024-08-27 07:07:08');
+CREATE TABLE `images_des` (
+  `images_des_id` int(11) NOT NULL,
+  `products_id` int(11) NOT NULL,
+  `images_description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `images_des`
+--
+
+INSERT INTO `images_des` (`images_des_id`, `products_id`, `images_description`) VALUES
+(3, 1, './img/canon/200D/200D-2.png'),
+(4, 1, './img/canon/200D/200D-3.png');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `cart_id` int(11) NOT NULL,
+  `order_quantity` int(11) NOT NULL,
+  `order_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `customer_id`, `product_id`, `cart_id`, `order_quantity`, `order_date`, `status`) VALUES
+(28, 17, 1, 51, 1, '2024-09-08 00:00:00', 0),
+(29, 17, 5, 52, 1, '2024-09-08 00:00:00', 0),
+(30, 18, 2, 53, 3, '2024-09-04 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -154,51 +208,53 @@ INSERT INTO `forget_password` (`id`, `email`, `temp_key`, `created`) VALUES
 --
 
 CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
-  `images` text DEFAULT NULL,
-  `type` varchar(50) DEFAULT NULL,
-  `title` varchar(100) DEFAULT NULL,
+  `products_id` int(11) NOT NULL,
+  `images` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
-  `discount` int(11) DEFAULT NULL
+  `discount` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`id`, `images`, `type`, `title`, `price`, `quantity`, `discount`) VALUES
-(1, '[\"./img/canon/200D/200D.png\", \"./img/canon/200D/200D-2.png\", \"./img/canon/200D/200D-3.png\"]', 'canon', 'Canon 200D', 40000.00, 100, 1),
-(2, '[\"./img/canon/1500D-kit/1500D-kit.png\", \"./img/canon/1500D-kit/1500D-kit-2.png\", \"./img/canon/1500D-kit/1500D-kit-3.png\"]', 'canon', 'Canon 1500D-kit', 43000.00, 100, 0),
-(3, '[\"./img/canon/3000D-kit/3000D-kit.png\", \"./img/canon/3000D-kit/3000D-kit-2.png\", \"./img/canon/3000D-kit/3000D-kit-3.png\"]', 'canon', 'Canon 3000D-kit', 16000.00, 100, 1),
-(4, '[\"./img/canon/G7-X-mark/G7-X-mark.png\", \"./img/canon/G7-X-mark/G7-X-mark-2.png\", \"./img/canon/G7-X-mark/G7-X-mark-3.png\"]', 'canon', 'Canon G7-X-mark', 23100.00, 100, 0),
-(5, '[\"./img/canon/phukien/speedlite.png\"]', 'phukienanhsang', 'Đèn speedlite', 5400.00, 100, 1),
-(6, '[\"./img/canon/R7/R7.png\", \"./img/canon/R7/R7-2.png\", \"./img/canon/R7/R7-3.png\"]', 'canon', 'Canon R7', 54322.00, 100, 0),
-(7, '[\"./img/canon/R8/R8.png\", \"./img/canon/R8/R8-2.png\", \"./img/canon/R8/R8-3.png\"]', 'canon', 'Canon R8', 54323.00, 30, 1),
-(8, '[\"./img/canon/R50/R50.png\", \"./img/canon/R50/R50-2.png\", \"./img/canon/R50/R50-3.png\"]', 'canon', 'Canon R50', 32554.00, 100, 0),
-(9, '[\"./img/canon/R100/R100.png\", \"./img/canon/R100/R100-2.png\", \"./img/canon/R100/R100-3.png\"]', 'canon', 'Canon R100', 4325220.00, 100, 1),
-(10, '[\"./img/canon/SX740-HS/SX740-HS.png\", \"./img/canon/SX740-HS/SX740-HS-2.png\", \"./img/canon/SX740-HS/SX740-HS-3.png\"]', 'canon', 'Canon SX740-HS', 540030.00, 100, 0),
-(11, '[\"./img/Nikon/D780/D780-1.jpg\"]', 'nikon', 'Nikon D780', 540030.00, 100, 0),
-(12, '[\"./img/Nikon/Z30/Z30-1.jpg\"]', 'nikon', 'Nikon Z30', 540030.00, 100, 0),
-(13, '[\"./img/Nikon/Z9/Z9-1.jpg\"]', 'nikon', 'Nikon Z9', 540030.00, 100, 0),
-(14, '[\"./img/Nikon/ZFc/ZFc-1.jpg\"]', 'nikon', 'Nikon Z Fc', 540030.00, 100, 0),
-(15, '[\"./img/Sony/Alpha9III/Alpha9III-1.png\"]', 'sony', 'Alpha 9 III', 540030.00, 100, 0),
-(16, '[\"./img/Sony/Alpha6100/Alpha6100-1.png\"]', 'sony', 'Alpha 6100', 540030.00, 100, 0),
-(17, '[\"./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png\"]', 'sony', 'Alpha ZV-E10 II', 540030.00, 100, 0),
-(24, '[\"./img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png\"]', 'sony', 'Alpha ZV-E10 II', 540030.00, 100, 0),
-(25, '[\"./img/PhuKien/day-deo.jpg\"]', 'khac', 'Day Đeo', 100.00, 10, 0),
-(26, '[\"./img/PhuKien/day-deo2.jpg\"]', 'khac', 'Day Đeo 2', 120.00, 15, 5),
-(27, '[\"./img/PhuKien/den-led-Ulanzi.png\"]', 'phukienanhsang', 'Đèn Led Ulanzi', 200.00, 5, 10),
-(28, '[\"./img/PhuKien/Dù-phan-bac.jpg\"]', 'phukienanhsang', 'Dù Phản Bạc', 150.00, 8, 0),
-(29, '[\"./img/PhuKien/filterK&F-67mm.jpg\"]', 'boloc', 'Filter K&F 67mm', 250.00, 12, 15),
-(30, '[\"./img/PhuKien/filterK&F.jpg\"]', 'boloc', 'Filter K&F', 230.00, 20, 10),
-(31, '[\"./img/PhuKien/fujifilm-C200-fujicolor.png\"]', 'luutru', 'Film Fujifilm C200', 80.00, 30, 0),
-(32, '[\"./img/PhuKien/gimbal-zhiyun.jpg\"]', 'giado', 'Gimbal Zhiyun', 300.00, 7, 20),
-(33, '[\"./img/PhuKien/hat_sang.jpg\"]', 'khac', 'Hát Sang', 90.00, 25, 5),
-(34, '[\"./img/PhuKien/sandisk-extreme-pro-25.jpg\"]', 'luutru', 'Sandisk Extreme Pro 25GB', 50.00, 50, 0),
-(35, '[\"./img/PhuKien/tripodK&F-MS05.jpg\"]', 'giado', 'Tripod K&F MS05', 180.00, 15, 10),
-(36, '[\"./img/PhuKien/tripodK&F.jpg\"]', 'giado', 'Tripod K&F', 160.00, 20, 5),
-(37, '[\"img/Nikon/lens/NikkorZ50/Z50f1.2 -1.png\"]', 'ongkinh', 'Lens Nikon', 12451.00, 124, 1);
+INSERT INTO `products` (`products_id`, `images`, `type`, `title`, `price`, `quantity`, `discount`, `description`, `category_id`) VALUES
+(1, './img/canon/200D/200D.png', 'Canon', 'Canon 200D', 40000.00, 100, '1', 'Mô tả sản phẩm có thể hiểu đơn giản là nội dung tiếp thị, giải thích sản phẩm là gì và tại sao sản phẩm đó đáng mua. Mục đích của mô tả sản phẩm là cung cấp cho khách hàng chi tiết về các tính năng và lợi ích của sản phẩm để từ đó khiến khách hàng muốn mua hàng.\r\n\r\nNhiều người bán hàng thường mắc một sai lầm kinh điển. Đó là hay xem nhẹ và bỏ qua việc viết mô tả sản phẩm hay chỉ viết một cách qua loa, đại khái cho có. Trong khi đây là công đoạn rất quan trọng trong quá trình bán hàng. Thay đổi ngay đi nếu như bạn muốn doanh số bán hàng của bạn tăng trưởng. Hãy tham khảo 9 mẹo viết mô tả sản phẩm đơn giản mà hiệu quả để giúp bạn thu hút khách hàng ngay từ dòng đầu tiên.', 2),
+(2, './img/canon/1500D-kit/1500D-kit.png', 'Canon', 'Canon 1500D-kit', 43000.00, 100, '0', 'uu', 2),
+(3, './img/canon/3000D-kit/3000D-kit.png', 'Canon', 'Canon 3000D-kit', 16000.00, 100, '1', 'rr', 2),
+(4, './img/canon/G7-X-mark/G7-X-mark.png', 'Canon', 'Canon G7-X-mark', 23100.00, 100, '0', 'dd', 2),
+(5, './img/canon/phukien/speedlite.png', 'phukienanhsang', 'Đèn speedlite', 5400.00, 100, '1', 'hh', 3),
+(6, './img/canon/R7/R7.png', 'Canon', 'Canon R7', 54322.00, 100, '0', 'ii', 2),
+(7, './img/canon/R8/R8.png', 'Canon', 'Canon R8', 54323.00, 30, '1', 's', 2),
+(8, './img/canon/R50/R50.png', 'Canon', 'Canon R50', 32554.00, 100, '0', 'gg', 2),
+(9, './img/canon/R100/R100.png', 'Canon', 'Canon R100', 4325220.00, 100, '1', '3', 2),
+(10, './img/canon/SX740-HS/SX740-HS.png', 'Canon', 'Canon SX740-HS', 540030.00, 100, '0', 'f', 2),
+(11, './img/Nikon/D780/D780-1.jpg', 'Nikon', 'Nikon D780', 540030.00, 100, '0', 'w', 2),
+(12, './img/Nikon/Z30/Z30-1.jpg', 'Nikon', 'Nikon Z30', 540030.00, 100, '0', 'hh', 2),
+(13, './img/Nikon/Z9/Z9-1.jpg', 'Nikon', 'Nikon Z9', 540030.00, 100, '0', 'cc', 2),
+(14, './img/Nikon/ZFc/ZFc-1.jpg', 'Nikon', 'Nikon Z Fc', 540030.00, 100, '0', 'rr', 2),
+(15, './img/Sony/Alpha9III/Alpha9III-1.png', 'Sony', 'Alpha 9 III', 540030.00, 100, '0', 'vv', 2),
+(16, './img/Sony/Alpha6100/Alpha6100-1.png', 'Sony', 'Alpha 6100', 540030.00, 100, '0', 'xx', 2),
+(17, './img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png', 'Sony', 'Alpha ZV-E10 II', 540030.00, 100, '0', 'hoangquy', 2),
+(24, './img/Sony/AlphaZV-E10II/AlphaZVE10II-1.png', 'sony', 'Alpha ZV-E10 II', 540030.00, 100, '0', NULL, NULL),
+(25, './img/PhuKien/day-deo.jpg', 'khac', 'Day Đeo', 100.00, 10, '0', NULL, NULL),
+(26, './img/PhuKien/day-deo2.jpg', 'khac', 'Day Đeo 2', 120.00, 15, '5', NULL, NULL),
+(27, './img/PhuKien/den-led-Ulanzi.png', 'phukienanhsang', 'Đèn Led Ulanzi', 200.00, 5, '10', NULL, NULL),
+(28, './img/PhuKien/Dù-phan-bac.jpg', 'phukienanhsang', 'Dù Phản Bạc', 150.00, 8, '0', NULL, NULL),
+(29, './img/PhuKien/filterK&F-67mm.jpg', 'boloc', 'Filter K&F 67mm', 250.00, 12, '15', NULL, NULL),
+(30, './img/PhuKien/filterK&F.jpg', 'boloc', 'Filter K&F', 230.00, 20, '10', NULL, NULL),
+(31, './img/PhuKien/fujifilm-C200-fujicolor.png', 'luutru', 'Film Fujifilm C200', 80.00, 30, '0', NULL, NULL),
+(32, './img/PhuKien/gimbal-zhiyun.jpg', 'giado', 'Gimbal Zhiyun', 300.00, 7, '20', NULL, NULL),
+(33, './img/PhuKien/hat_sang.jpg', 'khac', 'Hát Sang', 90.00, 25, '5', NULL, NULL),
+(34, './img/PhuKien/sandisk-extreme-pro-25.jpg', 'luutru', 'Sandisk Extreme Pro 25GB', 50.00, 50, '0', NULL, NULL),
+(35, './img/PhuKien/tripodK&F-MS05.jpg', 'giado', 'Tripod K&F MS05', 180.00, 15, '10', NULL, NULL),
+(36, './img/PhuKien/tripodK&F.jpg', 'giado', 'Tripod K&F', 160.00, 20, '5', NULL, NULL),
+(37, 'img/Nikon/lens/NikkorZ50/Z50f1.2 -1.png', 'ongkinh', 'Lens Nikon', 12451.00, 124, '1', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -207,8 +263,8 @@ INSERT INTO `products` (`id`, `images`, `type`, `title`, `price`, `quantity`, `d
 --
 
 CREATE TABLE `product_type` (
-  `product_id` int(11) NOT NULL,
-  `product_name` varchar(255) NOT NULL,
+  `product_type_id` int(11) NOT NULL,
+  `product_type_name` varchar(255) NOT NULL,
   `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -216,8 +272,8 @@ CREATE TABLE `product_type` (
 -- Đang đổ dữ liệu cho bảng `product_type`
 --
 
-INSERT INTO `product_type` (`product_id`, `product_name`, `category_id`) VALUES
-(1, 'test', 5),
+INSERT INTO `product_type` (`product_type_id`, `product_type_name`, `category_id`) VALUES
+(1, 'Canon', 2),
 (2, 'Sony', 2),
 (3, 'Nikon', 2),
 (4, 'Fujifilm', 2),
@@ -250,7 +306,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `is_admin`) VALUES
 (4, 'tin', 'huynhtrungtin2222@gmail.com', '456', 0),
 (6, 'tintrung', 't@gmail.com', '123', 0),
-(7, 'hoangquy', 'huynhtrungtin1506@gmail.com', '123', 0);
+(7, 'hoangquy', 'hoangquyle11@gmail.com', 'honagquy', 0),
+(8, 'hoangquy1', 'h@gmail.com', '123456', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -260,19 +317,61 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `is_admin`) VALUES
 -- Chỉ mục cho bảng `cart`
 --
 ALTER TABLE `cart`
+  ADD PRIMARY KEY (`cart_id`),
+  ADD KEY `FK_ProductsCart` (`product_id`),
+  ADD KEY `CartCustomer` (`customer_id`);
+
+--
+-- Chỉ mục cho bảng `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`category_id`);
+
+--
+-- Chỉ mục cho bảng `contacts`
+--
+ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`customer_id`);
+
+--
+-- Chỉ mục cho bảng `deliveryaddress`
+--
+ALTER TABLE `deliveryaddress`
+  ADD PRIMARY KEY (`delevery_id`);
+
+--
+-- Chỉ mục cho bảng `forget_password`
+--
+ALTER TABLE `forget_password`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `customer_id` (`customer_id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `cart_id` (`cart_id`);
 
 --
 -- Chỉ mục cho bảng `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`products_id`),
+  ADD KEY `FK_ProductsCategory` (`category_id`);
 
 --
 -- Chỉ mục cho bảng `product_type`
 --
 ALTER TABLE `product_type`
-  ADD PRIMARY KEY (`product_id`);
+  ADD PRIMARY KEY (`product_type_id`);
 
 --
 -- Chỉ mục cho bảng `users`
@@ -288,13 +387,72 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+
+--
+-- AUTO_INCREMENT cho bảng `category`
+--
+ALTER TABLE `category`
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT cho bảng `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT cho bảng `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT cho bảng `deliveryaddress`
+--
+ALTER TABLE `deliveryaddress`
+  MODIFY `delevery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT cho bảng `forget_password`
+--
+ALTER TABLE `forget_password`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT cho bảng `products`
+--
+ALTER TABLE `products`
+  MODIFY `products_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT cho bảng `product_type`
+--
+ALTER TABLE `product_type`
+  MODIFY `product_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `CartCustomer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
+  ADD CONSTRAINT `FK_ProductsCart` FOREIGN KEY (`product_id`) REFERENCES `products` (`products_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -15,15 +15,18 @@ if ($conn->connect_error) {
 
 // Fetch products with discount = 1
 $discounted_products = [];
-$stmt = $conn->prepare("SELECT id, title, price, images FROM products WHERE discount = ? LIMIT 3");
+$stmt = $conn->prepare("SELECT products_id, title, price, images FROM products WHERE discount = ? LIMIT 3");
+if ($stmt === false) {
+        die("Error preparing statement: " . $conn->error);
+}
+
 $discount = 1; // Set discount value
 $stmt->bind_param("i", $discount);
 $stmt->execute();
 $result = $stmt->get_result();
 
+$discounted_products = [];
 while ($row = $result->fetch_assoc()) {
-        // Decode images JSON string into an array
-        $row['images'] = json_decode($row['images'], true);
         $discounted_products[] = $row;
 }
 
@@ -79,7 +82,7 @@ $conn->close();
                                 <p
                                         style="box-sizing: border-box; margin: 0px 0px 10px; padding: 0px; text-align: center;">
                                         <span style="box-sizing: border-box; font-size: 14px;"><img alt=""
-                                                        src="img/canon/200D/200D.png"
+                                                        src="./uploads/img/canon/200D/200D.png"
                                                         style="box-sizing: border-box; border: none; vertical-align: middle; margin: 0px; padding: 0px;"
                                                         width="500" height="334"></span>
                                 </p>
@@ -256,7 +259,7 @@ $conn->close();
                                 <div
                                         style="box-sizing: border-box; margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; background-color: rgb(255, 252, 252); text-align: center;">
                                         <span style="box-sizing: border-box; font-size: 14px;"><img alt=""
-                                                        src="./img/banner1.jpg"
+                                                        src="./uploads/img/banner1.jpg"
                                                         style="box-sizing: border-box; border: none; vertical-align: middle; height: 200px; margin: 0px; padding: 0px; width: 524px;"></span>
                                 </div>
                                 <div
@@ -356,7 +359,7 @@ $conn->close();
                                                                                         style="box-sizing: border-box; color: rgb(0, 0, 0);"><span
                                                                                                 style="box-sizing: border-box; font-weight: bolder;"><img
                                                                                                         alt=""
-                                                                                                        src="img/ProCam.png"
+                                                                                                        src="./uploads/img/ProCam.png"
                                                                                                         style="box-sizing: border-box; border: none; vertical-align: middle; float: left; width: 150px;height: 90px; margin: 30px 15px; padding: 0px; ">
                                                                                                 PROCAM -
                                                                                                 Prfessional
@@ -420,11 +423,11 @@ $conn->close();
                                 <h3 class="page_title text-center">Sản phẩm nổi bật</h3>
                                 <?php if (!empty($discounted_products)): ?>
                                         <?php foreach ($discounted_products as $product): ?>
-                                                <div class="item"> <a href="product.php?id=<?php echo $product['id']; ?>" style="text-decoration: none;">
+                                                <div class="item"> <a href="product.php?id=<?php echo $product['products_id']; ?>" style="text-decoration: none;">
                                                 </div>
                                                 <div class="content" style=" background-color: burlywood;">
                                                         <div class="img" style="text-align: center; color: black; ">
-                                                                <img src="<?php echo htmlspecialchars($product['images'][0]); ?>" alt="<?php echo htmlspecialchars($product['title']); ?>"
+                                                                <img src="./uploads/<?php echo $product['images'] ?>" alt="<?php echo htmlspecialchars($product['title']); ?>"
                                                                         class="img-responsive " style="width: 100%;  ">
                                                                 <label class="productPrice" style="font-style:bole; font-size:30px"><?php echo htmlspecialchars($product['title']); ?></label>
                                                                 <p class="productPrice" style="font-size:20px">Giá từ: <strong><?php echo number_format($product['price'], 0, ',', '.'); ?>đ </strong> </p>

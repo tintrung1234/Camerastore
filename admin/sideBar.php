@@ -7,7 +7,7 @@
     <title>Admin</title>
     <link rel="stylesheet" href="./style/main.css ">
     <link rel="icon" href="img/ProCam.png" type="image/x-icon">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
     <div class="sideBarAdmin" id="sideBarAdmin">
         <div class="logo">
             <a href="../Home.php">
-                <img src="../img/ProCam.png" alt="" />
+                <img src="../uploads/img/ProCam.png" alt="" />
             </a>
         </div>
         <div class="blockNav1">
@@ -46,7 +46,7 @@
                 </a>
             </div>
             <div class="dropdown">
-                <a href="phukienAdmin.php">
+                <a href="phukien.php">
                     <button class="subBtn">Phụ kiện</button>
                 </a>
             </div>

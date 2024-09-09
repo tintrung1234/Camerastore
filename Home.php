@@ -12,10 +12,10 @@ $totalPrice = getCartTotal($conn);
 <!-- banner -->
 <div id="slider">
   <div class="aspect-ratio-169">
-    <img src="img/banner1.jpg" alt="" />
-    <img src="img/banner2.jpg" alt="" />
-    <img src="img/banner3.jpg" alt="" />
-    <img src="img/banner4.jpg" alt="" />
+    <img src="./uploads/img/banner1.jpg" alt="" />
+    <img src="./uploads/img/banner2.jpg" alt="" />
+    <img src="./uploads/img/banner3.jpg" alt="" />
+    <img src="./uploads/img/banner4.jpg" alt="" />
   </div>
 
   <div class="dot-container">
@@ -30,28 +30,28 @@ $totalPrice = getCartTotal($conn);
   <hr>
   <div class="Introduce-container">
     <div class="item">
-      <img src="./img/truck.png" alt="">
+      <img src="./uploads/img/truck.png" alt="">
       <div class="conntent">
         <h2>Miễn phí vận chuyển</h2>
         <p>Giao hàng miễn phí tất cả các đơn</p>
       </div>
     </div>
     <div class="item">
-      <img src="./img/check.png" alt="">
+      <img src="./uploads/img/check.png" alt="">
       <div class="conntent">
         <h2>Cam kết sản phẩm chính hãng</h2>
         <p>Chính hãng, có thương hiệu</p>
       </div>
     </div>
     <div class="item">
-      <img src="./img/wrench.png" alt="">
+      <img src="./uploads/img/wrench.png" alt="">
       <div class="conntent">
         <h2>Bảo hành miễn phí</h2>
         <p>Bảo hành tận nơi</p>
       </div>
     </div>
     <div class="item">
-      <img src="./img/surprise.png" alt="">
+      <img src="./uploads/img/surprise.png" alt="">
       <div class="conntent">
         <h2>Khuyến mại lớn</h2>
         <p>Nhiều quà tặng hấp dẫn</p>
@@ -64,14 +64,14 @@ $totalPrice = getCartTotal($conn);
 <div class="little-banner">
   <div class="container-img">
     <div class="block-img1">
-      <img src="./img/little-banner3.jpg" alt="">
+      <img src="./uploads/img/little-banner3.jpg" alt="">
     </div>
     <div class="block-img2">
       <div class="bb1">
-        <img class="img1-block2" src="./img/little-banner2.jpg" alt="">
+        <img class="img1-block2" src="./uploads/img/little-banner2.jpg" alt="">
       </div>
       <div class="bb2">
-        <img src="./img/little-banner1.jpg" alt="">
+        <img src="./uploads/img/little-banner1.jpg" alt="">
       </div>
     </div>
   </div>
@@ -84,21 +84,20 @@ $totalPrice = getCartTotal($conn);
     <div class="product-group" id="canon-product-group">
       <?php
       foreach ($canonProducts as $item) {
-        $id = $item['id'];
-        $images = json_decode($item['images'], true); // Decode JSON string
-        $primaryImage = $images[0]; // Use the first image
+        $id = $item['products_id'];
+        $images = $item['images'];
         $title = htmlspecialchars($item['title'], ENT_QUOTES);
         $price = htmlspecialchars($item['price'], ENT_QUOTES);
         $formattedPrice = number_format($price, 0, ',', '.'); // Format price to VND
 
         echo "<div id='product' class=''>
             <a class='productLink' onclick='openProductDetail($id)'>
-                <img class='productImg' src='$primaryImage' alt=''>
+                <img class='productImg' src='./uploads/$images' alt=''>
             </a>
             <label class='productName' for=''>$title</label>
             <p class='productPrice'>Giá từ <strong>$formattedPrice VNĐ</strong></p>
             <button class='addCart' onclick='displayBuyBox($id)'>
-                <img src='img/carticon.png' alt='cartIcon'> 
+                <img src='./uploads/img/carticon.png' alt='cartIcon'> 
                 <p class='muahang'> Mua hàng</p>
             </button>
           </div>";
@@ -107,10 +106,10 @@ $totalPrice = getCartTotal($conn);
 
     </div>
     <button class="ctrl-btn pro-prev">
-      <img src="img/left-arrow.png" alt="" />
+      <img src="./uploads/img/left-arrow.png" alt="" />
     </button>
     <button class="ctrl-btn pro-next">
-      <img src="img/right-arrow.png" alt="" />
+      <img src="./uploads/img/right-arrow.png" alt="" />
     </button>
   </div>
 </div>
@@ -121,21 +120,20 @@ $totalPrice = getCartTotal($conn);
     <div class="product-group" id="nikon-product-group">
       <?php
       foreach ($nikonProducts as $item) {
-        $id = $item['id'];
-        $images = json_decode($item['images'], true); // Decode JSON string
-        $primaryImage = $images[0]; // Use the first image
+        $id = $item['products_id'];
+        $images = $item['images'];
         $title = htmlspecialchars($item['title'], ENT_QUOTES);
         $price = htmlspecialchars($item['price'], ENT_QUOTES);
         $formattedPrice = number_format($price, 0, ',', '.'); // Format price to VND
 
         echo "<div id='product' class=''>
                             <a class='productLink' onclick='openProductDetail($id)'>
-                                <img class='productImg' src='$primaryImage' alt=''>
+                                <img class='productImg' src='./uploads/$images' alt=''>
                             </a>
                             <label class='productName' for=''>$title</label>
                             <p class='productPrice'>Giá từ <strong>$formattedPrice VNĐ</strong></p>
                             <button class='addCart' onclick='displayBuyBox($id)'>
-                                <img src='img/carticon.png' alt='cartIcon'> 
+                                <img src='./uploads/img/carticon.png' alt='cartIcon'> 
                                 <p class='muahang'> Mua hàng</p>
                             </button>
                           </div>";
@@ -143,10 +141,10 @@ $totalPrice = getCartTotal($conn);
       ?>
     </div>
     <button class="ctrl-btn pro-prev">
-      <img src="img/left-arrow.png" alt="" />
+      <img src="./uploads/img/left-arrow.png" alt="" />
     </button>
     <button class="ctrl-btn pro-next">
-      <img src="img/right-arrow.png" alt="" />
+      <img src="./uploads/img/right-arrow.png" alt="" />
     </button>
   </div>
 </div>
@@ -157,21 +155,20 @@ $totalPrice = getCartTotal($conn);
     <div class="product-group" id="sony-product-group">
       <?php
       foreach ($sonyProducts as $item) {
-        $id = $item['id'];
-        $images = json_decode($item['images'], true); // Decode JSON string
-        $primaryImage = $images[0]; // Use the first image
+        $id = $item['products_id'];
+        $images = $item['images'];
         $title = htmlspecialchars($item['title'], ENT_QUOTES);
         $price = htmlspecialchars($item['price'], ENT_QUOTES);
         $formattedPrice = number_format($price, 0, ',', '.'); // Format price to VND
 
         echo "<div id='product' class=''>
                             <a class='productLink' onclick='openProductDetail($id)'>
-                                <img class='productImg' src='$primaryImage' alt=''>
+                                <img class='productImg' src='./uploads/$images' alt=''>
                             </a>
                             <label class='productName' for=''>$title</label>
                             <p class='productPrice'>Giá từ <strong>$formattedPrice VNĐ</strong></p>
                             <button class='addCart' onclick='displayBuyBox($id)'>
-                                <img src='img/carticon.png' alt='cartIcon'> 
+                                <img src='./uploads/img/carticon.png' alt='cartIcon'> 
                                 <p class='muahang'> Mua hàng</p>  
                             </button>
                           </div>";
@@ -179,10 +176,10 @@ $totalPrice = getCartTotal($conn);
       ?>
     </div>
     <button class="ctrl-btn pro-prev">
-      <img src="img/left-arrow.png" alt="" />
+      <img src="./uploads/img/left-arrow.png" alt="" />
     </button>
     <button class="ctrl-btn pro-next">
-      <img src="img/right-arrow.png" alt="" />
+      <img src="./uploads/img/right-arrow.png" alt="" />
     </button>
   </div>
 </div>
@@ -190,14 +187,14 @@ $totalPrice = getCartTotal($conn);
 <div id="buyBox">
   <?php foreach ($products as $product): ?>
     <form method="POST" action="./php/products.php" header="./cart_detail.php">
-      <?php $image = json_decode($product['images'])[0]; ?>
-      <div class="notiBox-<?php echo $product['id']; ?>" id="notiBox" style="display: none;">
+      <?php $image = $product['images']; ?>
+      <div class="notiBox-<?php echo $product['products_id']; ?>" id="notiBox" style="display: none;">
         <div class="backgroundNoti"></div>
         <div class="littleBox">
           <button class="exitBtn" id="exitBtn" type="button" onclick="this.parentElement.parentElement.style.display='none'">X</button>
           <div class="firstInfo">
             <div class="imgAndInfo">
-              <img src="<?php echo $image; ?>" alt="" class="imgInLittleBox">
+              <img src="./uploads/<?= $image; ?>" alt="" class="imgInLittleBox">
               <div class="productInfo">
                 <h2><?php echo $product['title']; ?></h2>
                 <p>
@@ -207,22 +204,22 @@ $totalPrice = getCartTotal($conn);
               </div>
             </div>
             <div class="amountproduct">
-              <button type="button" class="addToCart" data-id="<?php echo $product['id']; ?>" data-price="<?php echo $product['price']; ?>">+</button>
-              <input name="quantity" id="userCount-<?php echo $product['id']; ?>" class="amountProduct" value="0" readonly>
-              <button type="button" class="delToCart" data-id="<?php echo $product['id']; ?>">-</button>
-              <input type="hidden" name="quantity-<?php echo $product['id']; ?>" id="inputQuantity-<?php echo $product['id']; ?>" value="0">
+              <button type="button" class="addToCart" data-id="<?php echo $product['products_id']; ?>" data-price="<?php echo $product['price']; ?>">+</button>
+              <input name="quantity" id="userCount-<?php echo $product['products_id']; ?>" class="amountProduct" value="0" readonly>
+              <button type="button" class="delToCart" data-id="<?php echo $product['products_id']; ?>">-</button>
+              <input type="hidden" name="quantity-<?php echo $product['products_id']; ?>" id="inputQuantity-<?php echo $product['products_id']; ?>" value="0">
             </div>
           </div>
 
           <div class="eventGift">
-            <h2><img class="giftIcon" src="img/giftbox.png" alt="">Chương trình khuyến mãi</h2>
+            <h2><img class="giftIcon" src="./uploads/img/giftbox.png" alt="">Chương trình khuyến mãi</h2>
             <p class="eventDes">Tặng thẻ nhớ 64GB</p>
           </div>
           <div class="lastInfo">
             <div class="countBox">
-              <h2 class="priceTemp">Tạm tính: <strong class='displayPrice' id="displayPrice-<?php echo $product['id']; ?>">0</strong></h2>
+              <h2 class="priceTemp">Tạm tính: <strong class='displayPrice' id="displayPrice-<?php echo $product['products_id']; ?>">0</strong></h2>
             </div>
-            <input type="hidden" name="productId" value="<?php echo $product['id']; ?>">
+            <input type="hidden" name="productId" value="<?php echo $product['products_id']; ?>">
             <input type="hidden" name="nameproduct" value="<?php echo $product['title']; ?>">
             <input type="hidden" name="price" value="<?php echo $product['price']; ?>">
             <button type="submit" class="buyBtn">Xác nhận mua</button>

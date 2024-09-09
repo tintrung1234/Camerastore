@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 }
 
 // Query to get Canon, Sony, and Nikon products
-$sql = "SELECT * FROM products WHERE type IN ('canon', 'sony', 'nikon')";
+$sql = "SELECT * FROM products WHERE category_id = 2";
 $result = $conn->query($sql);
 
 // Initialize arrays for each brand
@@ -24,13 +24,13 @@ if ($result->num_rows > 0) {
     // Fetch all Canon, Sony, and Nikon products
     while ($row = $result->fetch_assoc()) {
         switch ($row['type']) {
-            case 'canon':
+            case 'Canon':
                 $canonProducts[] = $row;
                 break;
-            case 'sony':
+            case 'Sony':
                 $sonyProducts[] = $row;
                 break;
-            case 'nikon':
+            case 'Nikon':
                 $nikonProducts[] = $row;
                 break;
         }

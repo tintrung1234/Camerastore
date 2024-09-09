@@ -699,7 +699,7 @@ content {
 }
 
 .cartegory-right-content-item {
-    background-image: url("../img/background_product.jpg");
+    background-image: url("../uploads/img/background_product.jpg");
     width: calc(100% / 4);
     text-align: center;
     padding: 12px 0;
@@ -768,7 +768,7 @@ h2.titleSony {
 }
 
 #product {
-    background-image: url("../img/background_product.jpg");
+    background-image: url("../uploads/img/background_product.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -2289,7 +2289,6 @@ button.btn-submit-account {
 /*========================================== Event Page ======================================== */
 
 .blockContain1 {
-    margin-top: 3%;
     width: fit-content;
     display: flex;
     margin-left: auto;
@@ -2302,7 +2301,7 @@ button.btn-submit-account {
     max-width: 300px;
     float: right;
     margin-left: 50px;
-
+    margin-top: 7%;
 }
 
 .titleSale h1 {
@@ -2319,4 +2318,8 @@ button.btn-submit-account {
 
 .titleSale strong {
     font-size: 100px;
+}
+
+.titleSale {
+    margin-top: 10%;
 }

@@ -1,7 +1,7 @@
 <!-- cart_functions.php -->
 <?php
 include("db.php");
-session_start();
+
 
 
 if (!isset($_SESSION['cart'])) {
@@ -19,8 +19,8 @@ function addToCart($productId, $productName, $quantity, $price)
     $dayBuy = date('Y-m-d H:i:s');
 
     // SQL query to insert the data into your table
-    $sql = "INSERT INTO cart (product_id, product_name, quantity, day_buy, price) 
-            VALUES ('$productId', '$productName', '$quantity', '$dayBuy', '$price')";
+    $sql = "INSERT INTO cart (products_id, quantity, day_buy, total_price) 
+            VALUES ('$productId', '$quantity', '$dayBuy', '$price')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Product added to cart successfully";
@@ -58,7 +58,7 @@ function displayCart()
 
     foreach ($_SESSION['cart'] as $item) {
         $totalQuantity += $item['quantity'];
-        $priceTotal += $item['price'] * $item['quantity']; // Calculate total price
+        $priceTotal += $item['total_price'] * $item['quantity']; // Calculate total price
     }
 
     echo "Total Quantity: {$totalQuantity}<br>";

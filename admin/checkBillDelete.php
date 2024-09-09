@@ -7,10 +7,24 @@ include("class/checkBillclass.php");
 $bill = new checkBill;
 $show_bill = $bill->show_bill();
 
+if (!isset($_GET['order_id']) || $_GET['order_id'] == NULL) {
+    echo "<script>window.location = 'checkBillAdmin.php'</script>";
+} else {
+    $order_id = $_GET['order_id'];
+}
+
+$get_bill = $bill->get_bill($order_id);
+if ($get_bill) {
+    $result = $get_bill->fetch_assoc();
+}
+?>
+
+<?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $insert_bill = $bill->insert_bill($_POST);
+    $delete_bill = $bill->delete_bill($result['order_id']);
     $errorMessages = $delete_bill['errors'];
     echo $errorMessages;
+    header("Location: checkBillAdmin.php");
 }
 ?>
 
@@ -65,6 +79,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </form>
             </div>
         </div>
+    </div>
+</div>
+
+<div id="editProductModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeEditBox()">&times;</span>
+        <h2>Xoá đơn đặt hàng</h2>
+        <form id="editOrderForm" action="" method="post">
+            <div class="form-group">
+                <label for="editCustomerName">Tên khách hàng:</label>
+                <?php echo $result['customer_name'] ?>
+            </div>
+            <div class="form-group">
+                <label for="editProductList">Danh sách sản phẩm:</label>
+                <?php echo $result['title'] ?>
+            </div>
+            <div class="form-group">
+                <label for="editQuantity">Số lượng sản phẩm:</label>
+                <?php echo $result['quantity'] ?>
+            </div>
+            <div class="form-group">
+                <label for="editOrderQuantity">Số lượng đơn đặt hàng:</label>
+                <?php echo $result['order_quantity'] ?>
+            </div>
+            <div class="form-group">
+                <label for="editAddress">Địa chỉ giao hàng:</label>
+                <?php echo $result['address'] ?>
+            </div>
+            <div class="form-group">
+                <label for="editAddress">Số điện thoại:</label>
+                <?php echo $result['phone'] ?>
+            </div>
+            <div class="form-group">
+                <label for="editOrderState">Trạng thái:</label>
+                <?php
+                echo $result['status'] == 0 ? 'Chưa thanh toán' : 'Đã thanh toán';
+                ?>
+            </div>
+            <div class="form-group">
+                <label for="editOrderDate">Ngày đặt hàng:</label>
+                <?php echo $result['order_date'] ?>
+            </div>
+            <button type="submit" class="submit-btn">Xoá</button>
+        </form>
     </div>
 </div>
 

@@ -5,26 +5,40 @@ include("class/productAdminclass.php");
 
 <?php
 $products = new products;
-$show_products = $products->show_products();
+$show_products = $products->show_phuKien();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $insert_products = $products->insert_products($_POST, $_FILES);
-    if (isset($insert_products['errors'])) {
-        $errorMessages = $insert_products['errors'];
-    }
-    header("Location: productAdmin.php");
+if (!isset($_GET['products_id']) || $_GET['products_id'] == NULL) {
+    echo "<script>window.location = 'productAdmin.php'</script>";
+    exit;
+} else {
+    $products_id = $_GET['products_id'];
+}
+?>
+<?php
+$get_products = $products->get_products($products_id);
+if ($get_products != NULL) {
+    $result = $get_products->fetch_assoc();
+} else {
+    echo "<script>alert('Không tìm thấy phụ kiện!'); window.location = 'productAdmin.php';</script>";
+    exit;
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $resultMessage = $products->delete_product($products_id);
+    echo "<script> alert('$resultMessage')</script>";
+    header("Location: phuKien.php");
 }
 ?>
 
 <div class="btn-group">
     <div class="AdminAddBtn">
-        <button class="AddProductBtn" onclick="displayAddBox()">Thêm sản phẩm</button>
+        <button class="AddProductBtn" onclick="displayAddBox()">Thêm phụ kiện</button>
         <div id="addProductModal" class="modal" style="display:none;">
             <div class="modal-content">
                 <span class="close" onclick="closeAddBox()">&times;</span>
-                <h2>Thêm sản phẩm</h2>
+                <h2>Thêm phụ kiện</h2>
                 <form id="addProductForm" action="" method="POST" enctype="multipart/form-data">
-                    <label for="productName">Nhập tên sản phẩm <span style="color: red;">*</span></label>
+                    <label for="productName">Nhập tên phụ kiện <span style="color: red;">*</span></label>
                     <input type="text" name="productName" id="productName" required>
 
                     <label for="category">Chọn danh mục <span style="color: red;">*</span></label>
@@ -42,51 +56,89 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         ?>
                     </select>
 
-                    <label for="productType">Chọn loại sản phẩm <span style="color: red;">*</span></label>
+                    <label for="productType">Chọn loại phụ kiện <span style="color: red;">*</span></label>
                     <select name="productType" id="productType" required>
-                        <option value="#">--Chọn loại sản phẩm--</option>
+                        <option value="#">--Chọn loại phụ kiện--</option>
                     </select>
 
-                    <label for="price">Giá sản phẩm <span style="color: red;">*</span></label>
+                    <label for="price">Giá phụ kiện <span style="color: red;">*</span></label>
                     <input type="text" name="price" id="price" required>
 
-                    <label for="quantity">Số lượng sản phẩm <span style="color: red;">*</span></label>
+                    <label for="quantity">Số lượng phụ kiện <span style="color: red;">*</span></label>
                     <input type="number" name="quantity" id="quantity" required>
 
-                    <label for="description">Mô tả sản phẩm <span style="color: red;">*</span></label>
+                    <label for="description">Mô tả phụ kiện <span style="color: red;">*</span></label>
                     <textarea name="description" id="description" cols="30" rows="10" required></textarea>
 
                     <label for="discount">Mã giảm giá <span style="color: red;">*</span></label>
                     <input type="text" name="discount" id="discount" required value="0">
 
-                    <label for="images">Ảnh sản phẩm <span style="color: red;">*</span></label>
+                    <label for="images">Ảnh phụ kiện <span style="color: red;">*</span></label>
                     <input type="file" name="images" id="images" required>
                     <span style="color: red;"><?php echo isset($errorMessages['imageError']) ? $errorMessages['imageError'] : ''; ?></span>
 
-                    <label for="images_des">Ảnh mô tả sản phẩm <span style="color: red;">*</span></label>
-                    <input type="file" name="images_des[]" id="images_des" required multiple>
-                    <span style="color: red;"><?php echo isset($errorMessages['imageDesError']) ? $errorMessages['imageDesError'] : ''; ?></span>
-
-                    <button type="submit" id="submit">Thêm sản phẩm</button>
+                    <button type="submit" id="submit">Thêm phụ kiện</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
 
+<div id="editProductModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeEditBox()">&times;</span>
+        <h2>Xóa phụ kiện</h2>
+        <form action="" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="products_id" value="<?php echo htmlspecialchars($result['products_id']); ?>">
+
+            <label for="productName">Tên phụ kiện <span style="color: red;">*</span></label>
+            <?php echo htmlspecialchars($result['title']); ?>
+
+            <label for="category">Tên danh mục <span style="color: red;">*</span></label>
+            <?php
+            $show_category = $products->get_category($result['category_id']);
+            if ($show_category) {
+                $category = $show_category->fetch_assoc();
+                echo $category['category_name'];
+            }
+            ?>
+
+            <label for="productType">Tên loại phụ kiện <span style="color: red;">*</span></label>
+            <?php echo htmlspecialchars($result['type']); ?>
+
+            <label for="price">Giá phụ kiện <span style="color: red;">*</span></label>
+            <?php echo htmlspecialchars(number_format($result['price'])); ?>
+
+            <label for="quantity">Số lượng phụ kiện <span style="color: red;">*</span></label>
+            <?php echo htmlspecialchars($result['quantity']); ?>
+
+            <label for="description">Mô tả phụ kiện <span style="color: red;">*</span></label>
+            <?php echo htmlspecialchars($result['description']); ?>
+
+            <label for="discount">Mã giảm giá <span style="color: red;">*</span></label>
+            <?php echo htmlspecialchars($result['discount']); ?>
+
+            <label for="images">Ảnh phụ kiện <span style="color: red;">*</span></label>
+            <img style="width: 50%;" src="../uploads/<?= $result['images'] ?> "><br>
+
+            <button type="submit" class="submit-btn">Xóa phụ kiện</button>
+        </form>
+    </div>
+</div>
+
 <div class="admin-product" id="admin-product">
-    <div class="    ">
-        <h2>Các sản phẩm hiện tại</h2>
+    <div class="container-sell">
+        <h2>Các phụ kiện hiện tại</h2>
         <table>
             <tr>
                 <th>STT</th>
                 <th>Hình ảnh</th>
-                <th>Tên loại sản phẩm</th>
+                <th>Tên loại phụ kiện</th>
                 <th>Giá</th>
                 <th>Phân Loại</th>
                 <th>Số lượng</th>
                 <th>Mã giảm giá</th>
-                <th>Mô tả sản phẩm</th>
+                <th>Mô tả phụ kiện</th>
                 <th>Thao tác</th>
             </tr>
             <?php
@@ -97,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ?>
                     <tr>
                         <td> <?php echo $i ?></td>
-                        <td> <img src="../uploads/<?= $product['images'] ?>" alt=""></td>
+                        <td> <img src="../uploads/<?= $result['images'] ?>" alt=""></td>
                         <td> <?php echo $product['type'] ?></td>
                         <td> <?php echo number_format($product['price']) ?></td>
                         <td> <?php echo $product['title'] ?></td>
@@ -134,7 +186,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 });
             } else {
-                $('#productType').html('<option value="#">--Chọn loại sản phẩm--</option>');
+                $('#productType').html('<option value="#">--Chọn loại phụ kiện--</option>');
             }
         });
     });

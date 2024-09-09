@@ -7,10 +7,24 @@ include("class/checkBillclass.php");
 $bill = new checkBill;
 $show_bill = $bill->show_bill();
 
+if (!isset($_GET['order_id']) || $_GET['order_id'] == NULL) {
+    echo "<script>window.location = 'checkBillAdmin.php'</script>";
+} else {
+    $order_id = $_GET['order_id'];
+}
+
+$get_bill = $bill->get_bill($order_id);
+if ($get_bill) {
+    $result = $get_bill->fetch_assoc();
+}
+?>
+
+<?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $insert_bill = $bill->insert_bill($_POST);
-    $errorMessages = $delete_bill['errors'];
+    $update_bill = $bill->update_bill($_POST);
+    $errorMessages = $update_bill['errors'];
     echo $errorMessages;
+    header("Location: checkBillAdmin.php");
 }
 ?>
 
@@ -65,6 +79,74 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </form>
             </div>
         </div>
+    </div>
+</div>
+
+<div id="editProductModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeEditBox()">&times;</span>
+        <h2>Chỉnh sửa đơn đặt hàng</h2>
+        <form id="editOrderForm" action="" method="post">
+            <input type="hidden" name="order_id" value="<?php echo $result['order_id']; ?>">
+            <input type="hidden" name="customer_id" value="<?php echo $result['customer_id']; ?>">
+            <input type="hidden" name="cart_id" value="<?php echo $result['cart_id']; ?>">
+            <div class="form-group">
+                <label for="editCustomerName">Tên khách hàng:</label>
+                <input type="text" name="editCustomerName" id="editCustomerName" value="<?php echo $result['customer_name'] ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="editProductList">Danh sách sản phẩm:</label>
+                <select id="editProductList" name="editProductList" required>
+                    <option value="<?php echo $result['products_id'] ?>"><?php echo $result['title'] ?></option>
+                    <?php
+                    $resultA = $bill->show_products();
+                    if ($resultA) {
+                        while ($row = $resultA->fetch_assoc()) {
+                            echo '<option value="' . htmlspecialchars($row['products_id']) . '">' . htmlspecialchars($row['title']) . '</option>';
+                        }
+                    } else {
+                        echo '<option value="">Không có sản phẩm nào</option>';
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="editQuantity">Số lượng sản phẩm:</label>
+                <input type="number" name="editQuantity" id="editQuantity" value="<?php echo $result['quantity'] ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="editOrderQuantity">Số lượng đơn đặt hàng:</label>
+                <input type="number" name="editOrderQuantity" id="editOrderQuantity" value="<?php echo $result['order_quantity'] ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="editAddress">Địa chỉ giao hàng:</label>
+                <input type="text" name="editAddress" id="editAddress" value="<?php echo $result['address'] ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="editPhone">Số điện thoại:</label>
+                <input type="number" name="editPhone" id="editPhone" value="<?php echo $result['phone'] ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="editOrderState">Trạng thái:</label>
+                <select name="editOrderState" id="editOrderState" required>
+                    <option value="0" <?php echo $result['status'] == 0 ? 'selected' : ''; ?>>Chưa thanh toán</option>
+                    <option value="1" <?php echo $result['status'] == 1 ? 'selected' : ''; ?>>Đã thanh toán</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="editOrderDate">Ngày đặt hàng:</label>
+                <?php
+                $orderDate = isset($result['order_date']) ? date('Y-m-d', strtotime($result['order_date'])) : '';
+                ?>
+                <input type="date" name="editOrderDate" id="editOrderDate" value="<?php echo $orderDate; ?>" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Cập nhật</button>
+        </form>
     </div>
 </div>
 

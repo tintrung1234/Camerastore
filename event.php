@@ -1,18 +1,19 @@
 <?php
 include "./php/db.php";
-include "navbar.php";
-include("./php/products.php");
+include "./navbar.php";
+include "./php/products.php";
 
 
 $sql = "SELECT * FROM products WHERE discount = 1";
 $result = $conn->query($sql);
 ?>
+
 <div class="blockContain1">
     <div class="titleSale">
         <h1>#Khuyến Mãi Máy Ảnh</h1>
         <p>Giảm giá <strong>10%</strong></p>
     </div>
-    <img src="./img/anhkhuyenmai.png" alt="">
+    <img src="./uploads/img/anhkhuyenmai.png" alt="">
 </div>
 <div id="slider"></div>
 
@@ -23,20 +24,19 @@ $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             // Output data of each product
             while ($row = $result->fetch_assoc()) {
-                $id = $row['id'];
-                $images = json_decode($row['images'], true); // Decode images for the current product
-                $primaryImage = !empty($images) ? $images[0] : 'default-image.png'; // Use the first image or a default
+                $id = $row['products_id'];
+                $images = $row['images'];
                 $title = htmlspecialchars($row['title'], ENT_QUOTES);
                 $price = htmlspecialchars($row['price'], ENT_QUOTES);
                 $formattedPrice = number_format($price, 0, ',', '.'); // Format price to VND
                 echo "<div id='product' class=''>
                             <a class='productLink' onclick='openProductDetail($id)'>
-                                <img class='productImg' src='$primaryImage' alt=''>
+                                <img class='productImg' src='./uploads/$images' alt=''>
                             </a>
                             <label class='productName' for=''>$title</label>
                             <p class='productPrice'>Giá từ <strong>$formattedPrice VNĐ</strong></p>
                             <button class='addCart' onclick='displayBuyBox($id)'>
-                                <img src='img/carticon.png' alt='cartIcon'> 
+                                <img src='./uploads/img/carticon.png' alt='cartIcon'> 
                                 <p class='muahang'> Mua hàng</p>
                             </button>
                           </div>";
@@ -50,8 +50,8 @@ $result = $conn->query($sql);
     <div id="buyBox">
         <?php foreach ($products as $product): ?>
             <form method="POST" action="./php/products.php">
-                <?php $image = json_decode($product['images'])[0]; ?>
-                <div class="notiBox-<?php echo $product['id']; ?>" id="notiBox" style="display: none;">
+                <?php $image = $product['images'] ?>
+                <div class="notiBox-<?php echo $product['products_id']; ?>" id="notiBox" style="display: none;">
                     <div class="backgroundNoti"></div>
                     <div class="littleBox">
                         <button class="exitBtn" id="exitBtn" type="button" onclick="this.parentElement.parentElement.style.display='none'">X</button>
@@ -93,10 +93,10 @@ $result = $conn->query($sql);
         <?php endforeach; ?>
     </div>
     <button class="ctrl-btn pro-prev">
-        <img src="img/left-arrow.png" alt="" />
+        <img src="./uploads/img/left-arrow.png" alt="" />
     </button>
     <button class="ctrl-btn pro-next">
-        <img src="img/right-arrow.png" alt="" />
+        <img src="./uploads/img/right-arrow.png" alt="" />
     </button>
 </div>
 

@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
-<div class="category_list" id="category_list">
+<div class="admin-product" id="admin-product">
     <div class="container-sell">
         <h2>Loại sản phẩm</h2>
         <table>
@@ -58,29 +58,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <th>Thao tác</th>
             </tr>
             <?php
+            $show_productType = $productType->show_productType();
             if ($show_productType) {
                 $i = 0;
-                while ($result = $show_productType->fetch_assoc()) {
+                while ($product = $show_productType->fetch_assoc()) {
                     $i++;
             ?>
                     <tr>
-                        <td> <?php echo $i ?></td>
-                        <td> <?php echo $result['product_id'] ?></td>
-                        <td> <?php echo $result['category_name'] ?></td>
-                        <td> <?php echo $result['product_name'] ?></td>
+                        <td><?php echo $i; ?></td>
+                        <td><?php echo $product['product_type_id']; ?></td>
+                        <td><?php echo $product['category_name']; ?></td>
+                        <td><?php echo $product['product_type_name']; ?></td>
                         <td>
-                            <a href="productTypeEdit.php?product_id=<?php echo $result['product_id'] ?>"><button>Edit</button></a>
-                            <a href="productTypeDelete.php?product_id=<?php echo $result['product_id'] ?>"><button>Delete</button></a>
+                            <a href="productTypeEdit.php?product_type_id=<?php echo $product['product_type_id']; ?>"><button>Edit</button></a>
+                            <a href="productTypeDelete.php?product_type_id=<?php echo $product['product_type_id']; ?>"><button>Delete</button></a>
                         </td>
                     </tr>
             <?php
                 }
-            } ?>
+            } else {
+                echo "<tr><td colspan='5'>Không có loại sản phẩm nào được tìm thấy.</td></tr>";
+            }
+            ?>
         </table>
     </div>
 </div>
 
-<script src="js/category.js"></script>
+<script src="js/admin-product.js"></script>
 </body>
 
 </html>

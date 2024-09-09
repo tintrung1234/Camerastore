@@ -85,16 +85,15 @@ include("./navbar.php");
                     if (!empty($products)) {
                         foreach ($products as $product) {
 
-                            $images = json_decode($product['images'], true); // Decode JSON images
-                            $primaryImage = $images[0]; // Get the first image
+                            $images = $product['images'];
                             $type = strtolower(htmlspecialchars($product['type'], ENT_QUOTES));
                             $title = htmlspecialchars($product['title'], ENT_QUOTES);
                             $price = htmlspecialchars($product['price'], ENT_QUOTES);
-                            $id = $product['id'];
+                            $id = $product['products_id'];
 
                             echo "<div class='cartegory-right-content-item' id='$type' >
                                     <a  onclick='openProductDetail($id)'>
-                                        <img src='$primaryImage' alt=''>
+                                        <img src='./uploads/$images' alt=''>
                                         <h1>$title</h1>
                                     </a>
                                     <p>$price VND</p>

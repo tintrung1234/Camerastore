@@ -30,30 +30,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="btn-group">
     <div class="AdminAddBtn">
-        <button class="AddProductBtn" onclick="displayAddBox()">Thêm loại sản phẩm</button>
+        <button class="AddProductBtn" onclick="displayAddBox()">Thêm danh mục</button>
         <div id="addProductModal" class="modal" style="display:none;">
             <div class="modal-content">
                 <span class="close" onclick="closeAddBox()">&times;</span>
-                <h2>Thêm loại sản phẩm</h2>
+                <h2>Thêm danh mục</h2>
                 <form action="" method="post">
-                    <select name="category_id" id="">
-                        <option value="#">--Chọn danh mục--</option>
-                        <?php
-                        $show_category = $productType->show_category();
-                        if ($show_category) {
-                            while ($result = $show_category->fetch_assoc()) {
-                        ?>
-                                <option value="<?php echo $result['category_id']; ?>"><?php echo $result['category_name']; ?></option>
-                        <?php
-                            }
-                        }
-                        ?>
+                    <label for="title">Tên danh mục:</label>
+                    <input id="title" type="text" name="category_name" placeholder="Nhập tên danh mục" required>
 
-                    </select>
-                    <label for="title">Tên loại sản phẩm:</label>
-                    <input type="text" name="productType_name" placeholder="Nhập tên loại sản phẩm" required>
-
-                    <button type="submit" id="submit">Thêm loại sản phẩm</button>
+                    <button type="submit" id="submit">Thêm danh mục</button>
                 </form>
             </div>
         </div>
@@ -65,7 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h2>Xóa danh mục</h2>
         <form action="" method="post">
             <div class="form-group">
-                <label for="editImage">Tên danh mục: <?php echo $result['category_name'] ?></label>
+                <label for="editImage">Tên danh mục: </label>
+                <p id="editImage"><?php echo $result['category_name'] ?></p>
             </div>
             <button type="submit" class="submit-btn">Xóa danh mục</button>
         </form>
@@ -73,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 
-<div class="category_list" id="category_list">
+<div class="admin-product" id="admin-product">
     <div class="container-sell">
         <h2>Danh mục</h2>
         <table>
@@ -105,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
-<script src="js/category.js"></script>
+<script src="js/admin-product.js"></script>
 </body>
 
 </html>

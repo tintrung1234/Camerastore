@@ -6,15 +6,15 @@ $productType = new productType();
 $show_productType = $productType->show_productType();
 
 // Check if product_id is set
-if (!isset($_GET['product_id']) || empty($_GET['product_id'])) {
+if (!isset($_GET['product_type_id']) || empty($_GET['product_type_id'])) {
     echo "<script>window.location = 'productType.php';</script>";
     exit;
 } else {
-    $product_id = $_GET['product_id'];
+    $product_type_id = $_GET['product_type_id'];
 }
 
 // Fetch product type details
-$get_productType = $productType->get_productType($product_id);
+$get_productType = $productType->get_productType($product_type_id);
 if ($get_productType) {
     $result = $get_productType->fetch_assoc();
 } else {
@@ -24,7 +24,7 @@ if ($get_productType) {
 
 // Handle product type deletion
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $delete_productType = $productType->delete_productType($product_id);
+    $delete_productType = $productType->delete_productType($product_type_id);
     if ($delete_productType) {
         echo "<script>alert('Xóa loại sản phẩm thành công!'); window.location = 'productType.php';</script>";
     } else {
@@ -69,33 +69,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h2>Xóa loại sản phẩm</h2>
         <form action="" method="post">
             <div class="form-group">
-                <label for="category_id">Danh mục:</label>
-                <select name="category_id" required>
-                    <option value="">--Chọn danh mục--</option>
-                    <?php
-                    $show_category = $productType->show_category();
-                    if ($show_category) {
-                        while ($category = $show_category->fetch_assoc()) {
-                    ?>
-                            <option value="<?php echo $category['category_id']; ?>" <?php echo ($result['category_id'] == $category['category_id']) ? 'selected' : ''; ?>>
-                                <?php echo $category['category_name']; ?>
-                            </option>
-                    <?php
-                        }
-                    }
-                    ?>
-                </select>
+                <label for="product_type_name">Tên danh mục:</label>
+                <?php
+                $show_category = $productType->show_category();
+                $category = $show_category->fetch_assoc();
+                ?>
+                <p> <?php echo $category['category_name']; ?>
+                </p>
             </div>
             <div class="form-group">
-                <label for="product_name">Tên loại sản phẩm:</label>
-                <p><?php echo htmlspecialchars($result['product_name']); ?></p>
+                <label for="product_type_name">Tên loại sản phẩm:</label>
+                <p><?php echo htmlspecialchars($result['product_type_name']); ?></p>
             </div>
             <button type="submit" class="submit-btn">Xóa loại sản phẩm</button>
         </form>
     </div>
 </div>
 
-<div class="category_list" id="category_list">
+<div class="admin-product" id="admin-product">
     <div class="container-sell">
         <h2>Loại sản phẩm</h2>
         <table>
@@ -107,6 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <th>Thao tác</th>
             </tr>
             <?php
+            $show_productType = $productType->show_productType();
             if ($show_productType) {
                 $i = 0;
                 while ($product = $show_productType->fetch_assoc()) {
@@ -114,12 +106,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ?>
                     <tr>
                         <td><?php echo $i; ?></td>
-                        <td><?php echo $product['product_id']; ?></td>
+                        <td><?php echo $product['product_type_id']; ?></td>
                         <td><?php echo $product['category_name']; ?></td>
-                        <td><?php echo $product['product_name']; ?></td>
+                        <td><?php echo $product['product_type_name']; ?></td>
                         <td>
-                            <a href="productTypeEdit.php?product_id=<?php echo $product['product_id']; ?>"><button>Edit</button></a>
-                            <a href="productTypeDelete.php?product_id=<?php echo $product['product_id']; ?>"><button>Delete</button></a>
+                            <a href="productTypeEdit.php?product_type_id=<?php echo $product['product_type_id']; ?>"><button>Edit</button></a>
+                            <a href="productTypeDelete.php?product_type_id=<?php echo $product['product_type_id']; ?>"><button>Delete</button></a>
                         </td>
                     </tr>
             <?php
@@ -132,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
-<script src="js/category.js"></script>
+<script src="js/admin-product.js"></script>
 </body>
 
 </html>

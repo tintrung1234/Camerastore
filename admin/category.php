@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
-<div class="category_list" id="category_list">
+<div class="admin-product" id="admin-product">
     <div class="container-sell">
         <h2>Danh mục</h2>
         <table>
@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
-<script src="js/category.js"></script>
+<script src="js/admin-product.js"></script>
 </body>
 
 </html>

@@ -22,7 +22,7 @@ class category
 
     public function show_category()
     {
-        $query = "SELECT * FROM category ORDER BY category_id ASC";
+        $query = "SELECT * FROM category ORDER BY category_id DESC";
         $result = $this->db->select($query);
         return $result;
     }

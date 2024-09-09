@@ -41,9 +41,9 @@ if ($result->num_rows > 0) {
     <div class="container ">
       <div class="logo">
         <a href="Home.php">
-          <img src="./img/ProCam.png" alt="" />
+          <img src="./uploads/img/ProCam.png" alt="" />
         </a>
-        <button onclick=showSidebar() class="showOnMobile hideOnNavbar ml-mobile"><img class='menuImg' src='./img/menu.png'></button>
+        <button onclick=showSidebar() class="showOnMobile hideOnNavbar ml-mobile"><img class='menuImg' src='./uploads/img/menu.png'></button>
       </div>
       <div class="blockNav1 hideOnMobile">
         <div class="dropdown">
@@ -129,7 +129,7 @@ if ($result->num_rows > 0) {
           <div class="row-search-box">
             <input type="text" id="input-box" name="query" autocomplete="off" placeholder="Tìm kiếm" />
             <button type="submit">
-              <img src="img/SearchIcon.png" alt="Search" />
+              <img src="./uploads/img/SearchIcon.png" alt="Search" />
             </button>
           </div>
           <div class="result-box"></div>
@@ -137,13 +137,13 @@ if ($result->num_rows > 0) {
       </div>
       <div class="login-icon" class='hideOnMobile'>
         <a href="login.php">
-          <img class='hideOnMobile' width=30px src="img/signin-icon.png" alt="" />
+          <img class='hideOnMobile' width=30px src="./uploads/img/signin-icon.png" alt="" />
         </a>
       </div>
       <div id="totalCart" class='hideOnMobile'>
         <p class='hideOnMobile' id="count"><?php echo $totalQuantity; ?></p>
         <a href="cart_detail.php">
-          <img src="./img/carticon.png" alt="" />
+          <img src="./uploads/img/carticon.png" alt="" />
         </a>
       </div>
     </div>
@@ -152,9 +152,9 @@ if ($result->num_rows > 0) {
   <div class="sideBar hideOnNavbar">
     <div class="logo">
       <a href="Home.php">
-        <img src="./img/ProCam.png" alt="" />
+        <img src="./uploads/img/ProCam.png" alt="" />
       </a>
-      <button onclick=hideSidebar() class="closeBtn showOnMobile"><img class='menuImg' src='./img/close.png'></button>
+      <button onclick=hideSidebar() class="closeBtn showOnMobile"><img class='menuImg' src='./uploads/img/close.png'></button>
     </div>
     <div class="blockNav1 hideOnMobile">
 
