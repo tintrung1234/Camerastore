@@ -1,31 +1,51 @@
-<!-- cart_functions.php -->
 <?php
 include("db.php");
-
-
+session_start(); // Ensure the session is started
 
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-function addToCart($productId, $productName, $quantity, $price)
+// Check if user_id is set in the session
+if (!isset($_SESSION['user_id'])) {
+    echo "Error: User not logged in.";
+    exit();
+}
+function addToCart($customerId, $productId, $productName, $quantity, $price)
 {
     global $conn;
+    // Escape the customerId
+    $customerId = $conn->real_escape_string($customerId);
 
+    // Check if customer exists
+    $customerCheckQuery = "SELECT customer_id FROM customer WHERE customer_id = '$customerId'";
+    $customerCheckResult = $conn->query($customerCheckQuery);
+
+    // Customer exists, proceed to add to cart
     $productId = $conn->real_escape_string($productId);
     $productName = $conn->real_escape_string($productName);
-    $quantity = $conn->real_escape_string($quantity);
-    $price = $conn->real_escape_string($price);
+    $quantity = (int)$quantity; // Ensure quantity is an integer
+    $price = (float)$price; // Ensure price is a float
     $dayBuy = date('Y-m-d H:i:s');
 
-    // SQL query to insert the data into your table
-    $sql = "INSERT INTO cart (products_id, quantity, day_buy, total_price) 
-            VALUES ('$productId', '$quantity', '$dayBuy', '$price')";
+    // SQL query to insert the data into your cart table
+    $sql = "INSERT INTO cart (customer_id, product_id, quantity, day_buy, total_price) 
+                   VALUES ('$customerId', '$productId', '$quantity', '$dayBuy', '$price')";
+
+    $sql2 = "INSERT INTO customer (customer_id)
+                    VALUES ('$customerId')";
+
+    $sql3 = "UPDATE customer 
+            SET customer_name = (SELECT username FROM users WHERE id = customer_id) 
+            WHERE customer_id = (SELECT id FROM users WHERE id = customer_id)";
 
     if ($conn->query($sql) === TRUE) {
+        $conn->query($sql2);
+        $conn->query($sql3);
+
         echo "Product added to cart successfully";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error adding product to cart: " . $conn->error;
     }
 }
 
@@ -37,7 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Check the quantity before processing the order
     if ($quantity > 0) {
-        addToCart($productId, $productName, $quantity, $price);
+        $customerId = $_SESSION['user_id']; // Get customer ID from session
+        addToCart($customerId, $productId, $productName, $quantity, $price);
 
         // Redirect to the cart details page
         header("Location: ../cart_detail.php");
@@ -58,10 +79,9 @@ function displayCart()
 
     foreach ($_SESSION['cart'] as $item) {
         $totalQuantity += $item['quantity'];
-        $priceTotal += $item['total_price'] * $item['quantity']; // Calculate total price
+        $priceTotal += $item['price'] * $item['quantity']; // Calculate total price
     }
 
     echo "Total Quantity: {$totalQuantity}<br>";
     echo "Total Price: VND {$priceTotal}<br>";
 }
-?>

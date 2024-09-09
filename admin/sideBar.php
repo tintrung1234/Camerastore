@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
     <div class="sideBarAdmin" id="sideBarAdmin">
         <div class="logo">
             <a href="../Home.php">
@@ -53,6 +52,11 @@
             <div class="dropdown">
                 <a href="checkBillAdmin.php">
                     <button class="subBtn">Đơn dặt hàng</button>
+                </a>
+            </div>
+            <div class="dropdown">
+                <a href="../logout.php">
+                    <button class="subBtn">Đăng xuất</button>
                 </a>
             </div>
         </div>

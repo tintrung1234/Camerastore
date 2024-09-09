@@ -8,7 +8,7 @@ include("navbar.php");
     <div class="container-login" id="container-login">
         <div class="formAccount-container sign-in-container">
             <div class="picture-side">
-                <img src="img/banner-account.jpg" alt="">
+                <img src="uploads/img/banner-account.jpg" alt="">
             </div>
             <div class="form-account">
                 <form action="process_login.php" method="POST">

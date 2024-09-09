@@ -50,23 +50,22 @@ if (isset($_POST['register'])) {
 if (isset($_POST['login'])) {
     $username_or_email = $_POST['username_or_email'];
     $password = $_POST['password'];
-
     // Check if the user exists
     $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username OR email = :email LIMIT 1");
     $stmt->execute(['username' => $username_or_email, 'email' => $username_or_email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && $password === $user['password']) { // So sánh trực tiếp
+    if ($user && $password === $user['password']) { // Direct comparison
         // Password is correct, start a session
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
+        $_SESSION['is_admin'] = $user['is_admin']; // Store is_admin in session
 
-        echo "Đăng nhập thành công!";
-        // Optionally, redirect to a logged-in page
-        header('Location: home.php');
+        // Redirect to redirect.php which will handle further navigation
+        header('Location: redirect.php');
         exit;
     } else {
-        echo "Tên đăng nhập/email hoặc mật khẩu không đúng!";
+        echo "Invalid username/email or password!";
         exit;
     }
 }

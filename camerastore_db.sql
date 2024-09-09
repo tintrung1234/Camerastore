@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th9 09, 2024 lúc 05:29 AM
+-- Thời gian đã tạo: Th9 09, 2024 lúc 11:36 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -41,9 +41,10 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_id`, `customer_id`, `product_id`, `quantity`, `day_buy`, `total_price`) VALUES
-(51, 17, 1, 5, '2024-09-08 00:00:00', 200000.00),
-(52, 17, 5, 5, '2024-09-08 00:00:00', 27000.00),
-(53, 18, 2, 1, '2024-09-04 00:00:00', 43000.00);
+(1, 6, 2, 1, '2024-09-09 10:58:08', 43000.00),
+(2, 6, 3, 2, '2024-09-09 10:58:37', 16000.00),
+(3, 6, 17, 1, '2024-09-09 11:08:13', 540030.00),
+(4, 6, 14, 1, '2024-09-09 11:19:19', 540030.00);
 
 -- --------------------------------------------------------
 
@@ -103,7 +104,8 @@ CREATE TABLE `customer` (
   `customer_id` int(11) NOT NULL,
   `customer_name` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
-  `city` varchar(255) NOT NULL,
+  `district` varchar(50) NOT NULL,
+  `province` varchar(50) NOT NULL,
   `phone` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -111,9 +113,10 @@ CREATE TABLE `customer` (
 -- Đang đổ dữ liệu cho bảng `customer`
 --
 
-INSERT INTO `customer` (`customer_id`, `customer_name`, `address`, `city`, `phone`) VALUES
-(17, 'Minh Kham777', 'Soc Trang', '', 999999),
-(18, 'Trung Tin', 'Bạc Liêu1', '', 9999999);
+INSERT INTO `customer` (`customer_id`, `customer_name`, `address`, `district`, `province`, `phone`) VALUES
+(6, 'tintrung', 'aaaaaa', 'camau', 'bentre', 0),
+(17, 'Minh Kham777', 'Soc Trang', '0', '', 999999),
+(18, 'Trung Tin', 'Bạc Liêu1', '0', '', 9999999);
 
 -- --------------------------------------------------------
 
@@ -123,6 +126,7 @@ INSERT INTO `customer` (`customer_id`, `customer_name`, `address`, `city`, `phon
 
 CREATE TABLE `deliveryaddress` (
   `delevery_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `full_name` varchar(100) NOT NULL,
   `phone` char(11) NOT NULL,
   `province` varchar(50) NOT NULL,
@@ -136,12 +140,9 @@ CREATE TABLE `deliveryaddress` (
 -- Đang đổ dữ liệu cho bảng `deliveryaddress`
 --
 
-INSERT INTO `deliveryaddress` (`delevery_id`, `full_name`, `phone`, `province`, `district`, `address`, `customer_type`, `created_at`) VALUES
-(1, 'Huỳnh Trung Tín', '09909090990', 'bentre', 'camau', '0', 2, '2024-08-26 10:27:22'),
-(2, 'HuỳnhTrungTín', '09909090990', 'bentre', 'camau', '0', 1, '2024-08-26 23:06:27'),
-(3, 'jkahaj', '132456762', 'asa', 'aaaa', '0', 1, '2024-08-26 23:49:23'),
-(4, 'Huỳnh Trung Tín', 'ttttttt', 'bentre', 'camau', '0', 1, '2024-08-27 00:03:45'),
-(5, 'Huỳnh Trung Tín', '09909090990', 'bentre', 'camau', '0', 1, '2024-09-08 15:26:41');
+INSERT INTO `deliveryaddress` (`delevery_id`, `user_id`, `full_name`, `phone`, `province`, `district`, `address`, `customer_type`, `created_at`) VALUES
+(8, 6, 'Huỳnh Trung Tín', '09909090990', 'bentre', 'camau', '0', 1, '2024-09-09 09:30:52'),
+(9, 6, 'Huỳnh Trung Tín', '09909090990', 'bentre', 'camau', '0', 1, '2024-09-09 09:35:13');
 
 -- --------------------------------------------------------
 
@@ -304,7 +305,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `is_admin`) VALUES
-(4, 'tin', 'huynhtrungtin2222@gmail.com', '456', 0),
+(4, 'tin', 'huynhtrungtin2222@gmail.com', '456', 1),
 (6, 'tintrung', 't@gmail.com', '123', 0),
 (7, 'hoangquy', 'hoangquyle11@gmail.com', 'honagquy', 0),
 (8, 'hoangquy1', 'h@gmail.com', '123456', 0);
@@ -317,9 +318,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `is_admin`) VALUES
 -- Chỉ mục cho bảng `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`cart_id`),
-  ADD KEY `FK_ProductsCart` (`product_id`),
-  ADD KEY `CartCustomer` (`customer_id`);
+  ADD PRIMARY KEY (`cart_id`);
 
 --
 -- Chỉ mục cho bảng `category`
@@ -387,7 +386,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
@@ -411,7 +410,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT cho bảng `deliveryaddress`
 --
 ALTER TABLE `deliveryaddress`
-  MODIFY `delevery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `delevery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `forget_password`
@@ -442,17 +441,6 @@ ALTER TABLE `product_type`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- Các ràng buộc cho các bảng đã đổ
---
-
---
--- Các ràng buộc cho bảng `cart`
---
-ALTER TABLE `cart`
-  ADD CONSTRAINT `CartCustomer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
-  ADD CONSTRAINT `FK_ProductsCart` FOREIGN KEY (`product_id`) REFERENCES `products` (`products_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

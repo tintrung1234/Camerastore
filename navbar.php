@@ -1,5 +1,6 @@
 <?php
 include_once("./php/suggestions.php");
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -17,12 +18,22 @@ if ($conn->connect_error) {
 $sql = "SELECT SUM(quantity) as total_quantity FROM cart";
 $result = $conn->query($sql);
 
+// Initialize total quantity to 0
+$totalQuantity = 0;
+
 // Check if the query was successful
-if ($result->num_rows > 0) {
+if ($result) {
   // Fetch the result as an associative array
-  $row = $result->fetch_assoc();
-  $totalQuantity = $row['total_quantity'];
+  if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    // Check if total_quantity is not null
+    $totalQuantity = $row['total_quantity'] !== null ? $row['total_quantity'] : 0;
+  }
+} else {
+  // Handle query error
+  echo "Error: " . $conn->error;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,9 +41,7 @@ if ($result->num_rows > 0) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home Page</title>
   <link rel="stylesheet" href="style/style.css" />
-  <link rel="icon" href="img/ProCam.png" type="image/x-icon">
 </head>
 
 <body>
@@ -136,7 +145,7 @@ if ($result->num_rows > 0) {
         </form>
       </div>
       <div class="login-icon" class='hideOnMobile'>
-        <a href="login.php">
+        <a href="redirect.php">
           <img class='hideOnMobile' width=30px src="./uploads/img/signin-icon.png" alt="" />
         </a>
       </div>
@@ -162,6 +171,13 @@ if ($result->num_rows > 0) {
         <a href="Home.php">
           <button class="subBtn">
             Trang chủ
+          </button>
+        </a>
+      </div>
+      <div class="dropdown">
+        <a href="redirect.php">
+          <button class="subBtn">
+            Trang cá nhân
           </button>
         </a>
       </div>
