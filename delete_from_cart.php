@@ -4,13 +4,13 @@ include "./php/db.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cart_id = $_POST['cart_id'];
 
-    $sql = "DELETE FROM cart WHERE id = ?";
+    $sql = "DELETE FROM cart WHERE card_id = ?";
 
     if ($stmt = $conn->prepare($sql)) {
         $stmt->bind_param("i", $cart_id);
 
         if ($stmt->execute()) {
-            header("Location: cart.php");
+            header("Location: ./cart_detail.php");
         } else {
             echo "Error: Could not execute the delete operation.";
         }

@@ -96,12 +96,11 @@ class checkBill
 
     public function show_bill()
     {
-        $query = "SELECT orders.*, customer.*, products.*, cart.quantity, cart.total_price*orders.order_quantity as total_value
+        $query = "SELECT  orders.*, customer.*, products.*
             FROM orders 
             INNER JOIN customer ON orders.customer_id = customer.customer_id 
             INNER JOIN products ON products.products_id = orders.product_id
-            INNER JOIN cart ON cart.cart_id = orders.cart_id
-            ORDER BY orders.order_date DESC";
+            ";
 
         $result = $this->db->select($query);
         return $result;

@@ -48,8 +48,8 @@ $topProductsResult = $admin->getTopSellingProducts();
                     <tr>
                         <th><img src="../uploads/<?= $row['images'] ?>" alt=""></th>
                         <th><?php echo $row['title']; ?></th>
-                        <th><?php echo $row['total_quantity']; ?></th>
-                        <th><?php echo number_format($row['total_value']); ?></th>
+                        <th><?php echo $row['quantity']; ?></th>
+                        <th><?php echo $row['price']; ?></th>
                     </tr>
             <?php }
             } ?>

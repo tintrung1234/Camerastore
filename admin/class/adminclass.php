@@ -39,12 +39,11 @@ class admin
 
     function getTopSellingProducts()
     {
-        $query = "SELECT p.title, p.images, SUM(c.quantity) as total_quantity, SUM(c.quantity * p.price) as total_value
-                FROM orders o
-                JOIN products p ON o.product_id = p.products_id
-                JOIN cart c ON o.cart_id = c.cart_id
-                GROUP BY p.products_id
-                ORDER BY total_quantity DESC
+        $query = "SELECT  orders.*, customer.*, products.*
+            FROM orders 
+            INNER JOIN customer ON orders.customer_id = customer.customer_id 
+            INNER JOIN products ON products.products_id = orders.product_id
+        
                 LIMIT 5";
         $result = $this->db->select($query);
         return $result;

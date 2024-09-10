@@ -2,7 +2,6 @@
 include "./php/db.php";
 include "navbar.php";
 ?>
-
 <!--------------------- payment -------------------------->
 <div class="payment">
     <div class="container">
@@ -33,38 +32,42 @@ include "navbar.php";
                         <label for="">Giao hàng chuyển phát nhanh</label>
                     </div>
                 </div>
-                <div class="payment-content-left-method-payment">
-                    <p style="font-weight: bold;">Phương thức thanh toán</p>
-                    <p>Mọi giao dịch đều được bảo mật và mã hoá. Thông tin thẻ tín dụng sẽ không bao giờ được lưu
-                        lại.</p>
-                    <div class="payment-content-left-method-payment-item">
-                        <input name="method-payment" type="radio">
-                        <label for="">Thanh toán bằng thẻ tín dụng(OnePay)</label>
+                <form action="./process_orders.php" method="POST">
+                    <div class="payment-content-left-method-payment">
+                        <p style="font-weight: bold;">Phương thức thanh toán</p>
+                        <p>Mọi giao dịch đều được bảo mật và mã hoá. Thông tin thẻ tín dụng sẽ không bao giờ được lưu lại.</p>
+                        <div class="payment-content-left-method-payment-item">
+                            <input name="method-payment" type="radio" value="credit_card">
+                            <label for="">Thanh toán bằng thẻ tín dụng(OnePay)</label>
+                        </div>
+                        <div class="payment-content-left-method-payment-item-img">
+                            <img width="30%" src="./uploads/img/visa-mastercart.png" alt="">
+                        </div>
+                        <div class="payment-content-left-method-payment-item">
+                            <input checked name="method-payment" type="radio" value="atm_card">
+                            <label for="">Thanh toán bằng thẻ ATM(OnePay)</label>
+                        </div>
+                        <div class="payment-content-left-method-payment-item-img">
+                            <img width="70%" src="./uploads/img/logo-bank.jpg" alt="">
+                        </div>
+                        <div class="payment-content-left-method-payment-item">
+                            <input name="method-payment" type="radio" value="momo">
+                            <label for="">Thanh toán MOMO</label>
+                        </div>
+                        <div class="payment-content-left-method-payment-item-img">
+                            <img width="10%" src="./uploads/img/momo.png" alt="">
+                        </div>
+                        <div class="payment-content-left-method-payment-item">
+                            <input name="method-payment" type="radio" value="cash">
+                            <label for="">Thanh toán tiền mặt</label>
+                        </div>
                     </div>
-                    <div class="payment-content-left-method-payment-item-img">
-                        <img width="30%" src="./uploads/img/visa-mastercart.png" alt="">
+                    <div class="payment-content-right-payment">
+                        <button type="submit">
+                            <p style="font-weight: bold;">TIẾP TỤC THANH TOÁN</p>
+                        </button>
                     </div>
-
-                    <div class="payment-content-left-method-payment-item">
-                        <input checked name="method-payment" type="radio">
-                        <label for="">Thanh toán bằng thẻ ATM(OnePay)</label>
-                    </div>
-                    <div class="payment-content-left-method-payment-item-img">
-                        <img width="70%" src="./uploads/img/logo-bank.jpg" alt="">
-                    </div>
-                    <div class="payment-content-left-method-payment-item">
-                        <input name="method-payment" type="radio">
-                        <label for="">Thanh toán MOMO</label>
-                    </div>
-                    <div class="payment-content-left-method-payment-item-img">
-                        <img width="10%" src="./uploads/img/momo.png" alt="">
-                    </div>
-                    <div class="payment-content-left-method-payment-item">
-                        <input name="method-payment" type="radio">
-                        <label for="">Thanh toán tiền mặt</label>
-                    </div>
-                </div>
-
+                </form>
             </div>
             <div class="payment-content-right">
                 <div class="payment-content-right-button">
@@ -86,20 +89,11 @@ include "navbar.php";
                 </div>
             </div>
         </div>
-        <div class="payment-content-right-payment">
-            <a href="">
-                <button>
-                    <p style="font-weight: bold;">TIẾP TỤC THANH TOÁN</p>
-                </button>
-            </a>
-        </div>
     </div>
 </div>
-
 <!-- footer  -->
 <div class="footer" id="footer">
 </div>
-
 <script src="js/autocomplete.js" type="text/javascript"></script>
 <script src="js/footer.js" type="text/javascript"></script>
 <script src="./js/navbar.js"></script>
